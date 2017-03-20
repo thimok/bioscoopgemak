@@ -1,6 +1,6 @@
-#Git commands conventions
+# Git commands conventions
 
-##Push changes to repo
+## Push changes to repo
 
 ```git
 git add *
@@ -16,10 +16,10 @@ Use the commit message for a brief summary of what you changed in this commit si
 git push origin branchname
 ```
 Use this to push your changes to the branch specified in __branchname__.
-###NEVER PUSH IN THE MASTER BRANCH!
+### NEVER PUSH IN THE MASTER BRANCH!
 
 
-##Pull changes from repo
+## Pull changes from repo
 
 ```git
 git pull origin branchname
@@ -27,13 +27,13 @@ git pull origin branchname
 Use this to pull the changes from the remote repo to your local repo.
 
 
-##Branches
+## Branches
 
 ```git
 git branch
 ```
 Shows what branch you are currently on and what branches are available.
-###Make sure you are **not** in the master branch before you make changes to the project.
+### Make sure you are **not** in the master branch before you make changes to the project.
 
 ```git
 git checkout branchname
@@ -41,7 +41,7 @@ git checkout branchname
 Switch to branch __branchname__.
 
 
-##Merging
+## Merging
 
 When a feature/activity is done, it needs to be merged with another branch. This will be the RC (Release Candidate) branch. Follow the steps below to do so:
 1. Commit all changes to the development repo you are currently in.
@@ -52,7 +52,7 @@ When a feature/activity is done, it needs to be merged with another branch. This
 6. A release candidate will get a version number and will be extra tested. If done, it will be merged with the master branch by someone who is good with git / the project leader.
 
 
-##Other conventions
+## Other conventions
 
 1. As said before, **NEVER WORK IN THE MASTER BRANCH.**
 2. Use the dev branch for general development stuff, e.g. readme files.
