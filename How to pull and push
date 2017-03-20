@@ -1,3 +1,10 @@
-Git add * 
+-- Push to repo
+git add * 
 git commit -m  "Hier komt je text"
-git push origin branchname.
+git push origin branchname //Note: branchname dient vervangen te worden met de branch waar je in zit; vaak is dit: "dev"
+
+-- Pull from repo
+git pull origin branchname //Note: branchname dient vervangen te worden met de branch waar je in zit; vaak is dit: "dev"
+
+-- Switch branches
+git checkout branchname //Note: branchname dient vervangen te worden met de branch waar je in zit; vaak is dit: "dev"
