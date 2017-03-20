@@ -1,0 +1,3 @@
+Git add * 
+git commit -m  "Hier komt je text"
+git push origin branchname.
