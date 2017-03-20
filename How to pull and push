@@ -8,3 +8,8 @@ git pull origin branchname //Note: branchname dient vervangen te worden met de b
 
 -- Switch branches
 git checkout branchname //Note: branchname dient vervangen te worden met de branch waar je in zit; vaak is dit: "dev"
+
+-- Pull request
+Dit wordt gedaan als er een nieuwe versie uitgegeven wordt en ALLEEN ALS DE DEV BRANCH GOED GETEST IS!!!
+Op Github wordt de laatste DEV commit geklikt op pull request. Controleer of alles klopt (merge conflicts...) en dan mergen.
+Doe dit nooit zomaar en overleg eerst met groepsleden.
