@@ -9,8 +9,8 @@ activityName_abbreviatedType_nameOfObject
 Example: activityMain_tv_firstName (for a TextView in the activity_main layout meant for first names)
 
 Rules:
-- lowercase
-- underscores for the same section, double underscores between different sections
+- lowerCamelCase
+- underscores between sections
 
 Most common types:
 - TextView: tv
