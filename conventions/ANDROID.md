@@ -32,6 +32,7 @@ Rules:
 
 ```java
 public class MyClass {
+	//Class content
 }
 ```
 
