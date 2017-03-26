@@ -12,7 +12,7 @@
 
 [**Visual GIT application (also has terminal for commandline)**](https://www.sourcetreeapp.com/ "SourceTree")
 
-[**Scherm mockups**] (https://xd.adobe.com/view/3ad39f70-551a-4550-a687-e75cb84cf193/ "Mockups")
+[**Scherm mockups**](https://xd.adobe.com/view/3ad39f70-551a-4550-a687-e75cb84cf193/ "Mockups")
 
 ## Git Commands
 ### Push changes to repo
