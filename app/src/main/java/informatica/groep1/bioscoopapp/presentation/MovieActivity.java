@@ -9,13 +9,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import informatica.groep1.bioscoopapp.R;
+import java.util.ArrayList;
 
-public class MovieActivity extends MenuActivity{
+import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+
+public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.MovieListener {
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,22 @@ public class MovieActivity extends MenuActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         super.onCreateDrawer(toolbar, this);
+
+        getMovies();
     }
 
+    public void getMovies() {
+        MovieDBAPIConnector task = new MovieDBAPIConnector(this);
+        String[] urls = new String[] {"https://api.themoviedb.org/3/search/movie?api_key=f5432ebc636370b7954317a342043046&query=Jack+Reacher"};
+        task.execute(urls);
+    }
+
+
+    @Override
+    public void onMovieAvailable(ArrayList<String> movies) {
+        for (String s : movies) {
+            Log.i("API resultaat", s);
+        }
+
+    }
 }
