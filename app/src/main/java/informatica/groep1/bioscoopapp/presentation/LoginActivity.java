@@ -6,14 +6,11 @@ import android.support.v7.widget.Toolbar;
 
 import informatica.groep1.bioscoopapp.R;
 
-public class LoginActivity extends MenuActivity {
-	
+public class LoginActivity extends AppCompatActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		//Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		//setSupportActionBar(toolbar);
-		//super.onCreateDrawer(toolbar, this);
 	}
 }

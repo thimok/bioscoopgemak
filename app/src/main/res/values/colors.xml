@@ -7,4 +7,5 @@
     <color name="colorSucces">#66BB6A</color>
     <color name="colorError">#EF5350</color>
     <color name="colorAccent">#FF7043</color>
+    <color name="colorWhite">#FEFEFE</color>
 </resources>
