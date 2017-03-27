@@ -8,4 +8,7 @@
     <color name="colorError">#EF5350</color>
     <color name="colorAccent">#FF7043</color>
     <color name="colorWhite">#FEFEFE</color>
+    <color name="colorWhiteSecondary">#46fefefe</color>
+    <color name="colorWhiteDisabled">#1efefefe</color>
+
 </resources>

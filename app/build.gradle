@@ -35,6 +35,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'at.favre.lib:dali:0.3.4'
     compile 'com.github.kenglxn.QRGen:android:2.2.0'
+    compile 'com.github.johnkil.android-robototextview:robototextview:3.0.0'
     compile 'com.android.support:design:25.3.0'
     testCompile 'junit:junit:4.12'
 }
