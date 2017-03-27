@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.MovieListener {
 
@@ -41,10 +42,9 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
 
 
     @Override
-    public void onMovieAvailable(ArrayList<String> movies) {
-        for (String s : movies) {
-            Log.i("API resultaat", s);
-        }
+    public void onMovieAvailable(Movie movie) {
+
+            Log.i("API resultaat", movie.getTitle());
 
     }
 }

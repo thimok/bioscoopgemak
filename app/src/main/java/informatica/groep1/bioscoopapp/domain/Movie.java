@@ -15,8 +15,9 @@ public class Movie {
 	
 	private String title;
 	private ArrayList<Actor> actors;
-	private double rating;
-	private int releaseYear;
+	private String rating;
+	private String releaseYear;
+	private String id;
 	
 	//================================================================================
 	// Constructors
@@ -48,14 +49,18 @@ public class Movie {
 		return null;
 	}
 	
-	public double getRating() {
+	public String getRating() {
 		return rating;
 	}
 	
-	public int getReleaseYear() {
+	public String getReleaseYear() {
 		return releaseYear;
 	}
-	
+
+	public String getId() {
+		return id;
+	}
+
 	//================================================================================
 	// Mutators
 	//================================================================================
@@ -63,16 +68,20 @@ public class Movie {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void addActor(Actor actor) {
 		this.actors.add(actor);
 	}
 	
-	public void setRating(double rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 	
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(String releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 }

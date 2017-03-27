@@ -16,6 +16,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
+import informatica.groep1.bioscoopapp.domain.Movie;
+
 /**
  * Created by twanv on 27-3-2017.
  */
@@ -115,14 +117,13 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
 
 
 
-                ArrayList<String> movies = new ArrayList();
-                movies.add(title);
-                movies.add(releaseDate);
-                movies.add(rating);
-                movies.add(id);
+                Movie movie = new Movie(title);
+                movie.setRating(rating);
+                movie.setReleaseYear(releaseDate);
+                movie.setId(id);
 
 
-                listener.onMovieAvailable(movies);
+                listener.onMovieAvailable(movie);
             }
         } catch (JSONException e) {
             Log.e("ERROR", e.getLocalizedMessage());
@@ -130,6 +131,6 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
     }
 
     public interface MovieListener {
-        public void onMovieAvailable(ArrayList<String> movies);
+        public void onMovieAvailable(Movie movie);
     }
 }
