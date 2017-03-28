@@ -24,5 +24,11 @@ public class MovieActivity extends MenuActivity{
         setSupportActionBar(toolbar);
         super.onCreateDrawer(toolbar, this);
     }
-
+	
+	
+	@Override
+	public void onBackPressed() {
+		System.gc();
+		System.exit(0);
+	}
 }
