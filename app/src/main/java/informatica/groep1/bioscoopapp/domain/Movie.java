@@ -12,7 +12,8 @@ public class Movie {
 	//================================================================================
 	// Properties
 	//================================================================================
-	
+
+	private int movieID;
 	private String title;
 	private ArrayList<Actor> actors;
 	private double rating;
@@ -22,15 +23,22 @@ public class Movie {
 	// Constructors
 	//================================================================================
 	
-	public Movie(String title) {
+	public Movie(int movieID, String title, double rating, int releaseYear) {
+		this.movieID = movieID;
 		this.title = title;
+		this.rating = rating;
+		this.releaseYear = releaseYear;
 	}
 	
 	//================================================================================
 	// Accessors
 	//================================================================================
-	
-	
+
+
+	public int getMovieID() {
+		return movieID;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -74,5 +82,9 @@ public class Movie {
 	
 	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
+	}
+
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
 	}
 }

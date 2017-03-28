@@ -5,53 +5,62 @@
 
 package informatica.groep1.bioscoopapp.domain;
 
-
-public class Auditorium {
+public class Seat {
     //================================================================================
     // Properties
     //================================================================================
-    private int auditoriumID;
-    private int rows;
-    private int seatquantaity;
+    public int seatID;
+    public int row;
+    public int number;
+    public Auditorium auditorium;
 
     //================================================================================
-    // Constructer
+    // Constructors
     //================================================================================
-    public Auditorium(int auditoriumID, int rows, int seatquantaity){
-        this.auditoriumID = auditoriumID;
-        this.rows =rows;
-        this.seatquantaity = seatquantaity;
+
+    public Seat(int seatID, int row, int number, Auditorium auditorium) {
+        this.seatID = seatID;
+        this.row = row;
+        this.number = number;
+        this.auditorium = auditorium;
     }
-
     //================================================================================
     // Accessors
     //================================================================================
 
-    public int getAuditoriumID() {
-        return auditoriumID;
+    public int getSeatID() {
+        return seatID;
     }
 
-    public int getRows() {
-        return rows;
+    public int getRow() {
+        return row;
     }
 
-    public int getSeatquantaity() {
-        return seatquantaity;
+    public int getNumber() {
+        return number;
+    }
+
+    public Auditorium getAuditorium() {
+        return auditorium;
     }
 
     //================================================================================
     // Mutators
     //================================================================================
 
-    public void setAuditoriumID(int auditoriumID) {
-        this.auditoriumID = auditoriumID;
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
     }
 
-    public void setRows(int rows) {
-        this.rows = rows;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public void setSeatquantaity(int seatquantaity) {
-        this.seatquantaity = seatquantaity;
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setAuditorium(Auditorium auditorium) {
+        this.auditorium = auditorium;
     }
 }

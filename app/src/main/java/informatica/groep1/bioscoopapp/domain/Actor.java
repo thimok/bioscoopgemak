@@ -10,7 +10,8 @@ public class Actor {
 	//================================================================================
 	// Properties
 	//================================================================================
-	
+
+	private int actorID;
 	private String firstName;
 	private String lastName;
 	private String imageUrl;
@@ -19,7 +20,8 @@ public class Actor {
 	// Constructors
 	//================================================================================
 	
-	public Actor(String firstName, String lastName, String imageUrl) {
+	public Actor(int actorID, String firstName, String lastName, String imageUrl) {
+		this.actorID = actorID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.imageUrl = imageUrl;
@@ -40,7 +42,11 @@ public class Actor {
 	public String getImageUrl() {
 		return imageUrl;
 	}
-	
+
+	public int getActorID() {
+		return actorID;
+	}
+
 	//================================================================================
 	// Mutators
 	//================================================================================
@@ -55,5 +61,9 @@ public class Actor {
 	
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public void setActorID(int actorID) {
+		this.actorID = actorID;
 	}
 }
