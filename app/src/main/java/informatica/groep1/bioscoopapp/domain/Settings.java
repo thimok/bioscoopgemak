@@ -14,7 +14,7 @@ public class Settings {
     private String value;
 
     //================================================================================
-    // Properties
+    //Constructor
     //================================================================================
 
     public Settings(String key, String value) {
