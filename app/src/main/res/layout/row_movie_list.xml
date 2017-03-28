@@ -1,7 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="198dp"
+    android:background="@color/colorBackground">
 
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/movieActivity_IV_headerImage"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorAccent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/movieActivity_TV_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorWhite"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/movieActivity_IV_headerImage"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintBottom_toBottomOf="@+id/movieActivity_IV_headerImage"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="@+id/movieActivity_IV_headerImage"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/movieActivity_IV_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_star_white_24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/movieActivity_TV_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="8.9"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="roboto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/movieActivity_IV_rating"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:textWeight="normal" />
+
+    <ImageView
+        android:id="@+id/movieActivity_IV_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:srcCompat="@drawable/ic_calendar_blank_white_24dp"
+        app:layout_constraintLeft_toRightOf="@+id/movieActivity_TV_rating" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/movieActivity_TV_date"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="2017"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="roboto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/movieActivity_IV_date"
+        app:layout_constraintRight_toLeftOf="@+id/movieActivity_IB_favorite"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:textWeight="normal" />
+
+    <ImageButton
+        android:id="@+id/movieActivity_IB_favorite"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:background="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_heart_outline_white_24dp"
+        app:layout_constraintRight_toLeftOf="@+id/movieActivity_IB_watchlist"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage" />
+
+    <ImageButton
+        android:id="@+id/movieActivity_IB_watchlist"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:background="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:srcCompat="@drawable/ic_bookmark_outline_white_24dp" />
+
+</android.support.constraint.ConstraintLayout>
