@@ -1,6 +1,7 @@
 //================================================================================
 // This class is made by:
-// - Thimo Koolen
+//
+// - Twan van Maastricht
 //================================================================================
 
 package informatica.groep1.bioscoopapp.adapter;
@@ -43,26 +44,25 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 		}
 
 		ImageView headerImage = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
-		Picasso.with(getContext())
+		/*Picasso.with(getContext())
 				.load(movie.getSmallImageUrl())
 				.placeholder(R.drawable.imagenotfound)
 				.error(R.drawable.imagenotfound)
 				.fit()
-				.into(thumbnail);
+				.into(thumbnail);*/
 
-		TextView title = (TextView) convertView.findViewById(R.id.productTitel);
-		if (product.getTitle() != null) {
-			title.setText(product.getTitle());
-		} else {
-			title.setText("");
-		}
+		TextView title = (TextView) convertView.findViewById(R.id.movieActivity_TV_title);
+        title.setText(movie.getTitle());
 
 
-		TextView specs = (TextView) convertView.findViewById(R.id.productSpecsTag);
-		specs.setText(product.getSpecsTag());
 
-		TextView summary = (TextView) convertView.findViewById(R.id.productSummary);
-		summary.setText(product.getSummary());
+		TextView rating = (TextView) convertView.findViewById(R.id.movieActivity_TV_rating);
+		rating.setText(movie.getRating());
+
+		TextView date = (TextView) convertView.findViewById(R.id.movieActivity_TV_date);
+		date.setText(movie.getReleaseYear());
+
+
 
 		return convertView;
 	}

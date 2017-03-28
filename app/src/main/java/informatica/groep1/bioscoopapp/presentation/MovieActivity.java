@@ -15,12 +15,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.ListView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.adapter.MovieListAdapter;
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
 import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
 import informatica.groep1.bioscoopapp.domain.Movie;
@@ -29,10 +29,9 @@ import informatica.groep1.bioscoopapp.util.AlertCreator;
 
 public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.MovieListener {
 
-
-
-
-    FilmManager fManager;
+    private MovieListAdapter movieListAdapter;
+    private ListView listview;
+    private FilmManager fManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,39 +41,20 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         super.onCreateDrawer(toolbar, this);
 
         fManager = new FilmManager(this);
-
         fManager.findPopularMovies();
 
+        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
 
+        listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
+        listview.setAdapter(movieListAdapter);
 
-
-
-
-//        getMovies();
     }
 
 
-    /*public void getMovies() {
-        MovieDBAPIConnector task = new MovieDBAPIConnector(this);
-        String[] urls = new String[] {"https://api.themoviedb.org/3/search/movie?api_key=f5432ebc636370b7954317a342043046&query=Jack+Reacher"};
-        task.execute(urls);
-    }*/
-
-
-    /*@Override
-    public void onMovieAvailable(Movie movie) {
-
-            Log.i("API resultaat", movie.getTitle());
-
-    }*/
-
     @Override
     public void onMovieAvailable(Movie movie) {
-        /*ArrayList<Movie> movies = fManager.getMovieList();
-
-        movies.add(movie);*/
-
         fManager.addMovies(movie);
+        movieListAdapter.notifyDataSetChanged();
         Log.i("API resultaat", movie.getTitle());
     }
 

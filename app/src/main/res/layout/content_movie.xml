@@ -8,4 +8,16 @@
     tools:context="informatica.groep1.bioscoopapp.presentation.MovieActivity"
     tools:showIn="@layout/activity_movie">
 
+    <ListView
+        android:id="@+id/movieActivity_LV_movieListview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>
