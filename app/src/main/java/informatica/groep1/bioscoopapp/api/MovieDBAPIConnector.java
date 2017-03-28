@@ -83,6 +83,7 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
             String releaseDate = "";
             String rating = "";
             String id = "";
+            String posterURL = "";
 
 
 
@@ -114,6 +115,12 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
                     id = "Geen id beschikbaar";
                 }
 
+                if (productObject.has("backdrop_path")) {
+                    posterURL = productObject.getString("backdrop_path");
+                } else {
+                    posterURL = "Geen afbeelding beschikbaar";
+                }
+
 
 
 
@@ -121,6 +128,7 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
                 movie.setRating(rating);
                 movie.setReleaseYear(releaseDate);
                 movie.setId(id);
+                movie.setBackDropImage(posterURL);
 
 
                 listener.onMovieAvailable(movie);

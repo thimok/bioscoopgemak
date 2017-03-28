@@ -18,7 +18,7 @@ public class Movie {
 	private String rating;
 	private String releaseYear;
 	private String id;
-	private String posterURL;
+	private String backDropImage;
 	
 	//================================================================================
 	// Constructors
@@ -62,8 +62,8 @@ public class Movie {
 		return id;
 	}
 
-	public String getPosterURL() {
-		return posterURL;
+	public String getBackDropImage() {
+		return backDropImage;
 	}
 
 	//================================================================================
@@ -90,7 +90,7 @@ public class Movie {
 		this.releaseYear = releaseYear;
 	}
 
-	public void setPosterURL(String posterURL) {
-		this.posterURL = posterURL;
+	public void setBackDropImage(String backDropImage) {
+		this.backDropImage = backDropImage;
 	}
 }

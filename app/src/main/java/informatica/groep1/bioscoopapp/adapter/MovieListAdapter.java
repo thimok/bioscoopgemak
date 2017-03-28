@@ -29,6 +29,7 @@ import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class MovieListAdapter extends ArrayAdapter<Movie> {
 
+	public static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
 
 	public MovieListAdapter(@NonNull Context context, @NonNull List<Movie> movies) {
 		super(context, 0, movies);
@@ -44,12 +45,12 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 		}
 
 		ImageView headerImage = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
-		/*Picasso.with(getContext())
-				.load(movie.getSmallImageUrl())
-				.placeholder(R.drawable.imagenotfound)
-				.error(R.drawable.imagenotfound)
+		Picasso.with(getContext())
+				.load(TMDB_POSTER_URL_BASE + movie.getBackDropImage())
+				/*.placeholder(R.drawable.imagenotfound)
+				.error(R.drawable.imagenotfound)*/
 				.fit()
-				.into(thumbnail);*/
+				.into(headerImage);
 
 		TextView title = (TextView) convertView.findViewById(R.id.movieActivity_TV_title);
         title.setText(movie.getTitle());
