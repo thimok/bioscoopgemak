@@ -83,7 +83,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
-        android:text="TextView"
+        android:text="2017"
         android:textColor="@color/colorWhite"
         app:fontFamily="roboto"
         app:layout_constraintBottom_toBottomOf="parent"
