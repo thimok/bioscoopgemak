@@ -18,6 +18,7 @@ public class Movie {
 	private String rating;
 	private String releaseYear;
 	private String id;
+	private String posterURL;
 	
 	//================================================================================
 	// Constructors
@@ -61,6 +62,10 @@ public class Movie {
 		return id;
 	}
 
+	public String getPosterURL() {
+		return posterURL;
+	}
+
 	//================================================================================
 	// Mutators
 	//================================================================================
@@ -83,5 +88,9 @@ public class Movie {
 	
 	public void setReleaseYear(String releaseYear) {
 		this.releaseYear = releaseYear;
+	}
+
+	public void setPosterURL(String posterURL) {
+		this.posterURL = posterURL;
 	}
 }
