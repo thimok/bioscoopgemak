@@ -16,6 +16,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
 		
+		//if (getIntent().getBooleanExtra("EXIT", false)) {
+		//	finish();
+		//}
+		
 		new CountDownTimer(2000, 1000) {
 			
 			@Override
@@ -26,7 +30,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 			@Override
 			public void onFinish() {
 				Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+				//i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				//i.putExtra("EXIT", true);
 				startActivity(i);
+				finish();
 			}
 		}.start();
 	}

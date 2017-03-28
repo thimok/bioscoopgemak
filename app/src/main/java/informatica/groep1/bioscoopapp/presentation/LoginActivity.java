@@ -15,4 +15,10 @@ public class LoginActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		System.gc();
+		System.exit(0);
+	}
 }
