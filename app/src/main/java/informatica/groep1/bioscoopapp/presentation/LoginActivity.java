@@ -1,3 +1,9 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.DialogInterface;
@@ -9,6 +15,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.util.AlertCreator;
+import informatica.groep1.bioscoopapp.util.ButtonDefine;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,17 +28,18 @@ public class LoginActivity extends AppCompatActivity {
 	
 	@Override
 	public void onBackPressed() {
-		new AlertDialog.Builder(this, R.style.DarkDialogTheme)
-				.setIcon(android.R.drawable.ic_dialog_alert)
-				.setTitle("Exit")
-				.setMessage("Are you sure you want to exit?")
-				.setInverseBackgroundForced(true)
-				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						System.gc();
-						System.exit(0);
-					}
-				}).setNegativeButton("No", null).show();
+		AlertCreator creator = new AlertCreator(this);
+		creator.setIcon(android.R.drawable.ic_dialog_alert);
+		creator.setTitle("Exit");
+		creator.setMessage("Are you sure you want to exit?");
+		creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				System.gc();
+				System.exit(0);
+			}
+		});
+		creator.setNegativeButton("No", null);
+		creator.show();
 	}
 }
