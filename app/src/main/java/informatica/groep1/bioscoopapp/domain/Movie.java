@@ -32,6 +32,10 @@ public class Movie {
 		this.releaseYear = releaseYear;
 	}
 	
+	public Movie(String title) {
+		this.title = title;
+	}
+	
 	//================================================================================
 	// Accessors
 	//================================================================================
