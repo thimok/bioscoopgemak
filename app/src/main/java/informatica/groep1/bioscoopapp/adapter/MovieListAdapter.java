@@ -22,9 +22,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import java.util.List;
 
+import at.favre.lib.dali.Dali;
+import at.favre.lib.dali.builder.animation.BlurKeyFrame;
+import at.favre.lib.dali.builder.animation.BlurKeyFrameManager;
+import at.favre.lib.dali.builder.animation.BlurKeyFrameTransitionAnimation;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.businesslogic.BlurImage;
 import informatica.groep1.bioscoopapp.domain.Movie;
@@ -40,13 +45,15 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 	@NonNull
 	@Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-		Movie movie = (Movie) getItem(position);
+		Movie movie = getItem(position);
 
 		if (convertView == null) {
 			convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_movie_list, parent, false);
 		}
 
 		ImageView headerImage = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
+
+
 		Picasso.with(getContext())
 				.load(TMDB_POSTER_URL_BASE + movie.getBackDropImage())
 				/*.placeholder(R.drawable.imagenotfound)
@@ -62,7 +69,6 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 
 		TextView date = (TextView) convertView.findViewById(R.id.movieActivity_TV_date);
 		date.setText(movie.getReleaseYear());
-
 
 
 		return convertView;

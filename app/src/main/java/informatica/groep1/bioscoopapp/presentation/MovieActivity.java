@@ -45,9 +45,10 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         fManager = new FilmManager(this);
         fManager.findPopularMovies();
 
-        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
-
         listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
+        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
+        listview.setAdapter(movieListAdapter);
+
 	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 		    @Override
 		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,7 +58,6 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
 			    startActivity(i);
 		    }
 	    });
-        listview.setAdapter(movieListAdapter);
     }
 
 
