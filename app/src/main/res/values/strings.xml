@@ -10,4 +10,7 @@
     <string name="textview">Login</string>
     <string name="LoginHint">Username</string>
     <string name="LoginBtn">Login</string>
+
+
+
 </resources>

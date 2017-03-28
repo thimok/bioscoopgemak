@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="movie_filter_array_nl">
+        <item>Genre</item>
+        <item>Datum</item>
+        <item>18+</item>
+        <item>Best beoordeeld</item>
+        <item>Titel</item>
+        <item>Populariteit</item>
+    </string-array>
 </resources>

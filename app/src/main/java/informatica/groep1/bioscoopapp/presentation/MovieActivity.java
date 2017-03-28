@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -15,7 +16,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -40,6 +43,8 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         setSupportActionBar(toolbar);
         super.onCreateDrawer(toolbar, this);
 
+
+
         fManager = new FilmManager(this);
         fManager.findPopularMovies();
 
@@ -62,8 +67,34 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
-        MenuItem item = menu.findItem(R.id.action_search);
+      /*  MenuItem itemSpinner = menu.findItem(R.id.movie_filter_spinner);
+        Spinner spinner = (Spinner) MenuItemCompat.getActionView(itemSpinner);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.movie_filter_array_en, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);*/
 
+        MenuItem spinnerItem = menu.findItem(R.id.movie_filter_spinner);
+
+        View view = spinnerItem.getActionView();
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.movie_filter_array_en, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        if(view instanceof Spinner) {
+            final Spinner spinner = (Spinner) view;
+            // create your adapter
+            // ...
+            // set your adapter
+            spinner.setAdapter(adapter);
+        }
+
+
+        MenuItem itemSearch = menu.findItem(R.id.action_search);
 
         MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -92,7 +123,7 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
             }
         });
 
-        searchView.setMenuItem(item);
+        searchView.setMenuItem(itemSearch);
 
         return true;
     }
