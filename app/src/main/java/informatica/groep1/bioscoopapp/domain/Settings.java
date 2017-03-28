@@ -2,56 +2,48 @@
 // This class is made by:
 // - Devon Marsham
 //================================================================================
-
 package informatica.groep1.bioscoopapp.domain;
 
 
-public class Auditorium {
+public class Settings {
     //================================================================================
     // Properties
     //================================================================================
-    private int auditoriumID;
-    private int rows;
-    private int seatquantaity;
+
+    private String key;
+    private String value;
 
     //================================================================================
-    // Constructer
+    // Properties
     //================================================================================
-    public Auditorium(int auditoriumID, int rows, int seatquantaity){
-        this.auditoriumID = auditoriumID;
-        this.rows =rows;
-        this.seatquantaity = seatquantaity;
+
+    public Settings(String key, String value) {
+        this.key = key;
+        this.value = value;
     }
 
     //================================================================================
     // Accessors
     //================================================================================
 
-    public int getAuditoriumID() {
-        return auditoriumID;
+    public String getKey() {
+        return key;
     }
 
-    public int getRows() {
-        return rows;
-    }
-
-    public int getSeatquantaity() {
-        return seatquantaity;
+    public String getValue() {
+        return value;
     }
 
     //================================================================================
     // Mutators
     //================================================================================
 
-    public void setAuditoriumID(int auditoriumID) {
-        this.auditoriumID = auditoriumID;
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    public void setSeatquantaity(int seatquantaity) {
-        this.seatquantaity = seatquantaity;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
