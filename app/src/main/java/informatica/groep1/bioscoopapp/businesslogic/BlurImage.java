@@ -5,10 +5,6 @@ import android.util.Log;
 
 import com.squareup.picasso.Transformation;
 
-/**
- * Created by Sven Westerlaken on 26-3-2017.
- */
-
 public class BlurImage implements Transformation {
     @Override
     public Bitmap transform(Bitmap source) {

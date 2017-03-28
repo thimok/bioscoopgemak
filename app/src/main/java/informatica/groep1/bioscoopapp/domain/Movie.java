@@ -16,14 +16,16 @@ public class Movie {
 	private int movieID;
 	private String title;
 	private ArrayList<Actor> actors;
-	private double rating;
-	private int releaseYear;
+	private String rating;
+	private String releaseYear;
+	private String id;
+	private String backDropImage;
 	
 	//================================================================================
 	// Constructors
 	//================================================================================
 	
-	public Movie(int movieID, String title, double rating, int releaseYear) {
+	public Movie(int movieID, String title, String rating, String releaseYear) {
 		this.movieID = movieID;
 		this.title = title;
 		this.rating = rating;
@@ -33,8 +35,7 @@ public class Movie {
 	//================================================================================
 	// Accessors
 	//================================================================================
-
-
+	
 	public int getMovieID() {
 		return movieID;
 	}
@@ -56,14 +57,22 @@ public class Movie {
 		return null;
 	}
 	
-	public double getRating() {
+	public String getRating() {
 		return rating;
 	}
 	
-	public int getReleaseYear() {
+	public String getReleaseYear() {
 		return releaseYear;
 	}
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public String getBackDropImage() {
+		return backDropImage;
+	}
+
 	//================================================================================
 	// Mutators
 	//================================================================================
@@ -71,20 +80,28 @@ public class Movie {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public void addActor(Actor actor) {
 		this.actors.add(actor);
 	}
 	
-	public void setRating(double rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 	
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(String releaseYear) {
 		this.releaseYear = releaseYear;
 	}
-
+	
 	public void setMovieID(int movieID) {
 		this.movieID = movieID;
+	}
+	
+	public void setBackDropImage(String backDropImage) {
+		this.backDropImage = backDropImage;
 	}
 }

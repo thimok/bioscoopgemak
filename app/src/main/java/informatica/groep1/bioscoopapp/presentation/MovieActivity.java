@@ -11,16 +11,27 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
-
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.adapter.MovieListAdapter;
+import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
+import informatica.groep1.bioscoopapp.domain.Movie;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import informatica.groep1.bioscoopapp.util.AlertCreator;
 
-public class MovieActivity extends MenuActivity{
+public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.MovieListener {
+
+    private MovieListAdapter movieListAdapter;
+    private ListView listview;
+    private FilmManager fManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +39,23 @@ public class MovieActivity extends MenuActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         super.onCreateDrawer(toolbar, this);
+
+        fManager = new FilmManager(this);
+        fManager.findPopularMovies();
+
+        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
+
+        listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
+        listview.setAdapter(movieListAdapter);
+
+    }
+
+
+    @Override
+    public void onMovieAvailable(Movie movie) {
+        fManager.addMovies(movie);
+        movieListAdapter.notifyDataSetChanged();
+        Log.i("API resultaat", movie.getTitle());
     }
 
     @Override
@@ -85,5 +113,6 @@ public class MovieActivity extends MenuActivity{
 		});
 		creator.setNegativeButton("No", null);
 		creator.show();
+
     }
 }
