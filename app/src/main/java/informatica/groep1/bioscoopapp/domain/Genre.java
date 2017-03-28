@@ -5,40 +5,39 @@
 
 package informatica.groep1.bioscoopapp.domain;
 
-public class Language {
+
+public class Genre {
     //================================================================================
     // Properties
     //================================================================================
-    private int languageiD;
-    private String langauge;
+    private int genreID;
+    private String genre;
 
     //================================================================================
-    // Constructer
+    // Constructors
     //================================================================================
-    public Language(int languageiD, String langauge){
-        this.languageiD = languageiD;
-        this.langauge = langauge;
+    public Genre(int genreID, String genre){
+        this.genreID = genreID;
+        this.genre = genre;
     }
+
     //================================================================================
     // Accessors
     //================================================================================
-
-    public int getLanguageiD() {
-        return languageiD;
+    public int getGenreID() {
+        return genreID;
+    }
+    public String getGenre() {
+        return genre;
     }
 
-    public String getLangauge() {
-        return langauge;
-    }
     //================================================================================
     // Mutators
-    //================================================================================
-
-    public void setLanguageiD(int languageiD) {
-        this.languageiD = languageiD;
+    // ================================================================================
+    public void setGenreID(int genreID) {
+        this.genreID = genreID;
     }
-
-    public void setLangauge(String langauge) {
-        this.langauge = langauge;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }
