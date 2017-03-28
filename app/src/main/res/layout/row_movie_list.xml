@@ -21,16 +21,19 @@
         android:id="@+id/movieActivity_TV_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/colorWhite"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/movieActivity_IV_headerImage"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/movieActivity_IV_headerImage"
-        app:layout_constraintBottom_toBottomOf="@+id/movieActivity_IV_headerImage"
         android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="@+id/movieActivity_IV_headerImage"
-        android:layout_marginTop="8dp" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintLeft_toLeftOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintRight_toRightOf="@+id/movieActivity_IV_headerImage"
+        app:layout_constraintTop_toTopOf="@+id/movieActivity_IV_headerImage"/>
 
     <ImageView
         android:id="@+id/movieActivity_IV_rating"

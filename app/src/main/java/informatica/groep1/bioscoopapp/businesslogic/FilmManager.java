@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Twan van Maastricht
+//================================================================================
+
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.util.Log;
@@ -6,10 +11,6 @@ import java.util.ArrayList;
 
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
 import informatica.groep1.bioscoopapp.domain.Movie;
-
-/**
- * Created by twanv on 28-3-2017.
- */
 
 public class FilmManager {
 

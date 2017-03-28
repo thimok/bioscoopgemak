@@ -8,6 +8,7 @@ package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -25,6 +26,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.businesslogic.BlurImage;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class MovieListAdapter extends ArrayAdapter<Movie> {
@@ -54,9 +56,7 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 
 		TextView title = (TextView) convertView.findViewById(R.id.movieActivity_TV_title);
         title.setText(movie.getTitle());
-
-
-
+		
 		TextView rating = (TextView) convertView.findViewById(R.id.movieActivity_TV_rating);
 		rating.setText(movie.getRating());
 
