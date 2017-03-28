@@ -1,4 +1,3 @@
-/*
 //================================================================================
 // This class is made by:
 // - Thimo Koolen
@@ -40,12 +39,12 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 		Movie movie = (Movie) getItem(position);
 
 		if (convertView == null) {
-			convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_row, parent, false);
+			convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_movie_list, parent, false);
 		}
 
-		ImageView thumbnail = (ImageView) convertView.findViewById(R.id.productThumbnail);
+		ImageView headerImage = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
 		Picasso.with(getContext())
-				.load(product.getSmallImageUrl())
+				.load(movie.getSmallImageUrl())
 				.placeholder(R.drawable.imagenotfound)
 				.error(R.drawable.imagenotfound)
 				.fit()
@@ -68,4 +67,3 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
 		return convertView;
 	}
 }
-*/
