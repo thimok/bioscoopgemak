@@ -1,6 +1,7 @@
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.lang.reflect.Array;
@@ -46,8 +48,16 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
 
         listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
+	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		    @Override
+		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			    Log.i("MovieActivity", "Clicked item");
+			    Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
+			    i.putExtra("movie", fManager.getMovieList().get(position));
+			    startActivity(i);
+		    }
+	    });
         listview.setAdapter(movieListAdapter);
-
     }
 
 
