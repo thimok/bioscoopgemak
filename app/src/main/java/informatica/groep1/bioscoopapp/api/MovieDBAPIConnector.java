@@ -25,6 +25,8 @@ import informatica.groep1.bioscoopapp.domain.Movie;
 public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
 
     MovieListener listener;
+    public static final String TMDB_API_BASE = "https://api.themoviedb.org/3";
+    public static final String API_KEY = "?api_key=f5432ebc636370b7954317a342043046";
 
     public MovieDBAPIConnector(MovieListener listener) {
         this.listener = listener;

@@ -3,11 +3,12 @@
     <string name="password">Password</string>
 
     <string-array name="movie_filter_array_en">
-        <item>Genre</item>
+        <item>Popular</item>
+        <item>Title</item>
         <item>Date</item>
         <item>18+</item>
         <item>Rating</item>
-        <item>Title</item>
-        <item>Popular</item>
+
+
     </string-array>
 </resources>
