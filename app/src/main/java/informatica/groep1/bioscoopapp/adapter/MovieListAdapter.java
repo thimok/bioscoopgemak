@@ -96,7 +96,7 @@ public class MovieListAdapter extends BaseAdapter {
 		viewHolder.title.setText(movie.getTitle());
 		viewHolder.releasedate.setText(movie.getReleaseYear());
 		viewHolder.rating.setText(movie.getRating());
-		Picasso.with(context).load(imgurl).fit().into(viewHolder.backdrop);
+		Picasso.with(context).load(imgurl).into(viewHolder.backdrop);
 
 		overlay.setOnClickListener(new View.OnClickListener() {
 			@Override

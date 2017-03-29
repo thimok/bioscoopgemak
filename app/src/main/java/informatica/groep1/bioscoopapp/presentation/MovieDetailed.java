@@ -6,14 +6,18 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class MovieDetailed extends AppCompatActivity {
+	private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
+
 	private TextView test;
-	
 	private Movie movie;
 	
 	@Override
@@ -23,12 +27,27 @@ public class MovieDetailed extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+						.setAction("Action", null).show();
+			}
+		});
 		
 		Bundle extras = getIntent().getExtras();
 		movie = (Movie) extras.getSerializable("Movie");
+		String imgurl = TMDB_POSTER_URL_BASE + movie.getBackDropImage();
 		
-		test = (TextView) findViewById(R.id.activityDetailed_TV_test);
-		test.setText(movie.getTitle());
+//		test = (TextView) findViewById(R.id.activityDetailed_TV_test);
+//		test.setText(movie.getTitle());
+
+		ImageView headerImage = (ImageView) findViewById(R.id.movieDetailedActivity_IV_headerImage);
+
+		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
+
 	}
 	
 }
