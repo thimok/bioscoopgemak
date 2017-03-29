@@ -46,18 +46,8 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         fManager.findPopularMovies();
 
         listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
-        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
+        movieListAdapter = new MovieListAdapter(this, getLayoutInflater(), fManager.getMovieList());
         listview.setAdapter(movieListAdapter);
-
-	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-		    @Override
-		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			    Log.i("MovieActivity", "Clicked item");
-			    Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
-			    i.putExtra("movie", fManager.getMovieList().get(position));
-			    startActivity(i);
-		    }
-	    });
     }
 
 

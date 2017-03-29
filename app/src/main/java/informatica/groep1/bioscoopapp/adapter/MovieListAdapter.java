@@ -7,23 +7,29 @@
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import at.favre.lib.dali.Dali;
@@ -33,44 +39,80 @@ import at.favre.lib.dali.builder.animation.BlurKeyFrameTransitionAnimation;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.businesslogic.BlurImage;
 import informatica.groep1.bioscoopapp.domain.Movie;
+import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
-public class MovieListAdapter extends ArrayAdapter<Movie> {
+import static java.security.AccessController.getContext;
 
-	public static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
+public class MovieListAdapter extends BaseAdapter {
+	private Context context;
+	private LayoutInflater inflater;
+	private ArrayList<Movie> movies;
 
-	public MovieListAdapter(@NonNull Context context, @NonNull List<Movie> movies) {
-		super(context, 0, movies);
+	private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
+
+	public MovieListAdapter(Context context, LayoutInflater inflater, ArrayList<Movie> movies) {
+		this.context = context;
+		this.inflater = inflater;
+		this.movies = movies;
 	}
 
-	@NonNull
 	@Override
-	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-		Movie movie = getItem(position);
+	public int getCount() {
+		return movies.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		return movies.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_movie_list, parent, false);
+			convertView = inflater.inflate(R.layout.row_movie_list, null);
+
+			viewHolder = new ViewHolder();
+			viewHolder.backdrop = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
+			viewHolder.title = (RobotoTextView) convertView.findViewById(R.id.movieActivity_TV_title);
+			viewHolder.releasedate = (RobotoTextView) convertView.findViewById(R.id.movieActivity_TV_date);
+			viewHolder.rating = (RobotoTextView) convertView.findViewById(R.id.movieActivity_TV_rating);
+
+			convertView.setTag(viewHolder);
+		} else {
+			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
-		ImageView headerImage = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImage);
+		final Movie movie = movies.get(position);
+		String imgurl = TMDB_POSTER_URL_BASE + movie.getBackDropImage();
+		ImageView overlay = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImageOverlay);
 
+		viewHolder.title.setText(movie.getTitle());
+		viewHolder.releasedate.setText(movie.getReleaseYear());
+		viewHolder.rating.setText(movie.getRating());
+		Picasso.with(context).load(imgurl).fit().into(viewHolder.backdrop);
 
-		Picasso.with(getContext())
-				.load(TMDB_POSTER_URL_BASE + movie.getBackDropImage())
-				/*.placeholder(R.drawable.imagenotfound)
-				.error(R.drawable.imagenotfound)*/
-				.fit()
-				.into(headerImage);
-
-		TextView title = (TextView) convertView.findViewById(R.id.movieActivity_TV_title);
-        title.setText(movie.getTitle());
-		
-		TextView rating = (TextView) convertView.findViewById(R.id.movieActivity_TV_rating);
-		rating.setText(movie.getRating());
-
-		TextView date = (TextView) convertView.findViewById(R.id.movieActivity_TV_date);
-		date.setText(movie.getReleaseYear());
+		overlay.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(context, MovieDetailed.class);
+				i.putExtra("Movie", movie);
+				context.startActivity(i);
+			}
+		});
 
 
 		return convertView;
+	}
+
+	private static class ViewHolder {
+		ImageView backdrop;
+		TextView title, releasedate, rating;
 	}
 }
