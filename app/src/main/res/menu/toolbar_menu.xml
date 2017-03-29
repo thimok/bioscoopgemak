@@ -10,9 +10,10 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/movie_filter_spinner"
-        myapp:showAsAction="always"
-        myapp:actionViewClass="android.widget.Spinner"
-        android:title="test..."/>
+        android:id="@+id/spinner"
+        android:title="ActionBar Spinner"
+        app:actionViewClass="android.widget.Spinner"
+        android:background="#ff00"
+        app:showAsAction="always" />
 
 </menu>
