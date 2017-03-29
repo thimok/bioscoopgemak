@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
 
 import informatica.groep1.bioscoopapp.R;
@@ -41,12 +42,17 @@ public class MovieDetailed extends AppCompatActivity {
 		movie = (Movie) extras.getSerializable("Movie");
 		String imgurl = TMDB_POSTER_URL_BASE + movie.getBackDropImage();
 		
-//		test = (TextView) findViewById(R.id.activityDetailed_TV_test);
-//		test.setText(movie.getTitle());
-
+		TextView releasedate = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_date);
+		TextView title = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_title);
+		TextView rating = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_rating);
+		TextView adult = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_adultAge);
+		TextView length = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_movieLength);
 		ImageView headerImage = (ImageView) findViewById(R.id.movieDetailedActivity_IV_headerImage);
 
 		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
+		releasedate.setText(movie.getReleaseYear());
+		title.setText(movie.getTitle());
+		rating.setText(movie.getRating());
 
 	}
 	
