@@ -23,8 +23,8 @@ public class Movie {
 	//================================================================================
 	// Constructors
 	//================================================================================
-	
-	public Movie(String title) {
+
+    public Movie(String title) {
 		this.title = title;
 	}
 	
