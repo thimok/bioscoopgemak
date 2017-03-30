@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bioscoop App</string>
+    <string name="app_name">Bioscoop Gemak</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
 
