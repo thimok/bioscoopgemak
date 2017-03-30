@@ -17,10 +17,16 @@ public class Movie implements Serializable {
 	private int movieID;
 	private String title;
 	private ArrayList<Actor> actors;
+    private ArrayList<Genre> genres;
 	private String rating;
 	private String releaseYear;
 	private String id;
 	private String backDropImage;
+    private String length;
+    private String longDescription;
+    private String director;
+    private boolean adult;
+
 	
 	//================================================================================
 	// Constructors
@@ -78,7 +84,23 @@ public class Movie implements Serializable {
 		return backDropImage;
 	}
 
-	//================================================================================
+    public String getLength() {
+        return length;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public boolean isAdult() {
+        return adult;
+    }
+
+    //================================================================================
 	// Mutators
 	//================================================================================
 	
@@ -93,12 +115,32 @@ public class Movie implements Serializable {
 	public void addActor(Actor actor) {
 		this.actors.add(actor);
 	}
+
+    public void addGenre(Genre genre) {
+        this.genres.add(genre);
+    }
 	
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	
-	public void setReleaseYear(String releaseYear) {
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setAdult(boolean adult) {
+        this.adult = adult;
+    }
+
+    public void setReleaseYear(String releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 	

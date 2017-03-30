@@ -6,7 +6,7 @@
 package informatica.groep1.bioscoopapp.domain;
 
 
-public class Seat_Reserved {
+public class Ticket {
     //================================================================================
     // Properties
     //================================================================================
@@ -19,7 +19,7 @@ public class Seat_Reserved {
     // Constructor
     //================================================================================
 
-    public Seat_Reserved(Seat seat, Reservation reservation, int ticketID, Screening screening) {
+    public Ticket(Seat seat, Reservation reservation, int ticketID, Screening screening) {
         this.seat = seat;
         this.reservation = reservation;
         this.ticketID = ticketID;
