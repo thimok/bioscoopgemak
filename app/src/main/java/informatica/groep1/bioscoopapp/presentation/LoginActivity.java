@@ -48,10 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 	
 	@Override
 	public void onBackPressed() {
-		AlertCreator creator = new AlertCreator(this);
-		creator.setIcon(android.R.drawable.ic_dialog_alert);
-		creator.setTitle("Exit");
-		creator.setMessage("Are you sure you want to exit?");
+		AlertCreator creator = new AlertCreator(this, "Exit", android.R.drawable.ic_dialog_alert, "Are you sure you want to exit?");
 		creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {

@@ -12,6 +12,10 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 
+import static android.R.style.Theme_DeviceDefault_Dialog_Alert;
+import static android.R.style.Theme_Material_Dialog_Alert;
+import static android.app.AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+
 public class AlertCreator {
 	
 	//================================================================================
@@ -28,13 +32,11 @@ public class AlertCreator {
 		dialog = new AlertDialog.Builder(context);
 	}
 	
-	public AlertCreator(Context context, String title, @DrawableRes int iconID, String message, ButtonDefine positiveButton, ButtonDefine negativeButton) {
-		dialog = new AlertDialog.Builder(context);
+	public AlertCreator(Context context, String title, @DrawableRes int iconID, String message) {
+		dialog = new AlertDialog.Builder(context, Theme_DeviceDefault_Dialog_Alert);
 		setTitle(title);
 		setIcon(iconID);
 		setMessage(message);
-		setPositiveButton(positiveButton);
-		setNegativeButton(negativeButton);
 	}
 	
 	//================================================================================

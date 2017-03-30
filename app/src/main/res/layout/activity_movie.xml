@@ -49,6 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/colorBackground"
+        app:itemTextColor="@color/colorWhite"
+        app:itemIconTint="@color/colorWhite"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_menu"
         app:menu="@menu/activity_menu_drawer" />
