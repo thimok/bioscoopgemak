@@ -8,40 +8,21 @@ package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import at.favre.lib.dali.Dali;
-import at.favre.lib.dali.builder.animation.BlurKeyFrame;
-import at.favre.lib.dali.builder.animation.BlurKeyFrameManager;
-import at.favre.lib.dali.builder.animation.BlurKeyFrameTransitionAnimation;
 import informatica.groep1.bioscoopapp.R;
-import informatica.groep1.bioscoopapp.businesslogic.BlurImage;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
-
-import static java.security.AccessController.getContext;
 
 public class MovieListAdapter extends BaseAdapter {
 	private Context context;
