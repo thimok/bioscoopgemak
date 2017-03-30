@@ -10,5 +10,11 @@
     <string name="textview">Login</string>
     <string name="LoginHint">Username</string>
     <string name="LoginBtn">Login</string>
+
     <string name="title_activity_movie_detailed">MovieDetailed</string>
+
+    <string name="gen_placeholder">All</string>
+
+
+
 </resources>
