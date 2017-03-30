@@ -59,10 +59,6 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
 
     }
 
-
-
-
-
     @Override
     public void onMovieAvailable(Movie movie) {
         fManager.addMovies(movie);
@@ -181,8 +177,7 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         return super.onCreateOptionsMenu(menu);
 //        return true;
     }
-	
-	
+    
 	@Override
 	public void onBackPressed() {
 		AlertCreator creator = new AlertCreator(this);
