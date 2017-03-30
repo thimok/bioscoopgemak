@@ -125,8 +125,17 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
                     posterURL = "Geen afbeelding beschikbaar";
                 }
 
+                if (productObject.has("backdrop_path")) {
+                    posterURL = productObject.getString("backdrop_path");
+                } else {
+                    posterURL = "Geen afbeelding beschikbaar";
+                }
 
-
+                if (productObject.has("backdrop_path")) {
+                    posterURL = productObject.getString("backdrop_path");
+                } else {
+                    posterURL = "Geen afbeelding beschikbaar";
+                }
 
                 Movie movie = new Movie(title);
                 movie.setRating(rating);
