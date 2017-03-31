@@ -18,9 +18,9 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.StringJoiner;
-
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.domain.Actor;
+import informatica.groep1.bioscoopapp.domain.Director;
 import informatica.groep1.bioscoopapp.domain.Genre;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
@@ -87,16 +87,24 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
         try {
             JSONObject jsonObject = new JSONObject(response);
             JSONArray genres = jsonObject.getJSONArray("genres");
+            JSONObject credits = jsonObject.getJSONObject("credits");
+            JSONArray cast = credits.getJSONArray("cast");
+            JSONArray crew = credits.getJSONArray("crew");
 
             Movie movie = new Movie();
 
-            int id = 0;
+            int mID = 0;
             int length = 0;
             boolean adult = false;
+            int dID = 0;
+            String dName = "";
+
+            StringBuilder builder = new StringBuilder();
+            String delim = "";
 
 
             if (jsonObject.has("id")) {
-                id = jsonObject.getInt("id");
+                mID = jsonObject.getInt("id");
             }
 
             if (jsonObject.has("runtime")) {
@@ -107,8 +115,6 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
                 adult = jsonObject.getBoolean("adult");
             }
 
-            StringBuilder builder = new StringBuilder();
-            String delim = "";
 
             for (int i = 0; i < genres.length(); i++) {
                 if (genres.getJSONObject(i).has("name") && genres.getJSONObject(i).has("id")) {
@@ -117,17 +123,44 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
                     String genreNaam = genres.getJSONObject(i).getString("name");
                     movie.addGenre(new Genre(genreID, genreNaam));
 
-
                     builder.append(delim).append(genreNaam);
                     delim = ", ";
 
                 }
             }
 
+            for (int i = 0; i < crew.length(); i++) {
+                if (crew.getJSONObject(i).has("name") && crew.getJSONObject(i).has("id")
+                        && crew.getJSONObject(i).has("job")) {
+                    if (crew.getJSONObject(i).getString("job").equals("Director")) {
+                        dID = crew.getJSONObject(i).getInt("id");
+                        dName = crew.getJSONObject(i).getString("name");
+                    }
+                }
+            }
+
+            int x = 0;
+            // loop through the cast, but never loop more than 6 times or the cast length.
+            while (x < cast.length() && x < 6) {
+                if (cast.getJSONObject(x).has("name") && cast.getJSONObject(x).has("id")
+                        && cast.getJSONObject(x).has("character")) {
+                    int aID = cast.getJSONObject(x).getInt("id");
+                    String character = cast.getJSONObject(x).getString("character");
+                    String aName = cast.getJSONObject(x).getString("name");
+
+                    movie.addActor(new Actor(aName, aID, character));
+
+                    x++;
+                }
+            }
+
+
 
             TextView adultTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_adultAge);
             TextView lengthTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_movieLength);
             TextView genre = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_genre_value);
+
+//            Initiate textviews for director here and pass dID and dName to the textviews.
 
             if(adult) {
                 adultTV.setText("18+");
@@ -138,10 +171,8 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             lengthTV.setText("" + length + " min");
             genre.setText(builder.toString());
 
-
-
-
-            movie.setMovieID(id);
+            movie.setMovieID(mID);
+            movie.setDirector(new Director(dID, dName));
 
             listener.onMovieAvailable(movie);
 

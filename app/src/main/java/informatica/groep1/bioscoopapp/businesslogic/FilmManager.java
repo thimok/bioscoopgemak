@@ -42,6 +42,9 @@ public class FilmManager {
     public static final String PARAM_SORT_BY_VOTE = "&sort_by=vote_average.desc";
     public static final String PARAM_SORT_BY_TITLE = "&sort_by=original_title.asc";
     public static final String PARAM_MOVIE_ID = "/";
+    public static final String PARAM_APPEND_TO_RESPONSE = "&append_to_response=";
+    public static final String PARAM_APPEND_CREDITS = "credits";
+
 
 
     public FilmManager(MovieListener listener) {
@@ -119,7 +122,7 @@ public class FilmManager {
         MovieDBAPIConnector connector = new MovieDBAPIConnector(listener);
         String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_DISCOVER
                 + TMD_METHOD_MOVIE + API_KEY + PARAM_SORT_BY_TITLE
-                /*+ PARAM_SORT_BY_ADULT_FALSE*/};
+                };
         connector.execute(urls);
     }
 
@@ -132,6 +135,7 @@ public class FilmManager {
         MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, mdView);
         String[] urls = new String[] {TMDB_API_BASE
                 + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+                + PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
                 };
         connector.execute(urls);
     }
