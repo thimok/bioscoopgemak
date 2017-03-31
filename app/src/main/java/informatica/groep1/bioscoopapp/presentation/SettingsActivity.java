@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 
 public class SettingsActivity extends MenuActivity {
 	
@@ -25,6 +26,8 @@ public class SettingsActivity extends MenuActivity {
 	private TextView accountText;
 	private ImageView accountIcon;
 	
+	private DatabaseConnection dbc;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,6 +37,8 @@ public class SettingsActivity extends MenuActivity {
 		getSupportActionBar().setDisplayShowTitleEnabled(true);
 		getSupportActionBar().setTitle("Settings");
 		super.onCreateDrawer(toolbar, this);
+		
+		dbc = new DatabaseConnection(getApplicationContext());
 		
 		languageSelected = (TextView) findViewById(R.id.settingsActivity_TV_languageSelected);
 		languageSelected.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +79,10 @@ public class SettingsActivity extends MenuActivity {
 				changeAccount();
 			}
 		});
+		
+		String currentLanguage = dbc.getCurrentSelectedLanguage();
+		
+		languageSelected.setText(currentLanguage);
 	}
 	
 	private void changeLanguage() {
