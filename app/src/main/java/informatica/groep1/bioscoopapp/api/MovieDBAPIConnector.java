@@ -85,11 +85,12 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
 
             String title = "";
             String releaseDate = "";
+            String year = "";
             String rating = "";
-            String id = "";
+            int id = 0;
+            String backdrawImageURL = "";
             String posterURL = "";
-
-
+            String longDescription;
 
             for (int idx = 0; idx < results.length(); idx++) {
 
@@ -103,8 +104,10 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
 
                 if (productObject.has("release_date")) {
                     releaseDate = productObject.getString("release_date");
+                    String [] dateParts = releaseDate.split("-");
+                    year = dateParts[0];
                 } else {
-                    releaseDate = "Geen release date beschikbaar";
+                    year = "Geen release date beschikbaar";
                 }
 
                 if (productObject.has("vote_average")) {
@@ -114,45 +117,40 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
                 }
 
                 if (productObject.has("id")) {
-                    id = productObject.getString("id");
+                    id = productObject.getInt("id");
+                }
+
+                if (productObject.has("poster_path")) {
+                    posterURL = productObject.getString("poster_path");
                 } else {
-                    id = "Geen id beschikbaar";
+                    posterURL = "geen poster beschikbaar";
                 }
 
                 if (productObject.has("backdrop_path")) {
-                    posterURL = productObject.getString("backdrop_path");
+                    backdrawImageURL = productObject.getString("backdrop_path");
                 } else {
-                    posterURL = "Geen afbeelding beschikbaar";
+                    backdrawImageURL = "Geen afbeelding beschikbaar";
                 }
 
-                if (productObject.has("backdrop_path")) {
-                    posterURL = productObject.getString("backdrop_path");
+                if (productObject.has("overview")) {
+                    longDescription = productObject.getString("overview");
                 } else {
-                    posterURL = "Geen afbeelding beschikbaar";
-                }
-
-                if (productObject.has("backdrop_path")) {
-                    posterURL = productObject.getString("backdrop_path");
-                } else {
-                    posterURL = "Geen afbeelding beschikbaar";
+                    longDescription = "Geen overview beschikbaar";
                 }
 
                 Movie movie = new Movie(title);
                 movie.setRating(rating);
-                movie.setReleaseYear(releaseDate);
-                movie.setId(id);
-                movie.setBackDropImage(posterURL);
-
+                movie.setReleaseYear(year);
+                movie.setMovieID(id);
+                movie.setBackDropImage(backdrawImageURL);
+                movie.setPosterImage(posterURL);
+                movie.setLongDescription(longDescription);
 
                 listener.onMovieAvailable(movie);
             }
         } catch (JSONException e) {
             Log.e("ERROR", e.getLocalizedMessage());
         }
-    }
-
-    public interface MovieListener {
-        public void onMovieAvailable(Movie movie);
     }
 
 }

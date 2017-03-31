@@ -141,7 +141,7 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <com.devspark.robototextview.widget.RobotoTextView
-            android:id="@+id/textView2"
+            android:id="@+id/movieDetailedActivity_TV_genre_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"

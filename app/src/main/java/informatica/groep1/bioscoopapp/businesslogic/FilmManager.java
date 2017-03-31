@@ -6,6 +6,7 @@
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.util.Log;
+import android.view.View;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.Date;
 
 
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+import informatica.groep1.bioscoopapp.api.MovieDetailedAPIConnector;
+import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.API_KEY;
@@ -22,8 +25,10 @@ import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.TMDB_API_BA
 public class FilmManager {
 
 
-    MovieDBAPIConnector.MovieListener listener;
+    MovieListener listener;
     ArrayList<Movie> movies;
+    View mdView;
+
 
     public static final String TMDB_METHOD_SEARCH = "/search";
     public static final String TMDB_METHOD_DISCOVER = "/discover";
@@ -36,11 +41,17 @@ public class FilmManager {
     public static final String PARAM_SORT_BY_ADULT_FALSE = "&include_adult=false";
     public static final String PARAM_SORT_BY_VOTE = "&sort_by=vote_average.desc";
     public static final String PARAM_SORT_BY_TITLE = "&sort_by=original_title.asc";
+    public static final String PARAM_MOVIE_ID = "/";
 
 
-    public FilmManager(MovieDBAPIConnector.MovieListener listener) {
+    public FilmManager(MovieListener listener) {
         this.movies = new ArrayList<Movie>();
         this.listener = listener;
+    }
+
+    public FilmManager(MovieListener listener, View mdView) {
+        this(listener);
+        this.mdView = mdView;
     }
 
     public void findPopularMovies() {
@@ -109,6 +120,19 @@ public class FilmManager {
         String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_DISCOVER
                 + TMD_METHOD_MOVIE + API_KEY + PARAM_SORT_BY_TITLE
                 /*+ PARAM_SORT_BY_ADULT_FALSE*/};
+        connector.execute(urls);
+    }
+
+    public void findMovieDetails(String movieID) {
+
+        if(!movies.isEmpty()) {
+            movies.clear();
+        }
+
+        MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, mdView);
+        String[] urls = new String[] {TMDB_API_BASE
+                + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+                };
         connector.execute(urls);
     }
 
