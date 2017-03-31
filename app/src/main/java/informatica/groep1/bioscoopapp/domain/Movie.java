@@ -24,7 +24,7 @@ public class Movie implements Serializable {
 	private String posterImage;
     private int length;
     private String longDescription;
-    private String director;
+    private Director director;
     private boolean adult;
 
 	
@@ -45,7 +45,8 @@ public class Movie implements Serializable {
 
 	public Movie() {
         genres = new ArrayList<Genre>();
-    }
+		actors = new ArrayList<Actor>();
+	}
 	
 	//================================================================================
 	// Accessors
@@ -63,9 +64,9 @@ public class Movie implements Serializable {
 		return actors;
 	}
 	
-	public Actor getActor(String firstName, String lastName) {
+	public Actor getActor(String name) {
 		for (Actor a : actors) {
-			if ((a.getFirstName().equalsIgnoreCase(firstName)) && (a.getLastName().equalsIgnoreCase(lastName))) {
+			if (a.getName().equalsIgnoreCase(name)) {
 				return a;
 			}
 		}
@@ -96,11 +97,11 @@ public class Movie implements Serializable {
         return longDescription;
     }
 
-    public String getDirector() {
-        return director;
-    }
+	public Director getDirector() {
+		return director;
+	}
 
-    public boolean isAdult() {
+	public boolean isAdult() {
         return adult;
     }
 
@@ -133,11 +134,11 @@ public class Movie implements Serializable {
         this.longDescription = longDescription;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
+	public void setDirector(Director director) {
+		this.director = director;
+	}
 
-    public void setAdult(boolean adult) {
+	public void setAdult(boolean adult) {
         this.adult = adult;
     }
 
