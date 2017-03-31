@@ -79,7 +79,7 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
             spinner.setGravity(8);
             // Create an ArrayAdapter using the string array and a default spinner layout
             ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner,
-                    android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array_en));
+                    android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array));
                     /*ArrayAdapter.createFromResource(this,
                     R.array.movie_filter_array_en, android.R.layout.simple_spinner_item);*/
             // Specify the layout to use when the list of choices appears
