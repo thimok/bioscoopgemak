@@ -9,6 +9,8 @@ package informatica.groep1.bioscoopapp.data;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DatabaseConnection extends SQLiteAssetHelper {
@@ -40,14 +42,26 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		
 		String query = "SELECT Value FROM SETTINGS WHERE Key = 'language';";
 		Cursor c = db.rawQuery(query, null);
-		c.moveToFirst();
 		
-		String ret = "Default";
+		String ret = "Default Language";
 		
 		while (c.moveToNext()) {
 			ret = c.getString(c.getColumnIndex("Value"));
+			ret = ret.substring(0, 1).toUpperCase() + ret.substring(1).toLowerCase();
 		}
 		
+		db.close();
+		
 		return ret;
+	}
+	
+	public void changeLanguage(String language) {
+		Log.i("Database", "Change language: " + language);
+		SQLiteDatabase db = getWritableDatabase();
+		
+		String query = "UPDATE SETTINGS SET Value = '" + language.toLowerCase() + "' WHERE Key = 'language';";
+		db.execSQL(query);
+		
+		db.close();
 	}
 }

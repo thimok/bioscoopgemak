@@ -13,4 +13,10 @@
         <item>Rating</item>
     </string-array>
 
+    <string name="settings_language_choose_en">Choose language</string>
+    <string-array name="settings_language_array_en">
+        <item>English</item>
+        <item>Dutch</item>
+    </string-array>
+
 </resources>
