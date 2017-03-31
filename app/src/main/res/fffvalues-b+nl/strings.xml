@@ -1,9 +1,7 @@
 <resources>
-
     <string name="app_name">Bioscoop Gemak</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
-
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,6 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="textview">Login</string>
     <string name="LoginHint">Username</string>
+    <string name="LoginBtn">Login</string>
     <string name="title_activity_movie_detailed"> </string>
     <string name="title_activity_show_detailed">ShowDetailedActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
@@ -20,21 +19,22 @@
     <string name="nav_account">Account</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_info">Info</string>
+	<string name="language">Taal</string>
     <string-array name="movie_filter_array">
-        <item>Popular</item>
-        <item>Title</item>
-        <item>Date</item>
+        <item>Populair</item>
+        <item>Titel</item>
+        <item>Datum</item>
         <item>18+</item>
-        <item>Rating</item>
+        <item>Beoordeling</item>
     </string-array>
 
-    <string name="settings_language_choose">Choose language</string>
+    <string name="settings_language_choose">Kies je taal</string>
     <string-array name="settings_language_array">
-        <item>English</item>
-        <item>Dutch</item>
+        <item>Engels</item>
+        <item>Nederlands</item>
     </string-array>
-    <string name="language">Language</string>
-		<string name="large_text">
+	
+	<string name="large_text">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."

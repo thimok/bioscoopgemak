@@ -147,7 +147,11 @@
             android:layout_marginStart="16dp" />
 
         <com.devspark.robototextview.widget.RobotoTextView
+<<<<<<< HEAD
             android:id="@+id/movieDetailedActivity_TV_genreValue"
+=======
+            android:id="@+id/movieDetailedActivity_TV_genre_value"
+>>>>>>> a6ad2135e36f8efd38aa9cf39fed2a823f7d6656
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
