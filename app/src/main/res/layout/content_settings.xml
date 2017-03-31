@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="informatica.groep1.bioscoopapp.presentation.SettingsActivity"
+    tools:showIn="@layout/activity_settings">
+
+    <ImageView
+        android:id="@+id/settingsActivity_IV_languageIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_bookmark_white_36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/settingsActivity_TV_languageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/settingsActivity_IV_languageIcon"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/settingsActivity_IV_languageIcon"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:id="@+id/settingsActivity_TV_languageSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nederlands"
+        android:textColor="@android:color/background_light"
+        android:textSize="14dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/settingsActivity_TV_languageText"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/settingsActivity_TV_languageText"/>
+
+    <ImageView
+        android:id="@+id/settingsActivity_IV_accountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_account_white_36dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/settingsActivity_IV_languageIcon"/>
+
+    <TextView
+        android:id="@+id/settingsActivity_TV_accountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/settingsActivity_IV_accountIcon"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/settingsActivity_IV_accountIcon"
+        android:layout_marginLeft="8dp"/>
+
+</android.support.constraint.ConstraintLayout>
