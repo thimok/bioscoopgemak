@@ -131,6 +131,7 @@ public class SettingsActivity extends MenuActivity {
 		Log.i("Settings", "Language changed:" + lang);
 		
 		Locale locale = new Locale(lang);
+		Locale.setDefault(locale);
 		Resources res = getResources();
 		Configuration config = res.getConfiguration();
 		config.setLocale(locale);
