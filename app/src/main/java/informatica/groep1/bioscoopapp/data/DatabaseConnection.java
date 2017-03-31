@@ -42,7 +42,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		Cursor c = db.rawQuery(query, null);
 		c.moveToFirst();
 		
-		String ret = "Nederlands";
+		String ret = "Default";
 		
 		while (c.moveToNext()) {
 			ret = c.getString(c.getColumnIndex("Value"));
