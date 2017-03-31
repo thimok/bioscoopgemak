@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,9 +20,8 @@ import java.util.Locale;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
-import informatica.groep1.bioscoopapp.util.Language;
 
-public class SettingsActivity extends MenuActivity implements Language.LocaleChangeListener {
+public class SettingsActivity extends MenuActivity {
 	
 	//================================================================================
 	// Properties
@@ -90,8 +91,6 @@ public class SettingsActivity extends MenuActivity implements Language.LocaleCha
 		String currentLanguage = dbc.getCurrentSelectedLanguage();
 		
 		languageSelected.setText(currentLanguage);
-		
-		Language.addListener(this);
 	}
 	
 	private void changeLanguage() {
@@ -106,13 +105,13 @@ public class SettingsActivity extends MenuActivity implements Language.LocaleCha
 					case 0:
 						//English
 						dbc.changeLanguage("English");
-						Language.setLocale("eng");
+						setLanguage("eng");
 						break;
 					
 					case 1:
 						//Dutch
 						dbc.changeLanguage("Nederlands");
-						Language.setLocale("nl");
+						setLanguage("nl");
 						break;
 				}
 				
@@ -126,13 +125,19 @@ public class SettingsActivity extends MenuActivity implements Language.LocaleCha
 		Log.i("Settings", "Account selected");
 	}
 	
-	@Override
-	public void onLocaleChanged(Locale locale) {
-		Log.i("Settings", "Language changed.");
-//		Intent i = getIntent();
-//		i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//		finish();
-//		startActivity(i);
-		recreate();
+	public void setLanguage(String language) {
+		String lang = language;
+		
+		Log.i("Settings", "Language changed:" + lang);
+		
+		Locale locale = new Locale(lang);
+		Resources res = getResources();
+		Configuration config = res.getConfiguration();
+		config.setLocale(locale);
+		getApplicationContext().createConfigurationContext(config);
+		
+		Intent i = new Intent(getApplicationContext(), MovieActivity.class);
+		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(i);
 	}
 }
