@@ -1,7 +1,9 @@
 <resources>
+
     <string name="app_name">Bioscoop Gemak</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,7 +11,6 @@
     <string name="action_settings">Settings</string>
     <string name="textview">Login</string>
     <string name="LoginHint">Username</string>
-    <string name="LoginBtn">Login</string>
     <string name="title_activity_movie_detailed"> </string>
     <string name="title_activity_show_detailed">ShowDetailedActivity</string>
     <string name="large_text">

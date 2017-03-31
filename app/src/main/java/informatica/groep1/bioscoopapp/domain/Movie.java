@@ -20,9 +20,9 @@ public class Movie implements Serializable {
     private ArrayList<Genre> genres;
 	private String rating;
 	private String releaseYear;
-	private String id;
 	private String backDropImage;
-    private String length;
+	private String posterImage;
+    private int length;
     private String longDescription;
     private String director;
     private boolean adult;
@@ -42,6 +42,10 @@ public class Movie implements Serializable {
 	public Movie(String title) {
 		this.title = title;
 	}
+
+	public Movie() {
+        genres = new ArrayList<Genre>();
+    }
 	
 	//================================================================================
 	// Accessors
@@ -76,15 +80,15 @@ public class Movie implements Serializable {
 		return releaseYear;
 	}
 
-	public String getId() {
-		return id;
-	}
-
 	public String getBackDropImage() {
 		return backDropImage;
 	}
 
-    public String getLength() {
+	public String getPosterImage() {
+		return posterImage;
+	}
+
+	public int getLength() {
         return length;
     }
 
@@ -108,9 +112,6 @@ public class Movie implements Serializable {
 		this.title = title;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public void addActor(Actor actor) {
 		this.actors.add(actor);
@@ -124,7 +125,7 @@ public class Movie implements Serializable {
 		this.rating = rating;
 	}
 
-    public void setLength(String length) {
+    public void setLength(int length) {
         this.length = length;
     }
 
@@ -150,5 +151,9 @@ public class Movie implements Serializable {
 	
 	public void setBackDropImage(String backDropImage) {
 		this.backDropImage = backDropImage;
+	}
+
+	public void setPosterImage(String posterImage) {
+		this.posterImage = posterImage;
 	}
 }
