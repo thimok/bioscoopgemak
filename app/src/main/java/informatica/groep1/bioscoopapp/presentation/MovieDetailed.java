@@ -1,11 +1,16 @@
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +23,9 @@ import informatica.groep1.bioscoopapp.domain.Movie;
 public class MovieDetailed extends AppCompatActivity {
 	private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
 
-	private TextView test;
+    boolean previous = true;
+    private ImageView posterImage;
+    private Animation animationOut, animationIn;
 	private Movie movie;
 	
 	@Override
@@ -48,12 +55,47 @@ public class MovieDetailed extends AppCompatActivity {
 		TextView adult = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_adultAge);
 		TextView length = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_movieLength);
 		ImageView headerImage = (ImageView) findViewById(R.id.movieDetailedActivity_IV_headerImage);
+        posterImage = (ImageView) findViewById(R.id.movieDetailedActivity_IV_posterImage);
+
+        AppBarLayout CollapseToolBar = (AppBarLayout) findViewById(R.id.app_bar);
+
+        animationOut = AnimationUtils.loadAnimation(this, R.anim.movie_poster_out);
+        animationIn = AnimationUtils.loadAnimation(this, R.anim.movie_poster_in);
 
 		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
 		releasedate.setText(movie.getReleaseYear());
 		title.setText(movie.getTitle());
 		rating.setText(movie.getRating());
 
+        CollapseToolBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                //  Vertical offset == 0 indicates appBar is fully expanded.
+                if (Math.abs(verticalOffset) > 200) {
+                    updateBoolean(false);
+                } else {
+                    updateBoolean(true);
+                }
+            }
+        });
+
 	}
+
+    private void updateBoolean(boolean expanded) {
+
+        if (expanded != previous) {
+
+            if(expanded) {
+                Log.i("test", "Animatie 2 gestart");
+                posterImage.startAnimation(animationIn);
+                this.previous = true;
+            } else {
+                posterImage.startAnimation(animationOut);
+                Log.i("test", "Animatie gestart");
+                this.previous = false;
+            }
+
+        }
+    }
 	
 }
