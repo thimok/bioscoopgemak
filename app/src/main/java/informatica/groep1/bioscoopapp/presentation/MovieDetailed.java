@@ -104,8 +104,12 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 
 		fManager = new FilmManager(this, thisView);
 		fManager.findMovieDetails("" + movie.getMovieID());
-
-
+		
+		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
+		releasedate.setText(movie.getReleaseYear());
+		title.setText(movie.getTitle());
+		rating.setText(movie.getRating());
+		
         CollapseToolBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -117,7 +121,11 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
                 }
             }
         });
+		
+		thisView = this.findViewById(android.R.id.content);
 
+		fManager = new FilmManager(this, thisView);
+		fManager.findMovieDetails("" + movie.getMovieID());
 	}
 
 	@Override
@@ -127,6 +135,9 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 			ActorListAdapter aa = new ActorListAdapter(this, getLayoutInflater(), actors);
 			actorList.setAdapter(aa);
 		}
+		/*fManager.addMovies(movie);
+		movieListAdapter.notifyDataSetChanged();
+		Log.i("API resultaat", movie.getTitle());*/
 	}
 
     private void updateBoolean(boolean expanded) {
