@@ -159,8 +159,8 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             TextView adultTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_adultAge);
             TextView lengthTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_movieLength);
             TextView genre = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_genreValue);
+            TextView directorName = (RobotoTextView) mdView.findViewById(R.id.detailedMovieActivity_TV_directorName);
 
-//            Initiate textviews for director here and pass dID and dName to the textviews.
 
             if(adult) {
                 adultTV.setText("18+");
@@ -170,9 +170,12 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
 
             lengthTV.setText("" + length + " min");
             genre.setText(builder.toString());
+            directorName.setText(dName);
 
             movie.setMovieID(mID);
             movie.setDirector(new Director(dID, dName));
+
+
 
             listener.onMovieAvailable(movie);
 

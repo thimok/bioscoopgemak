@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="informatica.groep1.bioscoopapp.presentation.MovieDetailed"
@@ -18,201 +18,227 @@
             android:id="@+id/movieDetailedActivity_TV_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:layout_marginLeft="134dp"
             android:layout_marginRight="16dp"
+            android:layout_marginStart="134dp"
             android:layout_marginTop="16dp"
             android:text="2016"
             android:textColor="@color/colorWhiteSecondary"
             android:textSize="12sp"
+            app:fontFamily="roboto"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:fontFamily="roboto"
-            app:textAllCaps="true"
-            app:textWeight="light"
-            android:layout_marginStart="134dp"
-            android:layout_marginEnd="16dp" />
+            app:textAllCaps="true" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:layout_marginLeft="134dp"
             android:layout_marginRight="16dp"
+            android:layout_marginStart="134dp"
             android:text="assassin's creed"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
             app:fontFamily="roboto"
-            app:textWeight="medium"
-            app:textAllCaps="true"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_date"
-            android:layout_marginStart="134dp"
-            android:layout_marginEnd="16dp" />
+            app:textAllCaps="true"
+            app:textWeight="medium" />
 
-        <ImageView
-            android:id="@+id/movieDetailedActivity_IV_rating"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/movieDetailedActivity_subinfoContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_white_18dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
             android:layout_marginLeft="134dp"
-            android:alpha="0.6"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            android:layout_marginStart="134dp" />
+            android:layout_marginStart="134dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintLeft_toLeftOf="parent">
 
-        <com.devspark.robototextview.widget.RobotoTextView
-            android:id="@+id/movieDetailedActivity_TV_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="18dp"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="4dp"
-            android:text="8.9"
-            android:textSize="12sp"
-            android:textColor="@color/colorWhiteSecondary"
-            app:fontFamily="roboto"
-            app:textAllCaps="true"
-            app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_IV_rating"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            android:layout_marginStart="4dp" />
+            <ImageView
+                android:id="@+id/movieDetailedActivity_IV_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                app:srcCompat="@drawable/ic_star_white_18dp" />
 
-        <ImageView
-            android:id="@+id/movieDetailedActivity_IV_adultAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="false"
-            android:alpha="0.6"
-            app:srcCompat="@drawable/ic_account_star_white_18dp"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_TV_rating"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" />
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/movieDetailedActivity_TV_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center_vertical"
+                android:text="8.9"
+                android:textColor="@color/colorWhiteSecondary"
+                android:textSize="12sp"
+                app:fontFamily="roboto"
+                app:textAllCaps="true" />
 
-        <com.devspark.robototextview.widget.RobotoTextView
-            android:id="@+id/movieDetailedActivity_TV_adultAge"
-            android:layout_width="wrap_content"
-            android:layout_height="18dp"
-            android:text="18+"
-            android:textColor="@color/colorWhiteSecondary"
-            android:gravity="center_vertical"
-            android:textSize="12sp"
-            app:fontFamily="roboto"
-            app:textAllCaps="true"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_IV_adultAge"
-            android:layout_marginLeft="4dp"
-            android:layout_marginStart="4dp" />
+            <ImageView
+                android:id="@+id/movieDetailedActivity_IV_adultAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:adjustViewBounds="false"
+                android:alpha="0.6"
+                app:srcCompat="@drawable/ic_account_star_white_18dp" />
 
-        <ImageView
-            android:id="@+id/movieDetailedActivity_IV_movieLength"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_clock_white_18dp"
-            android:alpha="0.6"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_TV_adultAge"
-            android:layout_marginStart="8dp" />
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/movieDetailedActivity_TV_adultAge"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center_vertical"
+                android:text="18+"
+                android:textColor="@color/colorWhiteSecondary"
+                android:textSize="12sp"
+                app:fontFamily="roboto"
+                app:textAllCaps="true" />
 
-        <com.devspark.robototextview.widget.RobotoTextView
-            android:id="@+id/movieDetailedActivity_TV_movieLength"
-            android:layout_width="wrap_content"
-            android:layout_height="18dp"
-            android:text="1h 22m"
-            android:textColor="@color/colorWhiteSecondary"
-            android:gravity="center_vertical"
-            app:fontFamily="roboto"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_IV_movieLength"
-            android:layout_marginLeft="4dp"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_title"
-            android:layout_marginStart="4dp" />
+            <ImageView
+                android:id="@+id/movieDetailedActivity_IV_movieLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:alpha="0.6"
+                app:srcCompat="@drawable/ic_clock_white_18dp" />
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/movieDetailedActivity_TV_movieLength"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center_vertical"
+                android:text="1h 22m"
+                android:textColor="@color/colorWhiteSecondary"
+                android:textSize="12sp"
+                app:fontFamily="roboto" />
+        </LinearLayout>
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="Genre:"
-            android:layout_marginTop="24dp"
-            android:textColor="@color/colorAccent"
             android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
             android:textSize="12sp"
             app:fontFamily="roboto"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_IV_rating"
-            android:layout_marginLeft="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_subinfoContainer" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_genreValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
             android:textColor="@color/colorWhiteSecondary"
             android:textSize="12sp"
             app:fontFamily="roboto"
             app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_TV_genre"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_IV_rating"
-            android:layout_marginStart="4dp" />
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_subinfoContainer" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:text="TextView"
-            android:layout_marginTop="16dp"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
             app:fontFamily="roboto"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_genre"
-            android:layout_marginLeft="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="16dp" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_genre" />
 
         <View
             android:id="@+id/movieDetailedActivity_divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
+            android:layout_marginTop="16dp"
             android:background="@color/colorWhiteDisabled"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_description"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_description" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_directorsHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/directed_by"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/colorAccent"
+            android:text="@string/directed_by"
             android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
             android:textSize="12sp"
             app:fontFamily="roboto"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_divider"
-            android:layout_marginLeft="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_divider" />
 
-        <ListView
-            android:id="@+id/movieDetailedActivity_LV_directors"
-            android:layout_width="0dp"
-            android:layout_height="6dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/detailedMovieActivity_IV_directorImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:src="@drawable/placeholder_user"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_directorsHeader"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:layout_marginStart="16dp" />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/detailedMovieActivity_TV_directorName"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:fontFamily="roboto"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/detailedMovieActivity_IV_directorImage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_directorsHeader"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp" />
 
         <com.devspark.robototextview.widget.RobotoTextView
             android:id="@+id/movieDetailedActivity_TV_castHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
             android:text="@string/cast"
             android:textAllCaps="true"
@@ -220,17 +246,16 @@
             android:textSize="12sp"
             app:fontFamily="roboto"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_LV_directors"
-            android:layout_marginStart="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/detailedMovieActivity_IV_directorImage" />
 
         <ListView
             android:id="@+id/movieDetailedActivity_LV_cast"
             android:layout_width="0dp"
+            android:layout_height="276dp"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_castHeader"
-            android:layout_height="0dp" />
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_castHeader" />
 
         <Button
             android:id="@+id/movieDetailedActivity_BTN_showCC"
@@ -248,17 +273,13 @@
             android:id="@+id/movieDetailedActivity_IV_bottomBarBackground"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_BTN_showCC"
-            app:srcCompat="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginBottom="0dp"
-            app:layout_constraintVertical_bias="1.0" />
+            app:srcCompat="@color/colorPrimary" />
 
         <ImageButton
             android:id="@+id/movieDetailedActivity_IB_bottomBarFavorite"
@@ -267,13 +288,15 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
             app:layout_constraintLeft_toLeftOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
             app:layout_constraintRight_toLeftOf="@+id/movieDetailedActivity_IB_bottomBarBookmark"
-            app:srcCompat="@drawable/ic_heart_outline_white_24dp"
             app:layout_constraintTop_toTopOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
-            android:layout_marginTop="8dp" />
+            app:srcCompat="@drawable/ic_heart_outline_white_24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <ImageButton
             android:id="@+id/movieDetailedActivity_IB_bottomBarBookmark"
@@ -282,15 +305,17 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
             app:layout_constraintLeft_toRightOf="@+id/movieDetailedActivity_IB_bottomBarFavorite"
             app:layout_constraintRight_toRightOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
-            app:srcCompat="@drawable/ic_bookmark_outline_white_24dp"
             app:layout_constraintTop_toTopOf="@+id/movieDetailedActivity_IV_bottomBarBackground"
-            android:layout_marginTop="8dp" />
+            app:srcCompat="@drawable/ic_bookmark_outline_white_24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
     </android.support.constraint.ConstraintLayout>
 
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
