@@ -7,12 +7,12 @@
     android:background="@color/colorBackground">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/detailedMovieActivity_IV_directorImage"
+        android:id="@+id/detailedMovieActivity_IV_ActorImage"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/placeholder_user"
         app:civ_border_color="#FF000000"
         app:civ_border_width="0dp"
@@ -21,10 +21,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.devspark.robototextview.widget.RobotoTextView
-        android:id="@+id/detailedMovieActivity_TV_directorName"
-        android:layout_width="wrap_content"
+        android:id="@+id/detailedMovieActivity_TV_actorName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
@@ -34,9 +34,30 @@
         app:fontFamily="roboto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/detailedMovieActivity_IV_directorImage"
+        app:layout_constraintLeft_toRightOf="@+id/detailedMovieActivity_IV_ActorImage"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/detailedMovieActivity_TV_roleName"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/detailedMovieActivity_TV_roleName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:text="TextView"
+        android:textColor="@color/colorWhiteSecondary"
+        android:textSize="11sp"
+        app:fontFamily="roboto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/detailedMovieActivity_IV_ActorImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailedMovieActivity_TV_actorName"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </android.support.constraint.ConstraintLayout>
