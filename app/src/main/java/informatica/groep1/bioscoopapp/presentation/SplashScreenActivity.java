@@ -8,11 +8,14 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.util.LanguageManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		LanguageManager.setApplicationLocale(getApplicationContext(), LanguageManager.getLocale(getApplicationContext()));
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
 		

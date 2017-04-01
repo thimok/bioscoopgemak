@@ -105,7 +105,7 @@ public class SettingsActivity extends MenuActivity {
 					case 0:
 						//English
 						dbc.changeLanguage("English");
-						setLanguage("eng");
+						setLanguage("en");
 						break;
 					
 					case 1:
