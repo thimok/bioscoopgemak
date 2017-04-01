@@ -16,4 +16,22 @@
     <string name="password">Wachtwoord</string>
     <string name="settings_language_choose">Kies taal</string>
     <string name="textview">Inloggen</string>
+    <string-array name="movie_filter_array">
+        <item>Populair</item>
+        <item>Titel</item>
+        <item>Recent</item>
+        <item>18+</item>
+        <item>Beoordeling</item>
+    </string-array>
+
+    <string name="popular">Populair</string>
+    <string name="title">Titel</string>
+    <string name="recent">Recent</string>
+    <string name="adult">18+</string>
+    <string name="rating">Beoordeling</string>
+    <string name="placeholder_activity_movie_detailed_length" translatable="false">duur niet beschikbaar</string>
+    <string name="placeholder_activity_movie_detailed_genres">Geen genres gevonden</string>
+    <string name="placeholder_activity_movie_detailed_director">Director was niet gevonden</string>
+
+
 </resources>

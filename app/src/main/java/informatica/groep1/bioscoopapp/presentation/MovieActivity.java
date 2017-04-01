@@ -75,23 +75,22 @@ public class MovieActivity extends MenuActivity implements MovieListener {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     String filter = spinner.getSelectedItem().toString();
+                    String sPopular = getResources().getString(R.string.popular);
+                    String sRecent = getResources().getString(R.string.recent);
+                    String sAdult = getResources().getString(R.string.adult);
+                    String sRating = getResources().getString(R.string.rating);
+                    String sTitle = getResources().getString(R.string.title);
 
-                    switch (filter) {
-                        case "Popular":
-                            fManager.findPopularMovies();
-                            break;
-                        case "Date":
-                            fManager.findRecentMovies();
-                            break;
-                        case "18+":
-                            fManager.findAdultMovies();
-                            break;
-                        case "Rating":
-                            fManager.findRatedMovies();
-                            break;
-                        case "Title":
-                            fManager.findMoviesByTitle();
-                            break;
+                    if (filter.equals(sPopular)) {
+                        fManager.findPopularMovies();
+                    } else if (filter.equals(sRecent)) {
+                        fManager.findRecentMovies();
+                    } else if (filter.equals(sAdult)) {
+                        fManager.findAdultMovies();
+                    } else if (filter.equals(sRating)) {
+                        fManager.findRatedMovies();
+                    }  else if (filter.equals(sTitle)) {
+                        fManager.findMoviesByTitle();
                     }
 
                     Log.i("Selected item : ", filter);

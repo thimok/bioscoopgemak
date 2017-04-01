@@ -71,7 +71,7 @@ public class ActorListAdapter extends BaseAdapter{
 
         viewHolder.name.setText(actor.getName());
         viewHolder.role.setText(actor.getCharacter());
-        //Picasso.with(context).load(actor.getImageUrl()).into(viewHolder.image);
+        Picasso.with(context).load(actor.getImageUrl()).into(viewHolder.image);
 
         return convertView;
     }

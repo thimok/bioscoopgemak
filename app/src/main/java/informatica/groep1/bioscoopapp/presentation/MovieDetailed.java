@@ -134,10 +134,12 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 			ArrayList<Actor> actors = movie.getActors();
 			ActorListAdapter aa = new ActorListAdapter(this, getLayoutInflater(), actors);
 			actorList.setAdapter(aa);
+
+            ImageView directorImage = (ImageView) findViewById(R.id.detailedMovieActivity_IV_directorImage);
+            String directorImageURL = movie.getDirector().getImageUrl();
+
+            Picasso.with(getApplicationContext()).load(directorImageURL).into(directorImage);
 		}
-		/*fManager.addMovies(movie);
-		movieListAdapter.notifyDataSetChanged();
-		Log.i("API resultaat", movie.getTitle());*/
 	}
 
     private void updateBoolean(boolean expanded) {

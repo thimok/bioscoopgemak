@@ -22,13 +22,20 @@
     <string name="nav_info">Info</string>
     <string name="directed_by">Directed by</string>
     <string name="cast">Cast</string>
+
     <string-array name="movie_filter_array">
         <item>Popular</item>
         <item>Title</item>
-        <item>Date</item>
+        <item>Recent</item>
         <item>18+</item>
-        <item>Rating</item>
+        <item>Rated</item>
     </string-array>
+
+    <string name="popular">Popular</string>
+    <string name="title">Title</string>
+    <string name="recent">Recent</string>
+    <string name="adult">18+</string>
+    <string name="rating">Rated</string>
 
     <string name="settings_language_choose">Choose language</string>
     <string-array name="settings_language_array">
@@ -125,4 +132,7 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="placeholder_activity_movie_detailed_length">length not available</string>
+    <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
+    <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
 </resources>
