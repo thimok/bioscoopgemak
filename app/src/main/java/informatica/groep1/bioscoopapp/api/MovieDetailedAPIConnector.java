@@ -158,7 +158,7 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
 
             TextView adultTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_adultAge);
             TextView lengthTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_movieLength);
-            TextView genre = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_genre_value);
+            TextView genre = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_genreValue);
 
 //            Initiate textviews for director here and pass dID and dName to the textviews.
 

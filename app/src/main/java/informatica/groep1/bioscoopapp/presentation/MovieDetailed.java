@@ -75,8 +75,7 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 		releasedate.setText(movie.getReleaseYear());
 		title.setText(movie.getTitle());
 		rating.setText(movie.getRating());
-
-<<<<<<< HEAD
+		
         CollapseToolBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -88,8 +87,7 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
                 }
             }
         });
-
-=======
+		
 		thisView = this.findViewById(android.R.id.content);
 
 		fManager = new FilmManager(this, thisView);
@@ -113,7 +111,6 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 		/*fManager.addMovies(movie);
 		movieListAdapter.notifyDataSetChanged();
 		Log.i("API resultaat", movie.getTitle());*/
->>>>>>> a6ad2135e36f8efd38aa9cf39fed2a823f7d6656
 	}
 
     private void updateBoolean(boolean expanded) {

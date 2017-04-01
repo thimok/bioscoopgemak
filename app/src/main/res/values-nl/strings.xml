@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="language">Taal</string>
+    <string name="cast">Rolverdeling</string>
+    <string name="directed_by">Geregiseerd door</string>
+    <string name="app_name">Bioscoop Gemak</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="LoginHint">Gebruikersnaam</string>
+    <string name="nav_account">Account</string>
+    <string name="nav_info">Info</string>
+    <string name="nav_movies">Films</string>
+    <string name="nav_schedule">Planning</string>
+    <string name="nav_settings">Instellingen</string>
+    <string name="navigation_drawer_close">Open menu</string>
+    <string name="navigation_drawer_open">Sluit menu</string>
+    <string name="password">Wachtwoord</string>
+    <string name="settings_language_choose">Kies taal</string>
+    <string name="textview">Inloggen</string>
 </resources>
