@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +16,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
+
+import static android.R.style.Theme_DeviceDefault_Dialog_Alert;
 
 public class SettingsActivity extends MenuActivity {
 	
@@ -28,12 +32,6 @@ public class SettingsActivity extends MenuActivity {
 	//================================================================================
 	
 	private TextView languageSelected;
-	private TextView languageChoose;
-	private ImageView languageIcon;
-	
-	private TextView accountText;
-	private ImageView accountIcon;
-	
 	private DatabaseConnection dbc;
 	
 	@Override
@@ -47,57 +45,34 @@ public class SettingsActivity extends MenuActivity {
 		super.onCreateDrawer(toolbar, this);
 		
 		dbc = new DatabaseConnection(getApplicationContext());
-		
-		languageSelected = (TextView) findViewById(R.id.settingsActivity_TV_languageSelected);
-		languageSelected.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeLanguage();
-			}
-		});
-		
-		languageChoose = (TextView) findViewById(R.id.settingsActivity_TV_languageText);
-		languageChoose.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeLanguage();
-			}
-		});
-		
-		languageIcon = (ImageView) findViewById(R.id.settingsActivity_IV_languageIcon);
-		languageIcon.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeLanguage();
-			}
-		});
-		
-		accountText = (TextView) findViewById(R.id.settingsActivity_TV_accountText);
-		accountText.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeAccount();
-			}
-		});
-		
-		accountIcon = (ImageView) findViewById(R.id.settingsActivity_IV_accountIcon);
-		accountIcon.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeAccount();
-			}
-		});
-		
 		String currentLanguage = dbc.getCurrentSelectedLanguage();
 		
+		languageSelected = (TextView) findViewById(R.id.settingsActivity_TV_languageSelected);
+		ConstraintLayout languageOption = (ConstraintLayout) findViewById(R.id.settingsActivity_L_languageSetting);
+		ConstraintLayout accountOption = (ConstraintLayout) findViewById(R.id.settingsActivity_L_accountSetting);
+
+		languageOption.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeLanguage();
+			}
+		});
+		accountOption.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeAccount();
+			}
+		});
+
 		languageSelected.setText(currentLanguage);
 	}
 	
 	private void changeLanguage() {
 		Log.i("Settings", "Language selected");
 		
-		AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+		AlertDialog.Builder builder = new AlertDialog.Builder(this, Theme_DeviceDefault_Dialog_Alert);
 		builder.setTitle(R.string.settings_language_choose);
+		builder.setIcon(R.drawable.ic_language_white_24dp);
 		builder.setItems(R.array.settings_language_array, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -122,9 +97,10 @@ public class SettingsActivity extends MenuActivity {
 	}
 	
 	private void changeAccount() {
-		Log.i("Settings", "Account selected");
+		Toast toast = Toast.makeText(getApplicationContext(), "Function not implemented", Toast.LENGTH_SHORT);
+		toast.show();
 	}
-	
+
 	public void setLanguage(String language) {
 		String lang = language;
 		
