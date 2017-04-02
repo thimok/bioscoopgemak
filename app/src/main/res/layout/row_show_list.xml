@@ -3,15 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/TitleText"
+    <TextView
+        android:id="@+id/movieShowText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+
+        android:text="MovieName"/>
 
     <ListView
         android:layout_width="match_parent"
+        android:id="@+id/timeListView"
         android:layout_height="wrap_content" />
 </LinearLayout>

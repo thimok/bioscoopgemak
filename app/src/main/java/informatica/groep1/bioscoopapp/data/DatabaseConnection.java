@@ -20,10 +20,10 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 
 
     // Hier de CRUD methoden
-    public Cursor getMovies() {
+    public Cursor getShowNames() {
         SQLiteDatabase db = getReadableDatabase();
 
-        String query = "SELECT * FROM MOVIE";
+        String query = "SELECT * FROM shows";
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
         db.close();

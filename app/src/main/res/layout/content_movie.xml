@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="informatica.groep1.bioscoopapp.presentation.MovieActivity"
-    tools:showIn="@layout/activity_movie">
+    tools:showIn="@layout/activity_movie"
+    android:background="@color/colorBackground">
 
     <ListView
         android:id="@+id/movieActivity_LV_movieListview"

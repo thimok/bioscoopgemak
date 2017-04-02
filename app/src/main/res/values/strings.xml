@@ -10,7 +10,15 @@
     <string name="textview">Login</string>
     <string name="LoginHint">Username</string>
     <string name="LoginBtn">Login</string>
+
     <string name="title_activity_movie_detailed">MovieDetailed</string>
+
     <string name="title_activity_show">ShowActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+
+    <string name="gen_placeholder">All</string>
+
+
+
 </resources>

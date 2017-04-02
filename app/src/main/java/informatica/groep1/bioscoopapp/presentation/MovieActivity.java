@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -17,7 +18,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+
+import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -40,25 +45,22 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
         setContentView(R.layout.activity_movie);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         super.onCreateDrawer(toolbar, this);
 
+
+
         fManager = new FilmManager(this);
-        fManager.findPopularMovies();
+        //fManager.findPopularMovies();
 
         listview = (ListView) findViewById(R.id.movieActivity_LV_movieListview);
-        movieListAdapter = new MovieListAdapter(this, fManager.getMovieList());
+        movieListAdapter = new MovieListAdapter(this, getLayoutInflater(), fManager.getMovieList());
         listview.setAdapter(movieListAdapter);
 
-	    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-		    @Override
-		    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			    Log.i("MovieActivity", "Clicked item");
-			    Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
-			    i.putExtra("movie", fManager.getMovieList().get(position));
-			    startActivity(i);
-		    }
-	    });
     }
+
+
+
 
 
     @Override
@@ -72,8 +74,80 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
 
-        MenuItem item = menu.findItem(R.id.action_search);
+        MenuItem spinnerItem = menu.findItem(R.id.spinner);
 
+        View view = spinnerItem.getActionView();
+
+        if(view instanceof Spinner) {
+            final Spinner spinner = (Spinner) view;
+            spinner.setGravity(8);
+            // Create an ArrayAdapter using the string array and a default spinner layout
+            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner,
+                    android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array_en));
+                    /*ArrayAdapter.createFromResource(this,
+                    R.array.movie_filter_array_en, android.R.layout.simple_spinner_item);*/
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    /*String filterString[] = getResources().getStringArray(R.array.movie_filter_array_en);
+
+                    if(filterString[position].equals("Popular")) {
+                        fManager.findPopularMovies();
+                    }
+
+                    if(filterString[position].equals("Recent")) {
+                        fManager.findRecentMovies();
+                    }
+
+                    if(filterString[position].equals("18+")) {
+                        fManager.findAdultMovies();
+                    }
+
+                    if(filterString[position].equals("Rating")) {
+                        fManager.findRatedMovies();
+                    }
+
+                    if(filterString[position].equals("Title")) {
+                        fManager.findMoviesByTitle();
+                    }*/
+                    String filter = spinner.getSelectedItem().toString();
+
+                    switch (filter) {
+                        case "Popular":
+                            fManager.findPopularMovies();
+                            break;
+                        case "Date":
+                            fManager.findRecentMovies();
+                            break;
+                        case "18+":
+                            fManager.findAdultMovies();
+                            break;
+                        case "Rating":
+                            fManager.findRatedMovies();
+                            break;
+                        case "Title":
+                            fManager.findMoviesByTitle();
+                            break;
+                    }
+
+
+                    Log.i("Selected item : ", filter);
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    return;
+                }
+            });
+        }
+
+
+        MenuItem itemSearch = menu.findItem(R.id.action_search);
 
         MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
@@ -102,9 +176,10 @@ public class MovieActivity extends MenuActivity implements MovieDBAPIConnector.M
             }
         });
 
-        searchView.setMenuItem(item);
+        searchView.setMenuItem(itemSearch);
 
-        return true;
+        return super.onCreateOptionsMenu(menu);
+//        return true;
     }
 	
 	

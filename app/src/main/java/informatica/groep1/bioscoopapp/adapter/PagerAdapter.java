@@ -1,0 +1,74 @@
+package informatica.groep1.bioscoopapp.adapter;
+
+import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
+
+import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.presentation.ShowTab1;
+import informatica.groep1.bioscoopapp.presentation.ShowTab2;
+import informatica.groep1.bioscoopapp.presentation.ShowTab3;
+
+/**
+ * Created by lukab on 30-3-2017.
+ */
+
+public class PagerAdapter extends FragmentPagerAdapter {
+    int mNumOfTabs;
+
+    public PagerAdapter(FragmentManager fm, int mNumOfTabs) {
+        super(fm);
+        this.mNumOfTabs = mNumOfTabs;
+
+    }
+
+
+    @Override
+    public int getCount() {
+        return mNumOfTabs;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+
+        switch (position) {
+            case 0:
+                ShowTab1 tab1 = new ShowTab1();
+                return tab1;
+            case 1:
+                ShowTab2 tab2 = new ShowTab2();
+                return tab2;
+
+            case 2:
+                ShowTab3 tab3 = new ShowTab3();
+                return tab3;
+
+            default:
+                return null;
+
+        }
+
+    }
+
+    public CharSequence getPageTitle(int position){
+
+        switch (position) {
+            case 0:
+                return "Vandaag";
+            case 1:
+                return  "Morgen";
+            case 2:
+                return "Week";
+
+            default:
+                return null;
+        }
+    }
+
+
+
+
+}

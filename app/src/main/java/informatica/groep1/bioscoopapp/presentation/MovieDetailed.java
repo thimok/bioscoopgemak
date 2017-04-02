@@ -25,7 +25,7 @@ public class MovieDetailed extends AppCompatActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		Bundle extras = getIntent().getExtras();
-		movie = (Movie) extras.getSerializable("movie");
+		movie = (Movie) extras.getSerializable("Movie");
 		
 		test = (TextView) findViewById(R.id.activityDetailed_TV_test);
 		test.setText(movie.getTitle());
