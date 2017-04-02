@@ -8,6 +8,8 @@ package informatica.groep1.bioscoopapp.businesslogic;
 import android.util.Log;
 import android.view.View;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,6 +46,7 @@ public class FilmManager {
     public static final String PARAM_MOVIE_ID = "/";
     public static final String PARAM_APPEND_TO_RESPONSE = "&append_to_response=";
     public static final String PARAM_APPEND_CREDITS = "credits";
+    public static final String PARAM_QUERY = "&query=";
 
 
 
@@ -137,6 +140,29 @@ public class FilmManager {
                 + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
                 + PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
                 };
+        connector.execute(urls);
+    }
+
+    public void findMovieByQuery(String query) {
+
+        if(!movies.isEmpty()) {
+            movies.clear();
+        }
+
+        String encodedString;
+
+        try {
+            encodedString = URLEncoder.encode(query, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            encodedString = "";
+        }
+
+        MovieDBAPIConnector connector = new MovieDBAPIConnector(listener);
+        String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_SEARCH
+                + TMD_METHOD_MOVIE + API_KEY
+                + PARAM_QUERY + encodedString
+        };
         connector.execute(urls);
     }
 
