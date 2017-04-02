@@ -111,8 +111,8 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Do some magic
-                return false;
+                fManager.findMovieByQuery(query);
+                return true;
             }
 
             @Override
