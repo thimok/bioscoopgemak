@@ -15,14 +15,16 @@ public class Actor {
 	private String name;
 	private String character;
 	private String imageUrl;
+	private static final String TMDB_ACTOR_IMAGE_URL = "http://image.tmdb.org/t/p/w45";
 
 	//================================================================================
 	// Constructors
 	//================================================================================
-	public Actor( String name, int actorID, String character) {
+	public Actor( String name, int actorID, String character, String imageUrl) {
 		this.name = name;
 		this.actorID = actorID;
 		this.character = character;
+        this.imageUrl = TMDB_ACTOR_IMAGE_URL + imageUrl;
 	}
 
 	public Actor(int actorID, String name, String imageUrl) {
@@ -68,7 +70,7 @@ public class Actor {
 	}
 
 	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+		this.imageUrl = TMDB_ACTOR_IMAGE_URL + imageUrl;
 	}
 
 	public void setActorID(int actorID) {
