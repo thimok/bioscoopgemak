@@ -47,7 +47,6 @@ public class MovieActivity extends MenuActivity implements MovieListener {
     public void onMovieAvailable(Movie movie) {
         fManager.addMovies(movie);
         movieListAdapter.notifyDataSetChanged();
-        Log.i("API resultaat", movie.getTitle());
     }
 
     @Override
