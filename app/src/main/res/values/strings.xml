@@ -1,8 +1,8 @@
 <resources>
 
     <string name="app_name">Bioscoop Gemak</string>
-    <string name="title_activity_movie" translatable="false">MovieActivity</string>
-    <string name="title_activity_menu" translatable="false">MenuActivity</string>
+    <string name="title_activity_movie">Movies</string>
+    <string name="title_activity_menu" translatable="false">Menu</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -13,8 +13,13 @@
     <string name="LoginHint">Username</string>
     <string name="title_activity_movie_detailed" translatable="false"> </string>
     <string name="title_activity_show_detailed" translatable="false"> </string>
+<<<<<<< HEAD
     <string name="title_activity_settings" translatable="false">SettingsActivity</string>
     <string name="password">Password</string>
+=======
+    <string name="title_activity_settings" translatable="false">Settings</string>
+	<string name="password">Password</string>
+>>>>>>> a8f94c18d8554ed28f48698878cbb08ed7037e9f
     <string name="nav_movies">Movies</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_account">Account</string>
@@ -132,6 +137,8 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_account" translatable="false">Account</string>
+    <string name="section_format">Hello World from section: %1$d</string>
     <string name="placeholder_activity_movie_detailed_length">length not available</string>
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>

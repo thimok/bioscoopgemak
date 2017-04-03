@@ -52,6 +52,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="informatica.groep1.bioscoopapp.presentation.ShowDetailedActivity" />
         </activity>
+        <activity
+            android:name=".presentation.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
