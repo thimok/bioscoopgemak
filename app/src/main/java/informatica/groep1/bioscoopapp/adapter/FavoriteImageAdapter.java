@@ -25,13 +25,13 @@ import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.domain.Ticket;
 
-public class HistoryImageAdapter extends ArrayAdapter<Movie> {
+public class FavoriteImageAdapter extends ArrayAdapter<Movie> {
 	
 	//================================================================================
 	// Constructors
 	//================================================================================
 	
-	public HistoryImageAdapter(Context context, ArrayList<Movie> movies) {
+	public FavoriteImageAdapter(Context context, ArrayList<Movie> movies) {
 		super(context, 0, movies);
 	}
 	
