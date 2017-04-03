@@ -55,7 +55,6 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner, android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array));
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getSupportActionBar().getThemedContext(), R.array.movie_filter_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
