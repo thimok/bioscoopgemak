@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation.fragment;
 
 import android.support.v4.app.Fragment;
