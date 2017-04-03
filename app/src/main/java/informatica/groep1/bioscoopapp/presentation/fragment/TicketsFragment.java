@@ -45,7 +45,7 @@ public class TicketsFragment extends Fragment {
 		
 		ticketManager = new TicketManager();
 		
-		ticketManager.demo();
+		ticketManager.generate();
 		
 		arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
 		

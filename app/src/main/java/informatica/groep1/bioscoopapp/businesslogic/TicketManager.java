@@ -38,6 +38,10 @@ public class TicketManager {
 	// Mutators
 	//================================================================================
 	
+	public void generate() {
+		demo();
+	}
+	
 	public void demo() {
 		Movie m1 = new Movie(1, "Test", "8.9", "2017");
 		Movie m2 = new Movie(1, "Demo", "9.1", "2016");
