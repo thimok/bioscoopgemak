@@ -26,6 +26,7 @@ public class MovieActivity extends MenuActivity implements MovieListener {
     private MovieListAdapter movieListAdapter;
     private ListView listview;
     private FilmManager fManager;
+    private MaterialSearchView searchView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +55,6 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner, android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array));
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getSupportActionBar().getThemedContext(), R.array.movie_filter_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -94,7 +93,7 @@ public class MovieActivity extends MenuActivity implements MovieListener {
 
         MenuItem itemSearch = menu.findItem(R.id.action_search);
 
-        MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -125,22 +124,25 @@ public class MovieActivity extends MenuActivity implements MovieListener {
 
         return super.onCreateOptionsMenu(menu);
     }
-    
-	@Override
-	public void onBackPressed() {
-		AlertCreator creator = new AlertCreator(this);
-		creator.setIcon(android.R.drawable.ic_dialog_alert);
-		creator.setTitle("Exit");
-		creator.setMessage("Are you sure you want to exit?");
-		creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				System.gc();
-				System.exit(0);
-			}
-		});
-		creator.setNegativeButton("No", null);
-		creator.show();
 
+    @Override
+    public void onBackPressed() {
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
+        } else {
+            AlertCreator creator = new AlertCreator(this);
+            creator.setIcon(android.R.drawable.ic_dialog_alert);
+            creator.setTitle("Exit");
+            creator.setMessage("Are you sure you want to exit?");
+            creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    System.gc();
+                    System.exit(0);
+                }
+            });
+            creator.setNegativeButton("No", null);
+            creator.show();
+        }
     }
 }
