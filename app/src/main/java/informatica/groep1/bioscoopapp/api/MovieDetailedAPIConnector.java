@@ -4,13 +4,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 import com.devspark.robototextview.widget.RobotoTextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +29,7 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
 
     private View mdView;
     private MovieListener listener;
+    private static final String TMDB_ACTOR_IMAGE_URL = "http://image.tmdb.org/t/p/w45";
 
     public MovieDetailedAPIConnector(MovieListener listener, View mdView) {
         this.mdView = mdView;
@@ -98,8 +96,9 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             boolean adult = false;
             int dID = 0;
             String dName = "";
+            String dImagePath = "";
 
-            StringBuilder builder = new StringBuilder();
+            StringBuilder builder = new StringBuilder("");
             String delim = "";
 
 
@@ -108,7 +107,10 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             }
 
             if (jsonObject.has("runtime")) {
-                length = jsonObject.getInt("runtime");
+                if (!jsonObject.isNull("runtime")) {
+                    length = jsonObject.getInt("runtime");
+                }
+
             }
 
             if (jsonObject.has("adult")) {
@@ -135,6 +137,9 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
                     if (crew.getJSONObject(i).getString("job").equals("Director")) {
                         dID = crew.getJSONObject(i).getInt("id");
                         dName = crew.getJSONObject(i).getString("name");
+                        if (crew.getJSONObject(i).has("profile_path")) {
+                            dImagePath = crew.getJSONObject(i).getString("profile_path");
+                        }
                     }
                 }
             }
@@ -147,20 +152,22 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
                     int aID = cast.getJSONObject(x).getInt("id");
                     String character = cast.getJSONObject(x).getString("character");
                     String aName = cast.getJSONObject(x).getString("name");
+                    String imagePath = "";
 
-                    movie.addActor(new Actor(aName, aID, character));
+                    if (cast.getJSONObject(x).has("profile_path")) {
+                        imagePath = cast.getJSONObject(x).getString("profile_path");
+                    }
+
+                    movie.addActor(new Actor(aName, aID, character, imagePath));
 
                     x++;
                 }
             }
 
-
-
             TextView adultTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_adultAge);
             TextView lengthTV = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_movieLength);
             TextView genre = (RobotoTextView) mdView.findViewById(R.id.movieDetailedActivity_TV_genreValue);
             TextView directorName = (RobotoTextView) mdView.findViewById(R.id.detailedMovieActivity_TV_directorName);
-
 
             if(adult) {
                 adultTV.setText("18+");
@@ -168,14 +175,31 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
                 adultTV.setText("18-");
             }
 
-            lengthTV.setText("" + length + " min");
-            genre.setText(builder.toString());
-            directorName.setText(dName);
+            if (length != 0) {
+                lengthTV.setText("" + length + " min");
+            } else {
+                String sLengthPlaceholder = mdView.getResources().getString(R.string.placeholder_activity_movie_detailed_length);
+                lengthTV.setText(sLengthPlaceholder);
+            }
+
+            if (!builder.toString().equals("")) {
+                genre.setText(builder.toString());
+            } else {
+                String sGenrePlaceholder = mdView.getResources().getString(R.string.placeholder_activity_movie_detailed_genres);
+                genre.setText(sGenrePlaceholder);
+            }
+
+            Log.i("STRINGBUILDER", builder.toString());
+
+            if (!dName.equals("")) {
+                directorName.setText(dName);
+            } else {
+                String sDirectorPlaceholder = mdView.getResources().getString(R.string.placeholder_activity_movie_detailed_director);
+                directorName.setText(sDirectorPlaceholder);
+            }
 
             movie.setMovieID(mID);
-            movie.setDirector(new Director(dID, dName));
-
-
+            movie.setDirector(new Director(dID, dName, dImagePath));
 
             listener.onMovieAvailable(movie);
 

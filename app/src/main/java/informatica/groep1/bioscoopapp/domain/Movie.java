@@ -31,7 +31,7 @@ public class Movie implements Serializable {
 	//================================================================================
 	// Constructors
 	//================================================================================
-	
+
 	public Movie(int movieID, String title, String rating, String releaseYear) {
 		this.movieID = movieID;
 		this.title = title;
@@ -40,6 +40,7 @@ public class Movie implements Serializable {
 	}
 	
 	public Movie(String title) {
+
 		this.title = title;
 	}
 
