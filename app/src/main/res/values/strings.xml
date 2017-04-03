@@ -13,13 +13,8 @@
     <string name="LoginHint">Username</string>
     <string name="title_activity_movie_detailed" translatable="false"> </string>
     <string name="title_activity_show_detailed" translatable="false"> </string>
-<<<<<<< HEAD
-    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
-    <string name="password">Password</string>
-=======
     <string name="title_activity_settings" translatable="false">Settings</string>
 	<string name="password">Password</string>
->>>>>>> a8f94c18d8554ed28f48698878cbb08ed7037e9f
     <string name="nav_movies">Movies</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_account">Account</string>
