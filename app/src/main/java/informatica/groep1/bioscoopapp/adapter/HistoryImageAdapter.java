@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import informatica.groep1.bioscoopapp.R;
 
@@ -52,9 +53,10 @@ public class HistoryImageAdapter extends BaseAdapter {
 		
 		if (convertView == null) {
 			imageView = new ImageView(context);
-			imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			imageView.setPadding(8, 8, 8, 8);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+			imageView.setLayoutParams(new GridView.LayoutParams(params));
+			imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+			imageView.setPadding(0, 0, 0, 0);
 		} else {
 			imageView = (ImageView) convertView;
 		}
