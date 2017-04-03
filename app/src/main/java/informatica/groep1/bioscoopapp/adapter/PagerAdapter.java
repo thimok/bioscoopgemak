@@ -1,6 +1,7 @@
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,11 +18,17 @@ import informatica.groep1.bioscoopapp.presentation.ShowTab3;
  */
 
 public class PagerAdapter extends FragmentPagerAdapter {
+    ShowTab1 tab1;
+    ShowTab2 tab2;
+    ShowTab3 tab3;
     int mNumOfTabs;
+    Context context;
 
-    public PagerAdapter(FragmentManager fm, int mNumOfTabs) {
+    public PagerAdapter(FragmentManager fm, int mNumOfTabs, Context context) {
         super(fm);
         this.mNumOfTabs = mNumOfTabs;
+        this.context = context;
+
 
     }
 
@@ -36,14 +43,14 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                ShowTab1 tab1 = new ShowTab1();
+                tab1 = new ShowTab1();
                 return tab1;
             case 1:
-                ShowTab2 tab2 = new ShowTab2();
+                tab2 = new ShowTab2();
                 return tab2;
 
             case 2:
-                ShowTab3 tab3 = new ShowTab3();
+                tab3 = new ShowTab3();
                 return tab3;
 
             default:
@@ -57,11 +64,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return "Vandaag";
+                return context.getResources().getString(R.string.tab1_showActivity);
             case 1:
-                return  "Morgen";
+                return context.getResources().getString(R.string.tab2_showActivity);
             case 2:
-                return "Week";
+                return context.getResources().getString(R.string.tab3_showActivity);
 
             default:
                 return null;

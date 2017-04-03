@@ -1,3 +1,9 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.Intent;
@@ -11,10 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import informatica.groep1.bioscoopapp.R;
-
-/**
- * Created by Sven on 27-3-2017.
- */
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -75,7 +77,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_account) {
 
         } else if (id == R.id.nav_settings) {
-
+	        Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
+	        startActivity(i);
         } else if (id == R.id.nav_info) {
 
         }

@@ -1,15 +1,20 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.data;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-/**
- * Created by lukab on 28-3-2017.
- */
-
 public class DatabaseConnection extends SQLiteAssetHelper {
+
 
     private static final String DATABASE_NAME = "SQL.sqlite";
     private static final int DATABASE_VERSION = 1;
@@ -31,4 +36,46 @@ public class DatabaseConnection extends SQLiteAssetHelper {
     }
 
 
+	// Hier de CRUD methoden
+	public Cursor getMovies() {
+		SQLiteDatabase db = getReadableDatabase();
+
+		String query = "SELECT * FROM MOVIE";
+		Cursor c = db.rawQuery(query, null);
+		c.moveToFirst();
+		db.close();
+		return c;
+	}
+	
+	//================================================================================
+	// Settings
+	//================================================================================
+	
+	public String getCurrentSelectedLanguage() {
+		SQLiteDatabase db = getReadableDatabase();
+		
+		String query = "SELECT Value FROM SETTINGS WHERE Key = 'language';";
+		Cursor c = db.rawQuery(query, null);
+		
+		String ret = "Default Language";
+		
+		while (c.moveToNext()) {
+			ret = c.getString(c.getColumnIndex("Value"));
+			ret = ret.substring(0, 1).toUpperCase() + ret.substring(1).toLowerCase();
+		}
+		
+		db.close();
+		
+		return ret;
+	}
+	
+	public void changeLanguage(String language) {
+		Log.i("Database", "Change language: " + language);
+		SQLiteDatabase db = getWritableDatabase();
+		
+		String query = "UPDATE SETTINGS SET Value = '" + language.toLowerCase() + "' WHERE Key = 'language';";
+		db.execSQL(query);
+		
+		db.close();
+	}
 }

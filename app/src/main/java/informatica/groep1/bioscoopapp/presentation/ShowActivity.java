@@ -59,12 +59,11 @@ public class ShowActivity extends MenuActivity {
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText( getResources().getString(R.string.nav_today_en)));
-        tabLayout.addTab(tabLayout.newTab().setText( getResources().getString(R.string.nav_tomorrow_en)));
+        tabLayout.addTab(tabLayout.newTab().setText( "test"));
+        tabLayout.addTab(tabLayout.newTab().setText( "Test"));
+        tabLayout.addTab (tabLayout.newTab().setText("Test"));
 
-        tabLayout.addTab (tabLayout.newTab().setText(getResources().getString(R.string.nav_week_en)));
-
-        PagerAdapter mSectionsPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3);
+        PagerAdapter mSectionsPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3, getApplicationContext());
         viewPager.setAdapter(mSectionsPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);

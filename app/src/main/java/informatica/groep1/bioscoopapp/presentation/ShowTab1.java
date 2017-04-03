@@ -42,13 +42,13 @@ public class ShowTab1 extends Fragment {
 
         showList = (ListView) rootView.findViewById(R.id.day_showlist);
 
-        DatabaseConnection showdatabase = new DatabaseConnection(this.getContext());
-        Cursor cursor = showdatabase.getShowNames();
+       // DatabaseConnection showdatabase = new DatabaseConnection(this.getContext());
+       // Cursor cursor = showdatabase.getShowNames();
 
-        final ShowListAdapter showListAdapter = new ShowListAdapter(getContext(), cursor);
+        //final ShowListAdapter showListAdapter = new ShowListAdapter(getContext(), cursor);
 
-        showList.setAdapter(showListAdapter);
-        showListAdapter.notifyDataSetChanged();
+        //showList.setAdapter(showListAdapter);
+        //showListAdapter.notifyDataSetChanged();
 
 
         return rootView;

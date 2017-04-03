@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginLeft="0dp"
-        android:text="@string/gen_placeholder"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"

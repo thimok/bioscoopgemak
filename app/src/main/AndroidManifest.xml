@@ -25,21 +25,36 @@
         <activity
             android:name=".presentation.LoginActivity"
             android:label="@string/app_name"
+
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".presentation.MovieActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+
         <activity
             android:name=".presentation.MovieDetailed"
             android:label="@string/title_activity_movie_detailed"
             android:parentActivityName=".presentation.MovieActivity"
+
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".presentation.ShowActivity"
             android:label="Bioscoop app"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
+
+        <activity
+            android:name=".presentation.ShowDetailedActivity"
+            android:label="@string/title_activity_show_detailed"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".presentation.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 

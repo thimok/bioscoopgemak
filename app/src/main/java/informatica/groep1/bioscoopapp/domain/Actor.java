@@ -12,32 +12,33 @@ public class Actor {
 	//================================================================================
 
 	private int actorID;
-	private String firstName;
-	private String lastName;
+	private String name;
+	private String character;
 	private String imageUrl;
-	
+	private static final String TMDB_ACTOR_IMAGE_URL = "http://image.tmdb.org/t/p/w45";
+
 	//================================================================================
 	// Constructors
 	//================================================================================
-	
-	public Actor(int actorID, String firstName, String lastName, String imageUrl) {
+	public Actor( String name, int actorID, String character, String imageUrl) {
+		this.name = name;
 		this.actorID = actorID;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.character = character;
+        this.imageUrl = TMDB_ACTOR_IMAGE_URL + imageUrl;
+	}
+
+	public Actor(int actorID, String name, String imageUrl) {
+		this.actorID = actorID;
+		this.name = name;
 		this.imageUrl = imageUrl;
 	}
+
+
 	
 	//================================================================================
 	// Accessors
 	//================================================================================
-	
-	public String getFirstName() {
-		return firstName;
-	}
-	
-	public String getLastName() {
-		return lastName;
-	}
+
 	
 	public String getImageUrl() {
 		return imageUrl;
@@ -47,20 +48,29 @@ public class Actor {
 		return actorID;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public String getCharacter() {
+		return character;
+	}
+
 	//================================================================================
 	// Mutators
 	//================================================================================
-	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public void setCharacter(String character) {
+		this.character = character;
 	}
-	
+
 	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+		this.imageUrl = TMDB_ACTOR_IMAGE_URL + imageUrl;
 	}
 
 	public void setActorID(int actorID) {
