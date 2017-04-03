@@ -3,8 +3,7 @@
     <string name="app_name">Bioscoop Gemak</string>
     <string name="title_activity_movie">Movies</string>
     <string name="title_activity_menu" translatable="false">Menu</string>
-
-
+    
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -107,6 +106,12 @@
         "Components may have different resting elevations across platforms, depending on the depth "
         "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
 
+
+    <string name="title_activity_show">ShowActivity</string>
+
+
+    <string name="gen_placeholder">All</string>
+
         "Responsive elevation and dynamic elevation offsets.\n\n"
 
         "Some component types have responsive elevation, meaning they change elevation in response "
@@ -137,7 +142,14 @@
     <string name="placeholder_activity_movie_detailed_length">length not available</string>
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
+
+
+    <string name="tab1_showActivity">Today</string>
+    <string name="tab2_showActivity">Tomorrow</string>
+    <string name="tab3_showActivity">Week</string>
+
     <string name="title_activity_reservation">ReservationActivity</string>
     <string name="tickets">tickets</string>
     <string name="register">Register</string>
+
 </resources>

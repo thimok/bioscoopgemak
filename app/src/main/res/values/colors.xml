@@ -5,10 +5,12 @@
     <color name="colorPrimaryLight">#424242</color>
     <color name="colorBackground">#303030</color>
     <color name="colorSucces">#66bb6a</color>
-    <color name="colorError">#EF5350</color>
+
+    <color name="colorError">#ef5350</color>
     <color name="colorAccent">#ff7043</color>
     <color name="colorWhite">#fefefe</color>
-    <color name="colorWhiteSecondary">#6cfefefe</color>
+    <color name="colorWhiteSecondary">#46fefefe</color>
+
     <color name="colorWhiteDisabled">#1efefefe</color>
 
 </resources>

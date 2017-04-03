@@ -34,4 +34,12 @@
     <string name="placeholder_activity_movie_detailed_length" translatable="false">duur niet beschikbaar</string>
     <string name="placeholder_activity_movie_detailed_genres">Geen genres gevonden</string>
     <string name="placeholder_activity_movie_detailed_director">Director was niet gevonden</string>
+
+
+    <string name="tab1_showActivity">Vandaag</string>
+    <string name="tab2_showActivity">Morgen</string>
+    <string name="tab3_showActivity">Week</string>
+
+
+
 </resources>
