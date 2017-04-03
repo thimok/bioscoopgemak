@@ -49,7 +49,8 @@ public class HistoryImageAdapter extends ArrayAdapter<Movie> {
 		
 		ImageView iv = (ImageView) convertView.findViewById(R.id.rowMovie_IV_poster);
 		
-		Picasso.with(getContext()).load(movie.getPosterImage()).into(iv);
+		Picasso.with(convertView.getContext()).load(movie.getPosterImage()).into(iv);
+		Log.i("Adapter", movie.getPosterImage());
 		
 		return convertView;
 	}

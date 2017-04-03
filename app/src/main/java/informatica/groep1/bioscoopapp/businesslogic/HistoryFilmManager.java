@@ -1,7 +1,11 @@
 package informatica.groep1.bioscoopapp.businesslogic;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
+import informatica.groep1.bioscoopapp.api.MovieListener;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class HistoryFilmManager {
@@ -11,13 +15,17 @@ public class HistoryFilmManager {
 	//================================================================================
 	
 	private ArrayList<Movie> movies;
+	private Context context;
+	private MovieListener listener;
 	
 	//================================================================================
 	// Constructors
 	//================================================================================
 	
-	public HistoryFilmManager() {
+	public HistoryFilmManager(Context context, MovieListener listener) {
 		movies = new ArrayList<>();
+		this.context = context;
+		this.listener = listener;
 	}
 	
 	//================================================================================
@@ -33,7 +41,13 @@ public class HistoryFilmManager {
 	//================================================================================
 	
 	public void generate() {
-		demo();
+		DatabaseConnection dbc = new DatabaseConnection(context);
+		dbc.getWatchedMovies(listener);
+		//demo();
+	}
+	
+	public void add(Movie movie) {
+		movies.add(movie);
 	}
 	
 	private void demo() {

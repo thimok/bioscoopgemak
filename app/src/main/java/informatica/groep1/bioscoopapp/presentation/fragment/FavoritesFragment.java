@@ -16,11 +16,12 @@ import android.widget.GridView;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.HistoryImageAdapter;
+import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.businesslogic.FavoritesFilmManager;
 import informatica.groep1.bioscoopapp.businesslogic.HistoryFilmManager;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
-public class FavoritesFragment extends Fragment {
+public class FavoritesFragment extends Fragment implements MovieListener {
 	
 	private FavoritesFilmManager manager;
 	
@@ -28,7 +29,7 @@ public class FavoritesFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_favorites, container, false);
 		
-		manager = new FavoritesFilmManager();
+		manager = new FavoritesFilmManager(getContext());
 		
 		manager.generate();
 		
@@ -45,5 +46,10 @@ public class FavoritesFragment extends Fragment {
 		}
 		
 		return rootView;
+	}
+	
+	@Override
+	public void onMovieAvailable(Movie movie) {
+		Log.i("Favorites Movie Avail", movie.getTitle());
 	}
 }

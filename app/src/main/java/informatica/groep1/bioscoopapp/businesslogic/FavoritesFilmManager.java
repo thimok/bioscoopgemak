@@ -1,7 +1,10 @@
 package informatica.groep1.bioscoopapp.businesslogic;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 public class FavoritesFilmManager {
@@ -11,13 +14,15 @@ public class FavoritesFilmManager {
 	//================================================================================
 	
 	private ArrayList<Movie> movies;
+	private Context context;
 	
 	//================================================================================
 	// Constructors
 	//================================================================================
 	
-	public FavoritesFilmManager() {
+	public FavoritesFilmManager(Context context) {
 		movies = new ArrayList<>();
+		this.context = context;
 	}
 	
 	//================================================================================
@@ -33,7 +38,7 @@ public class FavoritesFilmManager {
 	//================================================================================
 	
 	public void generate() {
-		demo();
+		DatabaseConnection dbc = new DatabaseConnection(context);
 	}
 	
 	private void demo() {
