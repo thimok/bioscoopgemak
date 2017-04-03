@@ -22,8 +22,10 @@ public class HistoryFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_history, container, false);
 		
-		GridView gridView = (GridView) container.findViewById(R.id.historyFragment_GV_grid);
-		gridView.setAdapter(new HistoryImageAdapter(getActivity()));
+		GridView gridView = (GridView) rootView.findViewById(R.id.historyFragment_GV_grid);
+		if (gridView != null) {
+			gridView.setAdapter(new HistoryImageAdapter(getActivity()));
+		}
 		
 		return rootView;
 	}
