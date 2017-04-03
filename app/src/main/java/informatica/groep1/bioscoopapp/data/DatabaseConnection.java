@@ -15,12 +15,26 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DatabaseConnection extends SQLiteAssetHelper {
 
-	private static final String DATABASE_NAME = "SQL.sqlite";
-	private static final int DATABASE_VERSION = 2;
 
-	public DatabaseConnection(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-	}
+    private static final String DATABASE_NAME = "SQL.sqlite";
+    private static final int DATABASE_VERSION = 1;
+
+    public DatabaseConnection(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+
+    // Hier de CRUD methoden
+    public Cursor getShowNames() {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String query = "SELECT ScreeningID as _id, MovieID FROM SCREENING";
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        db.close();
+        return c;
+    }
+
 
 	// Hier de CRUD methoden
 	public Cursor getMovies() {
