@@ -13,6 +13,8 @@
         android:layout_height="match_parent"
         android:id="@+id/historyFragment_GV_grid"
         android:numColumns="2"
-        android:stretchMode="columnWidth"/>
+        android:stretchMode="columnWidth"
+        android:horizontalSpacing="2dp"
+        android:verticalSpacing="2dp"/>
 
 </RelativeLayout>
