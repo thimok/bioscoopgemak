@@ -59,9 +59,7 @@ public class ShowActivity extends MenuActivity {
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText( "test"));
-        tabLayout.addTab(tabLayout.newTab().setText( "Test"));
-        tabLayout.addTab (tabLayout.newTab().setText("Test"));
+
 
         PagerAdapter mSectionsPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3, getApplicationContext());
         viewPager.setAdapter(mSectionsPagerAdapter);

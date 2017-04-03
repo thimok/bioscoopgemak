@@ -257,7 +257,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_TV_castHeader" />
 
-        <Button
+        <com.devspark.robototextview.widget.RobotoButton
             android:id="@+id/movieDetailedActivity_BTN_showCC"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -265,6 +265,7 @@
             android:layout_marginTop="8dp"
             android:text="show class and crew"
             android:textColor="@color/colorAccent"
+            app:fontFamily="roboto"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_LV_cast" />

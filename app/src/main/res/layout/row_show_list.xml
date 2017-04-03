@@ -8,11 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@drawable/color_cursor_white"
 
         android:text="MovieName"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:id="@+id/timeListView"
-        android:layout_height="wrap_content" />
 </LinearLayout>

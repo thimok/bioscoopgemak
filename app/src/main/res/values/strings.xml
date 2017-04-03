@@ -109,8 +109,7 @@
 
 
     <string name="title_activity_show">ShowActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-
+ 
 
     <string name="gen_placeholder">All</string>
 
@@ -145,7 +144,13 @@
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
 
+
     <string name="tab1_showActivity">Today</string>
     <string name="tab2_showActivity">Tomorrow</string>
     <string name="tab3_showActivity">Week</string>
+
+    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="tickets">tickets</string>
+    <string name="register">Register</string>
+
 </resources>

@@ -28,7 +28,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
     public Cursor getShowNames() {
         SQLiteDatabase db = getReadableDatabase();
 
-        String query = "SELECT * FROM shows";
+        String query = "SELECT ScreeningID as _id, MovieID FROM SCREENING";
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
         db.close();

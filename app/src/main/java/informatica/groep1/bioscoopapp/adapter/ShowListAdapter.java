@@ -26,7 +26,7 @@ import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
 public class ShowListAdapter extends CursorAdapter {
 
-    public ShowListAdapter(Context context, Cursor cursor) {
+    public ShowListAdapter(Context context, Cursor cursor, boolean autoRequery) {
 
         super(context, cursor, 0);
 
@@ -44,7 +44,7 @@ public class ShowListAdapter extends CursorAdapter {
 
         TextView nameMovie = (TextView) view.findViewById(R.id.movieShowText);
 
-        String name = cursor.getString(cursor.getColumnIndex("name"));
+        String name = cursor.getString(cursor.getColumnIndex("Title"));
 
         nameMovie.setText(name);
     }
