@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
@@ -57,8 +58,8 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
+				Toast toast = Toast.makeText(getApplicationContext(), "Function not implemented", Toast.LENGTH_SHORT);
+				toast.show();
 			}
 		});
 		
@@ -78,8 +79,8 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 		TextView description = (RobotoTextView) findViewById(R.id.movieDetailedActivity_TV_description);
 		ImageView headerImage = (ImageView) findViewById(R.id.movieDetailedActivity_IV_headerImage);
 
-		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
-		Picasso.with(getApplicationContext()).load(posterimgurl).into(posterImage);
+		Picasso.with(getApplicationContext()).load(imgurl).error(R.drawable.missingimage).into(headerImage);
+		Picasso.with(getApplicationContext()).load(posterimgurl).error(R.drawable.missingimage).into(posterImage);
 		releasedate.setText(movie.getReleaseYear());
 		title.setText(movie.getTitle());
 		rating.setText(movie.getRating());
@@ -104,11 +105,6 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 
 		fManager = new FilmManager(this, thisView);
 		fManager.findMovieDetails("" + movie.getMovieID());
-		
-		Picasso.with(getApplicationContext()).load(imgurl).into(headerImage);
-		releasedate.setText(movie.getReleaseYear());
-		title.setText(movie.getTitle());
-		rating.setText(movie.getRating());
 		
         CollapseToolBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
@@ -138,7 +134,7 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
             ImageView directorImage = (ImageView) findViewById(R.id.detailedMovieActivity_IV_directorImage);
             String directorImageURL = movie.getDirector().getImageUrl();
 
-            Picasso.with(getApplicationContext()).load(directorImageURL).into(directorImage);
+            Picasso.with(getApplicationContext()).load(directorImageURL).error(R.drawable.placeholder_user).placeholder(R.drawable.placeholder_user).into(directorImage);
 		}
 	}
 

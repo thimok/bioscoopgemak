@@ -47,62 +47,49 @@ public class MovieActivity extends MenuActivity implements MovieListener {
     public void onMovieAvailable(Movie movie) {
         fManager.addMovies(movie);
         movieListAdapter.notifyDataSetChanged();
-        Log.i("API resultaat", movie.getTitle());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
-        MenuItem spinnerItem = menu.findItem(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner, android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array));
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getSupportActionBar().getThemedContext(), R.array.movie_filter_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
-        View view = spinnerItem.getActionView();
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-        if(view instanceof Spinner) {
-            final Spinner spinner = (Spinner) view;
-            spinner.setGravity(8);
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String filter = parent.getItemAtPosition(position).toString();
+                String sPopular = getResources().getString(R.string.popular);
+                String sRecent = getResources().getString(R.string.recent);
+                String sAdult = getResources().getString(R.string.adult);
+                String sRating = getResources().getString(R.string.rating);
+                String sTitle = getResources().getString(R.string.title);
 
-            // Create an ArrayAdapter using the string array and a default spinner layout
-            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.activity_movie_spinner,
-                    android.R.id.text1, getResources().getStringArray(R.array.movie_filter_array));
-                    /*ArrayAdapter.createFromResource(this,
-                    R.array.movie_filter_array_en, android.R.layout.simple_spinner_item);*/
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String filter = spinner.getSelectedItem().toString();
-                    String sPopular = getResources().getString(R.string.popular);
-                    String sRecent = getResources().getString(R.string.recent);
-                    String sAdult = getResources().getString(R.string.adult);
-                    String sRating = getResources().getString(R.string.rating);
-                    String sTitle = getResources().getString(R.string.title);
-
-                    if (filter.equals(sPopular)) {
-                        fManager.findPopularMovies();
-                    } else if (filter.equals(sRecent)) {
-                        fManager.findRecentMovies();
-                    } else if (filter.equals(sAdult)) {
-                        fManager.findAdultMovies();
-                    } else if (filter.equals(sRating)) {
-                        fManager.findRatedMovies();
-                    }  else if (filter.equals(sTitle)) {
-                        fManager.findMoviesByTitle();
-                    }
-
-                    Log.i("Selected item : ", filter);
-
+                if (filter.equals(sPopular)) {
+                    fManager.findPopularMovies();
+                } else if (filter.equals(sRecent)) {
+                    fManager.findRecentMovies();
+                } else if (filter.equals(sAdult)) {
+                    fManager.findAdultMovies();
+                } else if (filter.equals(sRating)) {
+                    fManager.findRatedMovies();
+                }  else if (filter.equals(sTitle)) {
+                    fManager.findMoviesByTitle();
                 }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    return;
-                }
-            });
-        }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         MenuItem itemSearch = menu.findItem(R.id.action_search);
@@ -111,8 +98,8 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Do some magic
-                return false;
+                fManager.findMovieByQuery(query);
+                return true;
             }
 
             @Override
@@ -137,7 +124,6 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         searchView.setMenuItem(itemSearch);
 
         return super.onCreateOptionsMenu(menu);
-//        return true;
     }
     
 	@Override

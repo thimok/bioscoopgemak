@@ -69,13 +69,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_movies) {
-            // Handle the camera action
+            Intent i = new Intent(getApplicationContext(), MovieActivity.class);
+	        startActivity(i);
         } else if (id == R.id.nav_schedule) {
 
             Intent i = new Intent(getApplicationContext(), ShowActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_account) {
-
+            Intent i = new Intent(getApplicationContext(), AccountActivity.class);
+	        startActivity(i);
         } else if (id == R.id.nav_settings) {
 	        Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
 	        startActivity(i);
