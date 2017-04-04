@@ -40,7 +40,7 @@ public class TicketListAdapter extends ArrayAdapter<Ticket> {
 		}
 		
 		TextView movieTitle = (TextView) convertView.findViewById(R.id.ticketFragment_TV_movieTitle);
-		//movieTitle.setText(ticket.getScreening().getMovie().getTitle());
+		movieTitle.setText(ticket.getScreening().getMovie().getTitle());
 		
 		TextView showDate = (TextView) convertView.findViewById(R.id.ticketFragment_TV_showDate);
 		showDate.setText(ticket.getScreening().getPlayDate());

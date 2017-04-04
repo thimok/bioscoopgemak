@@ -12,6 +12,10 @@ public class ShowTitleRow {
         this.screeningID = screeningID;
         this.title = title;
     }
+    
+    public ShowTitleRow() {
+        
+    }
 
     public int getScreeningID() {
         return screeningID;
