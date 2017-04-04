@@ -1,5 +1,6 @@
 package informatica.groep1.bioscoopapp.presentation;
 
+import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -60,13 +61,13 @@ public class TicketInformationActivity extends MenuActivity {
 		timeTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_time);
 		amountTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_amount);
 		priceTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_price);
-		qrImageView = (ImageView) findViewById(R.id.ticketInformationActivity_IV_qrCode); 
+		qrImageView = (ImageView) findViewById(R.id.ticketInformationActivity_IV_qrCode);
 		
 		titleTextView.setText(title);
 		dateTextView.setText(date);
 		timeTextView.setText(time);
 		amountTextView.setText("" + amount);
-		priceTextView.setText(PRICE_PREFIX + price);
+		priceTextView.setText(PRICE_PREFIX + String.format("%.2f", price));
 		qrImageView.setImageBitmap(QRGenerator.generate(title, date, time, ticket.getTicketID()));
 	}
 	

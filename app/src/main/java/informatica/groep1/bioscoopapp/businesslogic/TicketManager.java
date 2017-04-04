@@ -72,11 +72,11 @@ public class TicketManager {
 		as2.add(seat3);
 		as2.add(seat4);
 		
-		Ticket t1 = new Ticket(as1, 1, s1, 28.0D, 4);
-		Ticket t2 = new Ticket(as2, 2, s2, 28.0D, 3);
-		Ticket t3 = new Ticket(as2, 3, s3, 28.0D, 4);
-		Ticket t4 = new Ticket(as1, 4, s4, 28.0D, 2);
-		Ticket t5 = new Ticket(as2, 5, s5, 28.0D, 5);
+		Ticket t1 = new Ticket(as1, 1, s1, 28.00D, 4);
+		Ticket t2 = new Ticket(as2, 2, s2, 20.50D, 3);
+		Ticket t3 = new Ticket(as2, 3, s3, 28.00D, 4);
+		Ticket t4 = new Ticket(as1, 4, s4, 14.00D, 2);
+		Ticket t5 = new Ticket(as2, 5, s5, 33.50D, 5);
 		
 		tickets.clear();
 		
