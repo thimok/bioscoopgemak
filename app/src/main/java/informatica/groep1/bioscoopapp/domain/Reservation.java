@@ -13,18 +13,16 @@ public class Reservation {
 
     private int reservationID;
     private boolean paid;
-    private  Screening screening;
-    private Reservation_Type type;
+    private Screening screening;
 
     //================================================================================
     // Constructors
     //================================================================================
 
-    public Reservation(int reservationID, boolean paid, Screening screening, Reservation_Type type) {
+    public Reservation(int reservationID, boolean paid, Screening screening) {
         this.reservationID = reservationID;
         this.paid = paid;
         this.screening = screening;
-        this.type = type;
         }
 
     //================================================================================
@@ -44,10 +42,6 @@ public class Reservation {
         return screening;
     }
 
-    public Reservation_Type getType() {
-        return type;
-    }
-
     //================================================================================
     // Mutators
     //================================================================================
@@ -63,9 +57,5 @@ public class Reservation {
 
     public void setScreening(Screening screening) {
         this.screening = screening;
-    }
-
-    public void setType(Reservation_Type type) {
-        this.type = type;
     }
 }

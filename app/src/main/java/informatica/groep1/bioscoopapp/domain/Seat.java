@@ -5,7 +5,9 @@
 
 package informatica.groep1.bioscoopapp.domain;
 
-public class Seat {
+import java.io.Serializable;
+
+public class Seat implements Serializable {
     //================================================================================
     // Properties
     //================================================================================

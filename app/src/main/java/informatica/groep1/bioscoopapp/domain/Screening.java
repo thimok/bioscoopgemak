@@ -5,7 +5,9 @@ package informatica.groep1.bioscoopapp.domain;
 // - Luka Brinkman
 //================================================================================
 
-public class Screening {
+import java.io.Serializable;
+
+public class Screening implements Serializable {
 
     //================================================================================
     // Properties

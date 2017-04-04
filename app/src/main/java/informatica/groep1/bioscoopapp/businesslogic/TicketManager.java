@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import informatica.groep1.bioscoopapp.domain.Auditorium;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.domain.Reservation;
-import informatica.groep1.bioscoopapp.domain.Reservation_Type;
 import informatica.groep1.bioscoopapp.domain.Screening;
 import informatica.groep1.bioscoopapp.domain.Seat;
 import informatica.groep1.bioscoopapp.domain.Ticket;
@@ -59,19 +58,26 @@ public class TicketManager {
 		Seat seat3 = new Seat(3, 1, 3, a1);
 		Seat seat4 = new Seat(4, 1, 4, a1);
 		
-		Reservation_Type rt1 = new Reservation_Type(1, "Adult", 10.0d);
+		Reservation r1 = new Reservation(1, true, s1);
+		Reservation r2 = new Reservation(2, true, s2);
+		Reservation r3 = new Reservation(3, true, s3);
+		Reservation r4 = new Reservation(4, true, s4);
+		Reservation r5 = new Reservation(5, true, s5);
 		
-		Reservation r1 = new Reservation(1, true, s1, rt1);
-		Reservation r2 = new Reservation(2, true, s2, rt1);
-		Reservation r3 = new Reservation(3, true, s3, rt1);
-		Reservation r4 = new Reservation(4, true, s4, rt1);
-		Reservation r5 = new Reservation(5, true, s5, rt1);
+		ArrayList<Seat> as1 = new ArrayList<>();
+		as1.add(seat1);
+		as1.add(seat2);
 		
-		Ticket t1 = new Ticket(seat1, r1, 1, s1);
-		Ticket t2 = new Ticket(seat2, r2, 1, s2);
-		Ticket t3 = new Ticket(seat3, r3, 1, s3);
-		Ticket t4 = new Ticket(seat4, r4, 1, s4);
-		Ticket t5 = new Ticket(seat4, r5, 1, s5);
+		ArrayList<Seat> as2 = new ArrayList<>();
+		as2.add(seat2);
+		as2.add(seat3);
+		as2.add(seat4);
+		
+		Ticket t1 = new Ticket(as1, 1, s1, 28.0D, 4);
+		Ticket t2 = new Ticket(as2, 2, s2, 28.0D, 3);
+		Ticket t3 = new Ticket(as2, 3, s3, 28.0D, 4);
+		Ticket t4 = new Ticket(as1, 4, s4, 28.0D, 2);
+		Ticket t5 = new Ticket(as2, 5, s5, 28.0D, 5);
 		
 		tickets.clear();
 		

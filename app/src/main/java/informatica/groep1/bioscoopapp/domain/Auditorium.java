@@ -6,7 +6,9 @@
 package informatica.groep1.bioscoopapp.domain;
 
 
-public class Auditorium {
+import java.io.Serializable;
+
+public class Auditorium implements Serializable {
     //================================================================================
     // Properties
     //================================================================================
