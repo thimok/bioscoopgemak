@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import informatica.groep1.bioscoopapp.presentation.fragment.HistoryFragment;
 import informatica.groep1.bioscoopapp.presentation.fragment.TicketsFragment;
-import informatica.groep1.bioscoopapp.presentation.fragment.FavoritesFragment;
 
 public class AccountSectionsPagerAdapter extends FragmentPagerAdapter {
 	
@@ -25,10 +24,6 @@ public class AccountSectionsPagerAdapter extends FragmentPagerAdapter {
 				HistoryFragment tab2 = new HistoryFragment();
 				return tab2;
 			
-			case 2:
-				FavoritesFragment tab3 = new FavoritesFragment();
-				return tab3;
-			
 			default:
 				return null;
 		}
@@ -36,7 +31,7 @@ public class AccountSectionsPagerAdapter extends FragmentPagerAdapter {
 	
 	@Override
 	public int getCount() {
-		return 3;
+		return 2;
 	}
 	
 	@Override
@@ -46,8 +41,6 @@ public class AccountSectionsPagerAdapter extends FragmentPagerAdapter {
 				return "Tickets";
 			case 1:
 				return "History";
-			case 2:
-				return "Favorites";
 		}
 		return null;
 	}

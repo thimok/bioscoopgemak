@@ -142,6 +142,20 @@ public class FilmManager {
                 };
         connector.execute(urls);
     }
+	
+	public void findMovieById(String movieID) {
+		
+		if(!movies.isEmpty()) {
+			movies.clear();
+		}
+		
+		MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, null);
+		String[] urls = new String[] {TMDB_API_BASE
+				+ TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+				+ PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
+		};
+		connector.execute(urls);
+	}
 
     public void findMovieByQuery(String query) {
 

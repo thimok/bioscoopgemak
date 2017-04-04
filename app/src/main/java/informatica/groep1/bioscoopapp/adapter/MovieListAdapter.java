@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
@@ -95,6 +96,8 @@ public class MovieListAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				Intent i = new Intent(context, MovieDetailed.class);
 				i.putExtra("Movie", movie);
+				DatabaseConnection dbc = new DatabaseConnection(v.getContext());
+				dbc.addWatchedMovieToDatabase(movie);
 				context.startActivity(i);
 			}
 		});

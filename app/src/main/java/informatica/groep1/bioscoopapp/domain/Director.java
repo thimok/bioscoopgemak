@@ -1,10 +1,12 @@
 package informatica.groep1.bioscoopapp.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by twanv on 31-3-2017.
  */
 
-public class Director {
+public class Director implements Serializable {
     private int ID;
     private String name;
     private String imageUrl;
