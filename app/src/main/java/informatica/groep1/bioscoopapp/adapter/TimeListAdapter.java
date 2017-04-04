@@ -14,7 +14,7 @@ import informatica.groep1.bioscoopapp.R;
  * Created by lukab on 3-4-2017.
  */
 
-public class TimeListAdapter extends CursorAdapter {}
+public class TimeListAdapter extends CursorAdapter {
 
 
     public TimeListAdapter(Context context, Cursor cursor, boolean autoRequery) {
