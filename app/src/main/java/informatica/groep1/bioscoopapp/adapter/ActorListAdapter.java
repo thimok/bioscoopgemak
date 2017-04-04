@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+//================================================================================
+
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
@@ -14,10 +19,6 @@ import java.util.ArrayList;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.domain.Actor;
-
-/**
- * Created by Sven Westerlaken on 31-3-2017.
- */
 
 public class ActorListAdapter extends BaseAdapter{
     private ArrayList<Actor> actors;

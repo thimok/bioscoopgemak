@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.data;
 
 import android.content.Context;
@@ -7,10 +12,6 @@ import java.util.ArrayList;
 
 import informatica.groep1.bioscoopapp.domain.Screening;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
-
-/**
- * Created by lukab on 4-4-2017.
- */
 
 public class ShowData {
     private ArrayList<ShowTitleRow> screenings;

@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.support.v4.app.Fragment;
@@ -16,10 +21,6 @@ import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.ShowListAdapter;
 import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
-
-/**
- * Created by lukab on 30-3-2017.
- */
 
 public class ShowTab2 extends Fragment{
 

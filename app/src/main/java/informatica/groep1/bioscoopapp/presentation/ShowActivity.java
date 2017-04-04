@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.support.design.widget.TabLayout;

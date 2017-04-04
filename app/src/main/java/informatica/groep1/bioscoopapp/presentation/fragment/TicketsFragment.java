@@ -5,6 +5,7 @@
 
 package informatica.groep1.bioscoopapp.presentation.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import informatica.groep1.bioscoopapp.R;
-//import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
-
+import informatica.groep1.bioscoopapp.adapter.TicketListAdapter;
+import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
+import informatica.groep1.bioscoopapp.domain.Ticket;
+import informatica.groep1.bioscoopapp.presentation.TicketInformationActivity;
 
 public class TicketsFragment extends Fragment {
 
@@ -25,20 +28,24 @@ public class TicketsFragment extends Fragment {
 	// Properties
 	//================================================================================
 
-	//private TicketManager ticketManager;
+	private TicketManager ticketManager;
 
 	private ListView ticketListView;
 	private ArrayAdapter arrayAdapter;
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_tickets, container, false);
 
-		//ticketManager = new TicketManager();
+		ticketManager = new TicketManager();
 
-		//ticketManager.generate();
+		ticketManager.generate();
 
-		//arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
+		arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
 
 		ticketListView = (ListView) rootView.findViewById(R.id.ticketFragment_LV_list);
 		ticketListView.setAdapter(arrayAdapter);
@@ -46,7 +53,11 @@ public class TicketsFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Log.i("Ticket Fragment", "Click: " + position);
-				//TODO Intent toevoegen
+				Ticket ticket = ticketManager.getTickets().get(position);
+				
+				Intent i = new Intent(getActivity(), TicketInformationActivity.class);
+				i.putExtra("ticket", ticket);
+				startActivity(i);
 			}
 		});
 

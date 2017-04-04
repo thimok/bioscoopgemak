@@ -1,35 +1,46 @@
 //================================================================================
 // This class is made by:
 // - Devon Marsham
+// - Luka Brinkman
+// - Thimo Koolen
 //================================================================================
 
 package informatica.groep1.bioscoopapp.domain;
 
 
-public class Ticket {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Ticket implements Serializable {
     //================================================================================
     // Properties
     //================================================================================
-    private Reservation reservation;
+	
+    private ArrayList<Seat> seats;
     private int ticketID;
     private Screening screening;
+    private double price;
+	private int amount;
 
     //================================================================================
     // Constructor
     //================================================================================
 
-    public Ticket(Reservation reservation, int ticketID, Screening screening) {
-        this.reservation = reservation;
+	
+    public Ticket(ArrayList<Seat> seats, int ticketID, Screening screening, double price, int amount) {
+        this.seats = seats;
         this.ticketID = ticketID;
         this.screening = screening;
+	    this.price = price;
+	    this.amount = amount;
     }
 
     //================================================================================
     // Accessors
     //================================================================================
-
-    public Reservation getReservation() {
-        return reservation;
+	
+    public ArrayList<Seat> getSeats() {
+        return seats;
     }
 
     public int getTicketID() {
@@ -39,13 +50,21 @@ public class Ticket {
     public Screening getScreening() {
         return screening;
     }
+    
+    public double getPrice() {
+	    return price;
+    }
+    
+    public int getAmount() {
+	    return amount;
+    }
 
     //================================================================================
     // Mutators
     //================================================================================
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+	
+    public void setSeats(ArrayList<Seat> seats) {
+        this.seats = seats;
     }
 
     public void setTicketID(int ticketID) {
@@ -54,5 +73,13 @@ public class Ticket {
 
     public void setScreening(Screening screening) {
         this.screening = screening;
+    }
+    
+    public void setPrice(double price) {
+	    this.price = price;
+    }
+    
+    public void setAmount(int amount) {
+	    this.amount = amount;
     }
 }

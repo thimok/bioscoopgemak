@@ -355,7 +355,7 @@
         app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketCounterChildren" />
 
     <LinearLayout
-        android:id="@+id/reservationActivity_ticketCounterChildren"
+        android:id="@+id/reservationActivity_ticketCounterAdults"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:orientation="horizontal"
@@ -364,13 +364,13 @@
         app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketChildrenTopBorder">
 
         <FrameLayout
-            android:id="@+id/reservationActivity_BTN_minusChildren"
+            android:id="@+id/reservationActivity_BTN_minusAdults"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4">
 
             <ImageView
-                android:id="@+id/reservationActivity_IV_minusChildren"
+                android:id="@+id/reservationActivity_IV_minusAdults"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -378,7 +378,7 @@
         </FrameLayout>
 
         <View
-            android:id="@+id/reservationActivity_D_minusChildren"
+            android:id="@+id/reservationActivity_D_minusAdults"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/colorWhiteDisabled"
@@ -393,7 +393,7 @@
             android:layout_weight="5">
 
             <com.devspark.robototextview.widget.RobotoTextView
-                android:id="@+id/reservationActivity_TV_ticketCountChildren"
+                android:id="@+id/reservationActivity_TV_ticketCountAdults"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -407,7 +407,7 @@
         </FrameLayout>
 
         <View
-            android:id="@+id/reservationActivity_D_plusChildren"
+            android:id="@+id/reservationActivity_D_plusAdults"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/colorWhiteDisabled"
@@ -417,13 +417,13 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <FrameLayout
-            android:id="@+id/reservationActivity_BTN_plusChildren"
+            android:id="@+id/reservationActivity_BTN_plusAdults"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4">
 
             <ImageView
-                android:id="@+id/reservationActivity_IV_plusChildren"
+                android:id="@+id/reservationActivity_IV_plusAdults"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

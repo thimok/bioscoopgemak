@@ -1,3 +1,9 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+// - Twan van Maastricht
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;

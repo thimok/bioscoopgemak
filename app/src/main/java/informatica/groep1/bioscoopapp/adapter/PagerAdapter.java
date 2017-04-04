@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
@@ -12,10 +17,6 @@ import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.presentation.ShowTab1;
 import informatica.groep1.bioscoopapp.presentation.ShowTab2;
 import informatica.groep1.bioscoopapp.presentation.ShowTab3;
-
-/**
- * Created by lukab on 30-3-2017.
- */
 
 public class PagerAdapter extends FragmentPagerAdapter {
     ShowTab1 tab1;

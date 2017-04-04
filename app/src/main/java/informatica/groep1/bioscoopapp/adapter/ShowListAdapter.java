@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
@@ -27,10 +32,6 @@ import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 import informatica.groep1.bioscoopapp.presentation.ShowDetailedActivity;
 
 import static java.security.AccessController.getContext;
-
-/**
- * Created by lukab on 2-4-2017.
- */
 
 public class ShowListAdapter extends BaseAdapter {
     private Context context;

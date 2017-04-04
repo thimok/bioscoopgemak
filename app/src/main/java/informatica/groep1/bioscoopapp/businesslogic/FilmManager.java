@@ -1,6 +1,7 @@
 //================================================================================
 // This class is made by:
 // - Twan van Maastricht
+// - Thimo Koolen
 //================================================================================
 
 package informatica.groep1.bioscoopapp.businesslogic;
@@ -27,9 +28,9 @@ import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.TMDB_API_BA
 public class FilmManager {
 
 
-    MovieListener listener;
-    ArrayList<Movie> movies;
-    View mdView;
+    private MovieListener listener;
+    private ArrayList<Movie> movies;
+    private View mdView;
 
 
     public static final String TMDB_METHOD_SEARCH = "/search";

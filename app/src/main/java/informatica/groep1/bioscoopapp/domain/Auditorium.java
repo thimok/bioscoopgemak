@@ -1,62 +1,58 @@
-package informatica.groep1.bioscoopapp.domain;
-
 //================================================================================
 // This class is made by:
-// - Luka Brinkman
-// - Thimo Koolen
+// - Devon Marsham
 //================================================================================
+package informatica.groep1.bioscoopapp.domain;
 
-public class Reservation {
 
+import java.io.Serializable;
+
+public class Auditorium implements Serializable {
     //================================================================================
     // Properties
     //================================================================================
-
-    private int reservationID;
-    private boolean paid;
-    private Screening screening;
+    private int auditoriumID;
+    private int rows;
+    private int seatquantaity;
 
     //================================================================================
-    // Constructors
+    // Constructer
     //================================================================================
-
-    public Reservation(int reservationID, boolean paid, Screening screening) {
-        this.reservationID = reservationID;
-        this.paid = paid;
-        this.screening = screening;
-        }
+    public Auditorium(int auditoriumID, int rows, int seatquantaity){
+        this.auditoriumID = auditoriumID;
+        this.rows =rows;
+        this.seatquantaity = seatquantaity;
+    }
 
     //================================================================================
     // Accessors
     //================================================================================
 
-
-    public int getReservationID() {
-        return reservationID;
+    public int getAuditoriumID() {
+        return auditoriumID;
     }
 
-    public boolean isPaid() {
-        return paid;
+    public int getRows() {
+        return rows;
     }
 
-    public Screening getScreening() {
-        return screening;
+    public int getSeatquantaity() {
+        return seatquantaity;
     }
 
     //================================================================================
     // Mutators
     //================================================================================
 
-
-    public void setReservationID(int reservationID) {
-        this.reservationID = reservationID;
+    public void setAuditoriumID(int auditoriumID) {
+        this.auditoriumID = auditoriumID;
     }
 
-    public void setPaid(boolean paid) {
-        this.paid = paid;
+    public void setRows(int rows) {
+        this.rows = rows;
     }
 
-    public void setScreening(Screening screening) {
-        this.screening = screening;
+    public void setSeatquantaity(int seatquantaity) {
+        this.seatquantaity = seatquantaity;
     }
 }

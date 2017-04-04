@@ -1,61 +1,68 @@
-package informatica.groep1.bioscoopapp.domain;
-
 //================================================================================
 // This class is made by:
-// - Luka Brinkman
+// - Devon Marsham
 //================================================================================
 
-public class Reservation_Type {
+package informatica.groep1.bioscoopapp.domain;
 
+import java.io.Serializable;
+
+public class Seat implements Serializable {
     //================================================================================
     // Properties
     //================================================================================
-
-    private int typeID;
-    private String reservation_type;
-    private double ticketPrice;
+    public int seatID;
+    public int row;
+    public int number;
+    public Auditorium auditorium;
 
     //================================================================================
     // Constructors
     //================================================================================
 
-    public  Reservation_Type( int typeID, String reservation_type, double ticketPrice) {
-        this.reservation_type = reservation_type;
-        this.typeID = typeID;
-        this.ticketPrice = ticketPrice;
+    public Seat(int seatID, int row, int number, Auditorium auditorium) {
+        this.seatID = seatID;
+        this.row = row;
+        this.number = number;
+        this.auditorium = auditorium;
     }
-
     //================================================================================
     // Accessors
     //================================================================================
 
-
-    public int getTypeID() {
-        return typeID;
+    public int getSeatID() {
+        return seatID;
     }
 
-    public String getReservation_type() {
-        return reservation_type;
+    public int getRow() {
+        return row;
     }
 
-    public double getTicketPrice() {
-        return ticketPrice;
+    public int getNumber() {
+        return number;
+    }
+
+    public Auditorium getAuditorium() {
+        return auditorium;
     }
 
     //================================================================================
     // Mutators
     //================================================================================
 
-
-    public void setTypeID(int typeID) {
-        this.typeID = typeID;
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
     }
 
-    public void setReservation_type(String reservation_type) {
-        this.reservation_type = reservation_type;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public void setTicketPrice(double ticketPrice) {
-        this.ticketPrice = ticketPrice;
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setAuditorium(Auditorium auditorium) {
+        this.auditorium = auditorium;
     }
 }
