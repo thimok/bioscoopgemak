@@ -21,10 +21,10 @@ public class ShowData {
         this.context = context;
     }
 
-    public ArrayList<ShowTitleRow> getShows() {
+    public ArrayList<ShowTitleRow> getShows(String date) {
         DatabaseConnection showdatabase = new DatabaseConnection(context);
-        Cursor shownames = showdatabase.getShowNames("2017-04-03");
-        Cursor showtimes = showdatabase.getShowTimes();
+        Cursor shownames = showdatabase.getShowNames(date);
+        Cursor showtimes = showdatabase.getShowTimes(date);
 
         shownames.moveToPosition(-1);
 
