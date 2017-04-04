@@ -15,6 +15,7 @@ import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.ShowListAdapter;
+import informatica.groep1.bioscoopapp.adapter.TimeListAdapter;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 
 /**
@@ -23,7 +24,7 @@ import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 
 public class ShowTab1 extends Fragment {
 
-    private ListView showList;
+    private ListView showList, timeList;
     private ShowListAdapter airportCursorAdapter;
 
     @Override
@@ -42,13 +43,14 @@ public class ShowTab1 extends Fragment {
 
         showList = (ListView) rootView.findViewById(R.id.day_showlist);
 
-       DatabaseConnection showdatabase = new DatabaseConnection(this.getContext());
-       Cursor cursor = showdatabase.getShowNames();
+        DatabaseConnection showdatabase = new DatabaseConnection(getActivity());
+       Cursor cursor = showdatabase.getShowNames("2017-04-03");
 
-        final ShowListAdapter showListAdapter = new ShowListAdapter(getContext(), cursor, false);
+        final ShowListAdapter showListAdapter = new ShowListAdapter(getActivity(), cursor, false);
 
         showList.setAdapter(showListAdapter);
         showListAdapter.notifyDataSetChanged();
+
 
 
         return rootView;

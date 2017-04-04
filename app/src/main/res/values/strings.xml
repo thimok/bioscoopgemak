@@ -3,7 +3,7 @@
     <string name="app_name">Bioscoop Gemak</string>
     <string name="title_activity_movie">Movies</string>
     <string name="title_activity_menu" translatable="false">Menu</string>
-    
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

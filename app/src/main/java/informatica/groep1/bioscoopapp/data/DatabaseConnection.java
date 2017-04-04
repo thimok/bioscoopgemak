@@ -25,15 +25,27 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 
 
     // Hier de CRUD methoden
-    public Cursor getShowNames() {
+    public Cursor getShowNames(String date) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String query = "SELECT ScreeningID as _id, MovieID FROM SCREENING";
+        String query = "SELECT Title, MovieID, ScreeningID as _id FROM Screening WHERE Date = '2017-04-03' GROUP BY Title ORDER BY Title";
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
         db.close();
         return c;
     }
+
+    public Cursor getShowTimes() {
+
+		SQLiteDatabase db = getReadableDatabase();
+
+		String query = "SELECT StartTime, MovieID, ScreeningID as _id FROM Screening WHERE Date = '2017-04-03' AND MovieID = 315837";
+		Cursor c = db.rawQuery(query, null);
+		c.moveToFirst();
+		db.close();
+		return c;
+
+	}
 
 
 	// Hier de CRUD methoden
