@@ -6,7 +6,10 @@
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.util.Log;
+import android.view.View;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -14,6 +17,8 @@ import java.util.Date;
 
 
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+import informatica.groep1.bioscoopapp.api.MovieDetailedAPIConnector;
+import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.API_KEY;
@@ -22,8 +27,10 @@ import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.TMDB_API_BA
 public class FilmManager {
 
 
-    MovieDBAPIConnector.MovieListener listener;
+    MovieListener listener;
     ArrayList<Movie> movies;
+    View mdView;
+
 
     public static final String TMDB_METHOD_SEARCH = "/search";
     public static final String TMDB_METHOD_DISCOVER = "/discover";
@@ -36,11 +43,21 @@ public class FilmManager {
     public static final String PARAM_SORT_BY_ADULT_FALSE = "&include_adult=false";
     public static final String PARAM_SORT_BY_VOTE = "&sort_by=vote_average.desc";
     public static final String PARAM_SORT_BY_TITLE = "&sort_by=original_title.asc";
+    public static final String PARAM_MOVIE_ID = "/";
+    public static final String PARAM_APPEND_TO_RESPONSE = "&append_to_response=";
+    public static final String PARAM_APPEND_CREDITS = "credits";
+    public static final String PARAM_QUERY = "&query=";
 
 
-    public FilmManager(MovieDBAPIConnector.MovieListener listener) {
+
+    public FilmManager(MovieListener listener) {
         this.movies = new ArrayList<Movie>();
         this.listener = listener;
+    }
+
+    public FilmManager(MovieListener listener, View mdView) {
+        this(listener);
+        this.mdView = mdView;
     }
 
     public void findPopularMovies() {
@@ -108,7 +125,58 @@ public class FilmManager {
         MovieDBAPIConnector connector = new MovieDBAPIConnector(listener);
         String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_DISCOVER
                 + TMD_METHOD_MOVIE + API_KEY + PARAM_SORT_BY_TITLE
-                /*+ PARAM_SORT_BY_ADULT_FALSE*/};
+                };
+        connector.execute(urls);
+    }
+
+    public void findMovieDetails(String movieID) {
+
+        if(!movies.isEmpty()) {
+            movies.clear();
+        }
+
+        MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, mdView);
+        String[] urls = new String[] {TMDB_API_BASE
+                + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+                + PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
+                };
+        connector.execute(urls);
+    }
+	
+	public void findMovieById(String movieID) {
+		
+		if(!movies.isEmpty()) {
+			movies.clear();
+		}
+		
+		MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, null);
+		String[] urls = new String[] {TMDB_API_BASE
+				+ TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+				+ PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
+		};
+		connector.execute(urls);
+	}
+
+    public void findMovieByQuery(String query) {
+
+        if(!movies.isEmpty()) {
+            movies.clear();
+        }
+
+        String encodedString;
+
+        try {
+            encodedString = URLEncoder.encode(query, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            encodedString = "";
+        }
+
+        MovieDBAPIConnector connector = new MovieDBAPIConnector(listener);
+        String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_SEARCH
+                + TMD_METHOD_MOVIE + API_KEY
+                + PARAM_QUERY + encodedString
+        };
         connector.execute(urls);
     }
 

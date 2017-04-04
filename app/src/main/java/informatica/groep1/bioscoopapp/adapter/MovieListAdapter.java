@@ -8,6 +8,7 @@ package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,10 @@ import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
@@ -71,19 +74,30 @@ public class MovieListAdapter extends BaseAdapter {
 		}
 
 		final Movie movie = movies.get(position);
-		String imgurl = TMDB_POSTER_URL_BASE + movie.getBackDropImage();
+		String imgurl = null;
+
+        Log.i("test", movie.getTitle() + " - URL: " +  movie.getBackDropImage());
+
+		if (movie.getBackDropImage() != null || !movie.getBackDropImage().equals("")) {
+			imgurl = TMDB_POSTER_URL_BASE + movie.getBackDropImage();
+		} else if (movie.getPosterImage() != null || !movie.getPosterImage().equals("")) {
+			imgurl = TMDB_POSTER_URL_BASE + movie.getPosterImage();
+		}
+
 		ImageView overlay = (ImageView) convertView.findViewById(R.id.movieActivity_IV_headerImageOverlay);
 
 		viewHolder.title.setText(movie.getTitle());
 		viewHolder.releasedate.setText(movie.getReleaseYear());
 		viewHolder.rating.setText(movie.getRating());
-		Picasso.with(context).load(imgurl).into(viewHolder.backdrop);
+		Picasso.with(context).load(imgurl).error(R.drawable.missingimage).into(viewHolder.backdrop);
 
 		overlay.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(context, MovieDetailed.class);
 				i.putExtra("Movie", movie);
+				DatabaseConnection dbc = new DatabaseConnection(v.getContext());
+				dbc.addWatchedMovieToDatabase(movie);
 				context.startActivity(i);
 			}
 		});
