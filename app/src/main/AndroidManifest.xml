@@ -42,7 +42,9 @@
         <activity
             android:name=".presentation.ShowDetailedActivity"
             android:label="@string/title_activity_show_detailed"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".presentation.ShowActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".presentation.SettingsActivity"
             android:label="@string/title_activity_settings"

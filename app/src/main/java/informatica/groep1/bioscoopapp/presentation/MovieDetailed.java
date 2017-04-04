@@ -124,10 +124,10 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
             }
         });
 		
-		thisView = this.findViewById(android.R.id.content);
+		/*thisView = this.findViewById(android.R.id.content);
 
 		fManager = new FilmManager(this, thisView);
-		fManager.findMovieDetails("" + movie.getMovieID());
+		fManager.findMovieDetails("" + movie.getMovieID());*/
 	}
 
 	@Override

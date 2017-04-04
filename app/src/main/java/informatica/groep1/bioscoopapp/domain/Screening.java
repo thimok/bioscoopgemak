@@ -8,7 +8,7 @@ package informatica.groep1.bioscoopapp.domain;
 
 import java.io.Serializable;
 
-public class Screening extends ShowTitleRow implements Serializable{
+public class Screening extends ShowTitleRow {
 
 	//================================================================================
 	// Properties
