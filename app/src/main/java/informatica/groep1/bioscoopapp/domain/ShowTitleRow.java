@@ -3,9 +3,17 @@
 // - Sven Westerlaken
 //================================================================================
 
+
 package informatica.groep1.bioscoopapp.domain;
 
-public class ShowTitleRow {
+import java.io.Serializable;
+
+/**
+ * Created by Sven on 4-4-2017.
+ */
+
+
+public class ShowTitleRow implements Serializable {
     private int screeningID;
     private String title;
 
