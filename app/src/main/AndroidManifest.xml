@@ -25,29 +25,20 @@
         <activity
             android:name=".presentation.LoginActivity"
             android:label="@string/app_name"
-
-
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.MovieActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.MovieDetailed"
             android:label="@string/title_activity_movie_detailed"
             android:parentActivityName=".presentation.MovieActivity"
-
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.ShowActivity"
             android:label="Bioscoop app"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.ShowDetailedActivity"
             android:label="@string/title_activity_show_detailed"
@@ -55,7 +46,7 @@
         <activity
             android:name=".presentation.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".presentation.ReservationActivity"
             android:label="@string/title_activity_reservation"
@@ -65,13 +56,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="informatica.groep1.bioscoopapp.presentation.ShowDetailedActivity" />
         </activity>
-
         <activity
             android:name=".presentation.AccountActivity"
             android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SeatReservationActivity"
+            android:label="@string/title_activity_seat_reservation"
+            android:parentActivityName=".presentation.ReservationActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="informatica.groep1.bioscoopapp.presentation.ReservationActivity" />
         </activity>
-
     </application>
 
 </manifest>

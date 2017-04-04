@@ -124,30 +124,323 @@
         app:layout_constraintTop_toBottomOf="@+id/reservationActivity_TV_ticketHeader"/>
 
     <LinearLayout
+        android:id="@+id/reservationActivity_ticketCounter"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketTopBorder"
-        android:id="@+id/linearLayout"
-        android:layout_marginRight="0dp"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketTopBorder">
 
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_minus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_ticketMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_minus_white_24dp" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_minus"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/reservationActivity_TV_ticketCount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                app:fontFamily="roboto"
+                app:textWeight="bold" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_plus"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_plus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_ticketPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_plus_white_24dp" />
+        </FrameLayout>
     </LinearLayout>
 
     <View
         android:id="@+id/reservationActivity_ticketBottomBorder"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="0dp"
         android:background="@color/colorWhiteDisabled"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketCounter" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/reservationActivity_TV_ticketHeaderChildren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Children (UTAI 12 years old) &amp; STUDENTS*"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        app:fontFamily="roboto"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketBottomBorder" />
+
+    <View
+        android:id="@+id/reservationActivity_ticketChildrenTopBorder"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_TV_ticketHeaderChildren" />
+
+    <LinearLayout
+        android:id="@+id/reservationActivity_ticketCounterChildren"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketChildrenTopBorder">
+
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_minusChildren"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_minusChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_minus_white_24dp" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_minusChildren"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/reservationActivity_TV_ticketCountChildren"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:fontFamily="roboto"
+                app:textWeight="bold" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_plusChildren"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_plusChildren"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_plusChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_plus_white_24dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/reservationActivity_ticketChildrenBottomBorder"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketCounterChildren" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/reservationActivity_TV_ticketHeaderAdults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Adults"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        app:fontFamily="roboto"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketChildrenBottomBorder" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketCounterChildren" />
+
+    <LinearLayout
+        android:id="@+id/reservationActivity_ticketCounterChildren"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_ticketChildrenTopBorder">
+
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_minusChildren"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_minusChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_minus_white_24dp" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_minusChildren"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                android:id="@+id/reservationActivity_TV_ticketCountChildren"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:fontFamily="roboto"
+                app:textWeight="bold" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/reservationActivity_D_plusChildren"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhiteDisabled"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <FrameLayout
+            android:id="@+id/reservationActivity_BTN_plusChildren"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <ImageView
+                android:id="@+id/reservationActivity_IV_plusChildren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_plus_white_24dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservationActivity_TV_ticketHeaderChildren" />
 
 
 </android.support.constraint.ConstraintLayout>
