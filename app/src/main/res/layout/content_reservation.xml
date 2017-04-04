@@ -476,7 +476,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:text="€23,00"
+        android:text="€00,00"
         android:textSize="30sp"
         app:fontFamily="roboto"
         app:textAllCaps="true"
