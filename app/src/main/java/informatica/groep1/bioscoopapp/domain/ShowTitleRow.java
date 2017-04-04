@@ -1,8 +1,9 @@
-package informatica.groep1.bioscoopapp.domain;
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+//================================================================================
 
-/**
- * Created by Sven on 4-4-2017.
- */
+package informatica.groep1.bioscoopapp.domain;
 
 public class ShowTitleRow {
     private int screeningID;

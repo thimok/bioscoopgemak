@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Twan van Maastricht
+//================================================================================
+
 package informatica.groep1.bioscoopapp.api;
 
 import android.os.AsyncTask;
@@ -20,10 +25,6 @@ import informatica.groep1.bioscoopapp.domain.Actor;
 import informatica.groep1.bioscoopapp.domain.Director;
 import informatica.groep1.bioscoopapp.domain.Genre;
 import informatica.groep1.bioscoopapp.domain.Movie;
-
-/**
- * Created by twanv on 30-3-2017.
- */
 
 public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
 

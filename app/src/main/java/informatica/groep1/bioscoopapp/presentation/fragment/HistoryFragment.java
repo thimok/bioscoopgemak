@@ -28,8 +28,16 @@ import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
 public class HistoryFragment extends Fragment implements MovieListener {
 	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
 	private HistoryFilmManager manager;
 	private HistoryImageAdapter adapter;
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +55,10 @@ public class HistoryFragment extends Fragment implements MovieListener {
 		
 		return rootView;
 	}
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	@Override
 	public void onMovieAvailable(Movie movie) {

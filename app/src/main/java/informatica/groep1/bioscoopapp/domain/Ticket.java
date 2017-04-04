@@ -1,6 +1,8 @@
 //================================================================================
 // This class is made by:
 // - Devon Marsham
+// - Luka Brinkman
+// - Thimo Koolen
 //================================================================================
 
 package informatica.groep1.bioscoopapp.domain;

@@ -2,7 +2,6 @@
 // This class is made by:
 // - Devon Marsham
 //================================================================================
-
 package informatica.groep1.bioscoopapp.domain;
 
 

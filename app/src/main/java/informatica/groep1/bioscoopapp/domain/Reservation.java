@@ -3,6 +3,7 @@ package informatica.groep1.bioscoopapp.domain;
 //================================================================================
 // This class is made by:
 // - Luka Brinkman
+// - Thimo Koolen
 //================================================================================
 
 public class Reservation {

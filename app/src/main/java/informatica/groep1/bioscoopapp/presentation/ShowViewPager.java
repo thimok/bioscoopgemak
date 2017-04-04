@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;
@@ -5,10 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import informatica.groep1.bioscoopapp.R;
-
-/**
- * Created by lukab on 31-3-2017.
- */
 
 public class ShowViewPager extends AppCompatActivity {
 

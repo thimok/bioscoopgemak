@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.content.Context;

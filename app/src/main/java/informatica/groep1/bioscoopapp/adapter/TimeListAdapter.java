@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.content.Context;
@@ -9,10 +14,6 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import informatica.groep1.bioscoopapp.R;
-
-/**
- * Created by lukab on 3-4-2017.
- */
 
 public class TimeListAdapter extends CursorAdapter {
 

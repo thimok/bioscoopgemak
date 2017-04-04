@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.database.Cursor;
@@ -20,10 +25,6 @@ import informatica.groep1.bioscoopapp.adapter.TimeListAdapter;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
-
-/**
- * Created by lukab on 30-3-2017.
- */
 
 public class ShowTab1 extends Fragment {
 
