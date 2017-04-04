@@ -10,7 +10,6 @@ public class Ticket {
     //================================================================================
     // Properties
     //================================================================================
-    private Seat seat;
     private Reservation reservation;
     private int ticketID;
     private Screening screening;
@@ -19,8 +18,7 @@ public class Ticket {
     // Constructor
     //================================================================================
 
-    public Ticket(Seat seat, Reservation reservation, int ticketID, Screening screening) {
-        this.seat = seat;
+    public Ticket(Reservation reservation, int ticketID, Screening screening) {
         this.reservation = reservation;
         this.ticketID = ticketID;
         this.screening = screening;
@@ -29,10 +27,6 @@ public class Ticket {
     //================================================================================
     // Accessors
     //================================================================================
-
-    public Seat getSeat() {
-        return seat;
-    }
 
     public Reservation getReservation() {
         return reservation;
@@ -49,10 +43,6 @@ public class Ticket {
     //================================================================================
     // Mutators
     //================================================================================
-
-    public void setSeat(Seat seat) {
-        this.seat = seat;
-    }
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;

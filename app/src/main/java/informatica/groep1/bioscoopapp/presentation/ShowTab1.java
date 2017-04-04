@@ -11,12 +11,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.ShowListAdapter;
 import informatica.groep1.bioscoopapp.adapter.TimeListAdapter;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
+import informatica.groep1.bioscoopapp.data.ShowData;
+import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 /**
  * Created by lukab on 30-3-2017.
@@ -40,18 +43,16 @@ public class ShowTab1 extends Fragment {
 
     View rootView = inflater.inflate( R.layout.tab_show1, container, false);
 
-
         showList = (ListView) rootView.findViewById(R.id.day_showlist);
 
-        DatabaseConnection showdatabase = new DatabaseConnection(getActivity());
-       Cursor cursor = showdatabase.getShowNames("2017-04-03");
+        ShowData manager = new ShowData(getActivity());
 
-        final ShowListAdapter showListAdapter = new ShowListAdapter(getActivity(), cursor, false);
+        ArrayList<ShowTitleRow> screenings = manager.getShows();
+
+        final ShowListAdapter showListAdapter = new ShowListAdapter(getActivity(), screenings, getActivity().getLayoutInflater());
 
         showList.setAdapter(showListAdapter);
         showListAdapter.notifyDataSetChanged();
-
-
 
         return rootView;
 

@@ -28,7 +28,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
     public Cursor getShowNames(String date) {
         SQLiteDatabase db = getReadableDatabase();
 
-        String query = "SELECT Title, MovieID, ScreeningID as _id FROM Screening WHERE Date = '2017-04-03' GROUP BY Title ORDER BY Title";
+        String query = "SELECT Title, MovieID, ScreeningID FROM Screening WHERE Date = '2017-04-03' GROUP BY Title ORDER BY Title";
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
         db.close();
@@ -39,7 +39,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 
 		SQLiteDatabase db = getReadableDatabase();
 
-		String query = "SELECT StartTime, MovieID, ScreeningID as _id FROM Screening WHERE Date = '2017-04-03' AND MovieID = 315837";
+		String query = "SELECT Title, StartTime, EndTime, MovieID, ScreeningID, Film3D, Date FROM Screening WHERE Date = '2017-04-03' ORDER BY Title";
 		Cursor c = db.rawQuery(query, null);
 		c.moveToFirst();
 		db.close();

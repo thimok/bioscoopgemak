@@ -5,35 +5,36 @@ package informatica.groep1.bioscoopapp.domain;
 // - Luka Brinkman
 //================================================================================
 
-public class Screening {
+import java.io.Serializable;
+
+public class Screening extends ShowTitleRow implements Serializable{
 
     //================================================================================
     // Properties
     //================================================================================
 
-    public  int screeningID;
-    public String startTime;
-    public String endTime;
-    public Boolean film3D;
-    public Movie movie;
-    public Auditorium auditorium;
-    public String playDate;
+    private String startTime;
+    private String endTime;
+    private int film3D;
+    private String playDate;
+    private int screeningID;
+    private String title;
+    private int MovieID;
+
 
     //================================================================================
     // Constructors
     //================================================================================
 
-    public Screening(int screeningID, String startTime, String endTime, String playDate,
-                     Auditorium auditorium, Movie movie, boolean film3D)
+    public Screening(int screeningID, int movieID, String title, String startTime, String endTime, String playDate, int film3D)
 
     {
-        this.screeningID = screeningID;
+        super(screeningID, title);
         this.startTime = startTime;
-        this.auditorium = auditorium;
         this.film3D = film3D;
-        this.movie = movie;
         this.endTime = endTime;
         this.playDate = playDate;
+        this.MovieID = movieID;
 
     }
 
@@ -44,18 +45,12 @@ public class Screening {
         return endTime;
     }
 
-    public Auditorium getAuditorium() {
-
-        return auditorium;
-
+    @Override
+    public String getTitle() {
+        return title;
     }
 
-    public Movie getMovie() {
-
-            return movie;
-        }
-
-    public Boolean getFilm3D() {
+    public int getFilm3D() {
 
         return film3D;
     }
@@ -69,6 +64,10 @@ public class Screening {
         return playDate;
     }
 
+    public int getMovieID() {
+        return MovieID;
+    }
+
     //================================================================================
     // Mutators
     //================================================================================
@@ -78,21 +77,15 @@ public class Screening {
         this.endTime = endTime;
     }
 
-
-    public void setAuditorium(Auditorium auditorium) {
-        this.auditorium = auditorium;
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-
-    public void setFilm3D(Boolean film3D) {
+    public void setFilm3D(int film3D) {
         this.film3D = film3D;
     }
-
 
 
     public void setScreeningID(int screeningID) {
@@ -115,8 +108,7 @@ public class Screening {
         this.playDate = playDate;
     }
 
-
-
-
-
+    public void setMovieID(int movieID) {
+        MovieID = movieID;
+    }
 }

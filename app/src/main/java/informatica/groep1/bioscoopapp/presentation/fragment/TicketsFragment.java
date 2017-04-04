@@ -15,40 +15,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 import informatica.groep1.bioscoopapp.R;
-import informatica.groep1.bioscoopapp.adapter.TicketListAdapter;
-import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
-import informatica.groep1.bioscoopapp.domain.Auditorium;
-import informatica.groep1.bioscoopapp.domain.Movie;
-import informatica.groep1.bioscoopapp.domain.Reservation;
-import informatica.groep1.bioscoopapp.domain.Reservation_Type;
-import informatica.groep1.bioscoopapp.domain.Screening;
-import informatica.groep1.bioscoopapp.domain.Seat;
-import informatica.groep1.bioscoopapp.domain.Ticket;
+//import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
+
 
 public class TicketsFragment extends Fragment {
-	
+
 	//================================================================================
 	// Properties
 	//================================================================================
-	
-	private TicketManager ticketManager;
-	
+
+	//private TicketManager ticketManager;
+
 	private ListView ticketListView;
 	private ArrayAdapter arrayAdapter;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_tickets, container, false);
-		
-		ticketManager = new TicketManager();
-		
-		ticketManager.generate();
-		
-		arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
-		
+
+		//ticketManager = new TicketManager();
+
+		//ticketManager.generate();
+
+		//arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
+
 		ticketListView = (ListView) rootView.findViewById(R.id.ticketFragment_LV_list);
 		ticketListView.setAdapter(arrayAdapter);
 		ticketListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,7 +49,7 @@ public class TicketsFragment extends Fragment {
 				//TODO Intent toevoegen
 			}
 		});
-		
+
 		return rootView;
 	}
 }
