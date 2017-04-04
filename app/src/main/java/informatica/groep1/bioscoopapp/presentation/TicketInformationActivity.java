@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.domain.Seat;
 import informatica.groep1.bioscoopapp.domain.Ticket;
 import informatica.groep1.bioscoopapp.presentation.MenuActivity;
 import informatica.groep1.bioscoopapp.util.QRGenerator;
@@ -40,6 +42,7 @@ public class TicketInformationActivity extends MenuActivity {
 	private TextView amountTextView;
 	private TextView priceTextView;
 	private ImageView qrImageView;
+	private TextView seatsTextView;
 	
 	private static final String PRICE_PREFIX = "€ ";
 	
@@ -67,6 +70,7 @@ public class TicketInformationActivity extends MenuActivity {
 		amountTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_amount);
 		priceTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_price);
 		qrImageView = (ImageView) findViewById(R.id.ticketInformationActivity_IV_qrCode);
+		seatsTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_seatInformation); 
 		
 		titleTextView.setText(title);
 		dateTextView.setText(date);
@@ -74,6 +78,19 @@ public class TicketInformationActivity extends MenuActivity {
 		amountTextView.setText("" + amount);
 		priceTextView.setText(PRICE_PREFIX + String.format("%.2f", price));
 		qrImageView.setImageBitmap(QRGenerator.generate(title, date, time, ticket.getTicketID()));
+		
+		String seats;
+		StringBuilder sb = new StringBuilder();
+		
+		for (Seat s : ticket.getSeats()) {
+			sb.append("Row " + s.getRow() + System.getProperty("line.separator"));
+			sb.append("Seat " + s.getNumber() + System.getProperty("line.separator"));
+			sb.append(System.getProperty("line.separator"));
+		}
+		
+		seats = sb.toString();
+		
+		seatsTextView.setText(seats);
 	}
 	
 }

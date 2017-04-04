@@ -46,16 +46,16 @@ public class TicketManager {
 		demo();
 	}
 	public void demo() {
-		Movie m1 = new Movie(1, "Test", "8.9", "2017");
-		Movie m2 = new Movie(1, "Demo", "9.1", "2016");
+		Movie m1 = new Movie(1, "Beauty And The Beast", "7.1", "2017");
+		Movie m2 = new Movie(1, "Sing", "6.7", "2016");
 		
 		Auditorium a1 = new Auditorium(1, 10, 10);
 		
-		Screening s1 = new Screening(1, "11:30", "13:30", "03-04-2017", a1, m1, false);
+		Screening s1 = new Screening(1, "11:30", "13:45", "03-04-2017", a1, m1, false);
 		Screening s2 = new Screening(2, "14:00", "16:00", "03-04-2017", a1, m2, false);
 		Screening s3 = new Screening(3, "16:30", "18:30", "03-04-2017", a1, m2, false);
-		Screening s4 = new Screening(4, "17:00", "19:00", "03-04-2017", a1, m1, false);
-		Screening s5 = new Screening(5, "19:30", "21:30", "03-04-2017", a1, m1, false);
+		Screening s4 = new Screening(4, "17:00", "19:15", "03-04-2017", a1, m1, false);
+		Screening s5 = new Screening(5, "19:30", "21:45", "03-04-2017", a1, m1, false);
 		
 		Seat seat1 = new Seat(1, 1, 1, a1);
 		Seat seat2 = new Seat(2, 1, 2, a1);
@@ -77,11 +77,11 @@ public class TicketManager {
 		as2.add(seat3);
 		as2.add(seat4);
 		
-		Ticket t1 = new Ticket(as1, 1, s1, 28.00D, 4);
-		Ticket t2 = new Ticket(as2, 2, s2, 20.50D, 3);
-		Ticket t3 = new Ticket(as2, 3, s3, 28.00D, 4);
+		Ticket t1 = new Ticket(as1, 1, s1, 16.00D, 2);
+		Ticket t2 = new Ticket(as2, 2, s2, 24.00D, 3);
+		Ticket t3 = new Ticket(as2, 3, s3, 28.00D, 3);
 		Ticket t4 = new Ticket(as1, 4, s4, 14.00D, 2);
-		Ticket t5 = new Ticket(as2, 5, s5, 33.50D, 5);
+		Ticket t5 = new Ticket(as2, 5, s5, 22.00D, 3);
 		
 		tickets.clear();
 		
