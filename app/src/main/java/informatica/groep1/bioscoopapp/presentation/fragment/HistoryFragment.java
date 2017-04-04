@@ -43,17 +43,17 @@ public class HistoryFragment extends Fragment implements MovieListener {
 		if (gridView != null) {
 			adapter = new HistoryImageAdapter(getActivity(), manager.getMovies());
 			gridView.setAdapter(adapter);
-			gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					Movie movie = manager.getMovies().get(position);
-					Log.i("Fragment History", movie.getTitle());
-					
-					Intent i = new Intent(rootView.getContext(), MovieDetailed.class);
-					i.putExtra("movie", movie);
-					startActivity(i);
-				}
-			});
+//			gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//				@Override
+//				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//					Movie movie = manager.getMovies().get(position);
+//					Log.i("Fragment History", movie.getTitle());
+//					
+//					Intent i = new Intent(rootView.getContext(), MovieDetailed.class);
+//					i.putExtra("movie", movie);
+//					startActivity(i);
+//				}
+//			});
 		}
 		
 		return rootView;
