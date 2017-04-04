@@ -13,6 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.devspark.robototextview.widget.RobotoTextView;
+
+import org.w3c.dom.Text;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
@@ -24,6 +30,12 @@ public class ShowDetailedActivity extends AppCompatActivity {
     private FilmManager fManager;
     private View thisView;
     private Button mInfoBtn;
+    private TextView sTime;
+    private TextView sDate;
+    private TextView sLanguage;
+    private TextView sSubtitles;
+    private TextView sAddons;
+    private ImageView iAddons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +47,23 @@ public class ShowDetailedActivity extends AppCompatActivity {
 
         thisView = this.findViewById(android.R.id.content);
         screening = (Screening) getIntent().getSerializableExtra("Screening");
+
+        sTime = (RobotoTextView) findViewById(R.id.showDetailedActivity_TV_time);
+        sDate = (RobotoTextView) findViewById(R.id.showDetailedActivity_TV_playdate);
+        sLanguage = (RobotoTextView) findViewById(R.id.showDetailedActivity_TV_language);
+        sSubtitles = (RobotoTextView) findViewById(R.id.showDetailedActivity_TV_subtitles);
+        sAddons = (RobotoTextView) findViewById(R.id.showDetailedActivity_TV_addons);
+        iAddons = (ImageView) findViewById(R.id.showDetailedActivity_IV_addons);
+
+        // Language and Subtitles
+        sTime.setText(screening.getStartTime() + " - " + screening.getEndTime());
+        sDate.setText(screening.getPlayDate());
+        if (screening.getIs3D()) {
+            sAddons.setText("3D");
+        } else {
+            sAddons.setText("");
+            iAddons.setVisibility(View.GONE);
+        }
 
         fManager = new FilmManager(thisView, this);
         fManager.findShowDetails("" + screening.getMovieID());
