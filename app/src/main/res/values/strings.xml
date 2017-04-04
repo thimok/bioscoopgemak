@@ -13,7 +13,7 @@
     <string name="title_activity_movie_detailed" translatable="false"> </string>
     <string name="title_activity_show_detailed" translatable="false"> </string>
     <string name="title_activity_settings" translatable="false">Settings</string>
-	<string name="password">Password</string>
+    <string name="password">Password</string>
     <string name="nav_movies">Movies</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_account">Account</string>
@@ -151,5 +151,6 @@
     <string name="title_activity_reservation">ReservationActivity</string>
     <string name="tickets">tickets</string>
     <string name="register">Register</string>
+    <string name="title_activity_seat_reservation">SeatReservationActivity</string>
 
 </resources>
