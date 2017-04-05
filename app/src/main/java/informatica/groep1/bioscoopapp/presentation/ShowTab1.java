@@ -25,7 +25,6 @@ import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.ShowListAdapter;
-import informatica.groep1.bioscoopapp.adapter.TimeListAdapter;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;

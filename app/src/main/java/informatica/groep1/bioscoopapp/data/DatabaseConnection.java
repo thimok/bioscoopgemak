@@ -4,6 +4,7 @@
 // - Thimo Koolen
 //================================================================================
 
+
 package informatica.groep1.bioscoopapp.data;
 
 import android.content.Context;
@@ -20,6 +21,12 @@ import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
+/**
+ * DatabaseConnection.java - a class that extens the SQLLiteAssetHelper superclass.
+ * @Author Thimo Koolen, Luka Brinkman
+ * @version 1.0
+ */
+
 public class DatabaseConnection extends SQLiteAssetHelper {
 
 
@@ -31,7 +38,11 @@ public class DatabaseConnection extends SQLiteAssetHelper {
     }
 
 
-    // Hier de CRUD methoden
+	/**
+	 * A method that uses a String to write a query and eventually returns a cursor. To get the show names.
+	 * @param date the date of today, tomorrow or the rest of the week (depends on which tab is selected)
+	 * @return data of the Screening table (Cursor)
+	 */
     public Cursor getShowNames(String date) {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -42,6 +53,11 @@ public class DatabaseConnection extends SQLiteAssetHelper {
         return c;
     }
 
+	/**
+	 * A method that uses a String to write a query and eventually returns a cursor. To get the show times.
+	 * @param date the date of today, tomorrow or the rest of the week (depends on which tab is selected)
+	 * @return data of the Screening table (Cursor)
+	 */
     public Cursor getShowTimes(String date) {
 
 		SQLiteDatabase db = getReadableDatabase();
@@ -55,7 +71,10 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 	}
 
 
-	// Hier de CRUD methoden
+	/**
+	 * A method that returns everything from the table Movie.
+	 * @return a Cursor. Movie information.
+	 */
 	public Cursor getMovies() {
 		SQLiteDatabase db = getReadableDatabase();
 
