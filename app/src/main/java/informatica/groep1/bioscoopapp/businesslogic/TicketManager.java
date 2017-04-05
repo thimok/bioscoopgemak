@@ -57,10 +57,10 @@ public class TicketManager {
 		Screening s4 = new Screening(4, "17:00", "19:00", "03-04-2017", a1, m1, false);
 		Screening s5 = new Screening(5, "19:30", "21:30", "03-04-2017", a1, m1, false);
 		
-		Seat seat1 = new Seat(1, 1, 1, a1);
-		Seat seat2 = new Seat(2, 1, 2, a1);
-		Seat seat3 = new Seat(3, 1, 3, a1);
-		Seat seat4 = new Seat(4, 1, 4, a1);
+		Seat seat1 = new Seat(1);
+		Seat seat2 = new Seat(2);
+		Seat seat3 = new Seat(3);
+		Seat seat4 = new Seat(4);
 		
 		Reservation r1 = new Reservation(1, true, s1);
 		Reservation r2 = new Reservation(2, true, s2);

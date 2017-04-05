@@ -6,6 +6,125 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="informatica.groep1.bioscoopapp.presentation.SeatReservationActivity"
-    tools:showIn="@layout/activity_seat_reservation">
+    tools:showIn="@layout/activity_seat_reservation"
+    android:background="@color/colorBackground">
 
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/seatReservationActivity_TV_seatsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Seat Reservation"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        app:fontFamily="roboto"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridView
+        android:id="@+id/seatReservationActivity_GV_seatGrid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:numColumns="10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seatReservationActivity_TV_seatsHeader">
+
+    </GridView>
+
+    <View
+        android:id="@+id/seatReservationActivity_D_top"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorWhiteDisabled"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seatReservationActivity_GV_seatGrid"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_sofa_white_24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/seatReservationActivity_D_top"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/seatReservationActivity_D_bottom"
+        app:layout_constraintVertical_bias="0.501" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/seatReservationActivity_TV_seatsremainingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:fontFamily="roboto"
+        app:textAllCaps="true"
+        app:textWeight="bold"
+        app:layout_constraintBottom_toTopOf="@+id/seatReservationActivity_D_bottom"
+        app:layout_constraintLeft_toRightOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/seatReservationActivity_D_top" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/seatReservationActivity_TV_seatsremaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        app:fontFamily="roboto"
+        app:textWeight="thin"
+        app:layout_constraintBottom_toTopOf="@+id/seatReservationActivity_D_bottom"
+        app:layout_constraintLeft_toRightOf="@+id/seatReservationActivity_TV_seatsremainingValue"
+        app:layout_constraintTop_toBottomOf="@+id/seatReservationActivity_D_top" />
+
+    <com.devspark.robototextview.widget.RobotoButton
+        android:id="@+id/seatReservationActivity_BTN_order"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Order"
+        app:fontFamily="roboto"
+        app:layout_constraintBottom_toTopOf="@+id/seatReservationActivity_D_bottom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/seatReservationActivity_TV_seatsremaining"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seatReservationActivity_D_top"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <View
+        android:id="@+id/seatReservationActivity_D_bottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
