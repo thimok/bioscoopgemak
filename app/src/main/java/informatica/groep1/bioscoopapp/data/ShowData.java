@@ -22,28 +22,28 @@ public class ShowData {
         this.context = context;
     }
 
-    public ArrayList<ShowTitleRow> getShows() {
+    public ArrayList<ShowTitleRow> getShows(String date) {
         DatabaseConnection showdatabase = new DatabaseConnection(context);
-        Cursor shownames = showdatabase.getShowNames("2017-04-03");
-        Cursor showtimes = showdatabase.getShowTimes();
+        Cursor shownames = showdatabase.getShowNames(date);
+        Cursor showtimes = showdatabase.getShowTimes(date);
 
         shownames.moveToPosition(-1);
+        showtimes.moveToPosition(-1);
 
         while(shownames.moveToNext()){
             String title = shownames.getString(shownames.getColumnIndex("Title"));
             int ID = shownames.getInt(shownames.getColumnIndex("ScreeningID"));
+            int movieID = shownames.getInt(shownames.getColumnIndex("MovieID"));
 
             ShowTitleRow titlerow = new ShowTitleRow(ID, title);
             screenings.add(titlerow);
 
-            showtimes.moveToPosition(-1);
-
             while (showtimes.moveToNext()) {
-                int screeningID = showtimes.getInt(showtimes.getColumnIndex("ScreeningID"));
+                int screeningMovieID = showtimes.getInt(showtimes.getColumnIndex("MovieID"));
 
-                if(screeningID == ID) {
+                if(movieID == screeningMovieID) {
                     String screeningTitle = showtimes.getString(showtimes.getColumnIndex("Title"));
-                    int movieID = showtimes.getInt(showtimes.getColumnIndex("MovieID"));
+                    int screeningID = showtimes.getInt(showtimes.getColumnIndex("ScreeningID"));
                     String starttime = showtimes.getString(showtimes.getColumnIndex("StartTime"));
                     String endtime = showtimes.getString(showtimes.getColumnIndex("EndTime"));
                     String playdate = showtimes.getString(showtimes.getColumnIndex("Date"));
@@ -54,6 +54,8 @@ public class ShowData {
                     screenings.add(screening);
                 }
             }
+
+            showtimes.moveToPosition(-1);
 
         }
 

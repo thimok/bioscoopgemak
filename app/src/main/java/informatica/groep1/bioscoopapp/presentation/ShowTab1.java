@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
@@ -28,8 +32,8 @@ import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 public class ShowTab1 extends Fragment {
 
-    private ListView showList, timeList;
-    private ShowListAdapter airportCursorAdapter;
+    private ListView showList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,12 @@ public class ShowTab1 extends Fragment {
 
         ShowData manager = new ShowData(getActivity());
 
-        ArrayList<ShowTitleRow> screenings = manager.getShows();
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.format(calendar.getTime());
+
+
+        ArrayList<ShowTitleRow> screenings = manager.getShows( "= '" + dateFormat.format(calendar.getTime()) + "'");
 
         final ShowListAdapter showListAdapter = new ShowListAdapter(getActivity(), screenings, getActivity().getLayoutInflater());
 

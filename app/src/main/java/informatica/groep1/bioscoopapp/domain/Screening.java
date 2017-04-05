@@ -8,7 +8,7 @@ package informatica.groep1.bioscoopapp.domain;
 
 import java.io.Serializable;
 
-public class Screening extends ShowTitleRow implements Serializable{
+public class Screening extends ShowTitleRow {
 
 	//================================================================================
 	// Properties
@@ -70,7 +70,7 @@ public class Screening extends ShowTitleRow implements Serializable{
 
 	@Override
 	public String getTitle() {
-		return title;
+		return super.getTitle();
 	}
 
 	public int getFilm3D() {
@@ -79,8 +79,7 @@ public class Screening extends ShowTitleRow implements Serializable{
 	}
 
 	public int getScreeningID() {
-
-		return screeningID;
+		return super.getScreeningID();
 	}
 
 	public String getPlayDate() {
