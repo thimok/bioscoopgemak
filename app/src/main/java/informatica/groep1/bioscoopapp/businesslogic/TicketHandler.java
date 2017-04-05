@@ -33,18 +33,19 @@ public class TicketHandler {
     }
 
     public void addTicket() {
-        this.tickets += 1;
+        if(tickets < 100) {
+            this.tickets += 1;
 
-        ticketCount.setText("" + tickets);
+            ticketCount.setText("" + tickets);
 
-        if(adultTickets <= childrenTickets) {
-            adultTickets += 1;
-            adultTicketCount.setText("" + adultTickets);
-        } else if (adultTickets > childrenTickets) {
-            childrenTickets += 1;
-            childrenTicketCount.setText("" + childrenTickets);
+            if(adultTickets <= childrenTickets) {
+                adultTickets += 1;
+                adultTicketCount.setText("" + adultTickets);
+            } else if (adultTickets > childrenTickets) {
+                childrenTickets += 1;
+                childrenTicketCount.setText("" + childrenTickets);
+            }
         }
-
     }
 
     public void removeTicket() {

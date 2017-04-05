@@ -30,17 +30,26 @@ import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 public class ShowTab1 extends Fragment {
-
+    
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private ListView showList;
-
-
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -66,7 +75,4 @@ public class ShowTab1 extends Fragment {
         return rootView;
 
    }
-
-
-
 }

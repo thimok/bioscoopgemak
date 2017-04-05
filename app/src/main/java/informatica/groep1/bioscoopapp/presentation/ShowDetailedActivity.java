@@ -30,6 +30,10 @@ import informatica.groep1.bioscoopapp.domain.Screening;
 
 public class ShowDetailedActivity extends AppCompatActivity implements MovieListener {
 
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private Screening screening;
     private FilmManager fManager;
     private View thisView;
@@ -42,6 +46,10 @@ public class ShowDetailedActivity extends AppCompatActivity implements MovieList
     private ImageView iAddons;
     private Movie movie;
 
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,14 +92,8 @@ public class ShowDetailedActivity extends AppCompatActivity implements MovieList
         });
 
         mInfoBtn = (Button) findViewById(R.id.showDetailedActivity_BTN_moreInfo);
-
-
-
-
-
     }
-
-
+	
     @Override
     public void onMovieAvailable(Movie foundMovie) {
         movie = foundMovie;

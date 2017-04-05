@@ -48,13 +48,13 @@ public class HistoryFilmManager {
 	public void generate() {
 		DatabaseConnection dbc = new DatabaseConnection(context);
 		dbc.getWatchedMovies(listener);
-		//demo();
 	}
 	
 	public void add(Movie movie) {
 		movies.add(movie);
 	}
 	
+	@Deprecated
 	private void demo() {
 		Movie movie = new Movie("Test");
 		movie.setPosterImage("https://image.tmdb.org/t/p/w1000/kqjL17yufvn9OVLyXYpvtyrFfak.jpg");

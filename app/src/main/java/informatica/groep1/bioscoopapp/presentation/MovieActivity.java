@@ -28,12 +28,20 @@ import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.util.AlertCreator;
 
 public class MovieActivity extends MenuActivity implements MovieListener {
-
+    
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private MovieListAdapter movieListAdapter;
     private ListView listview;
     private FilmManager fManager;
     private MaterialSearchView searchView;
 
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
@@ -55,7 +63,32 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         fManager.addMovies(movie);
         movieListAdapter.notifyDataSetChanged();
     }
+	
+	@Override
+	public void onBackPressed() {
+		if (searchView.isSearchOpen()) {
+			searchView.closeSearch();
+		} else {
+			AlertCreator creator = new AlertCreator(this);
+			creator.setIcon(android.R.drawable.ic_dialog_alert);
+			creator.setTitle("Exit");
+			creator.setMessage("Are you sure you want to exit?");
+			creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					System.gc();
+					System.exit(0);
+				}
+			});
+			creator.setNegativeButton("No", null);
+			creator.show();
+		}
+	}
 
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
@@ -129,26 +162,5 @@ public class MovieActivity extends MenuActivity implements MovieListener {
         searchView.setMenuItem(itemSearch);
 
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else {
-            AlertCreator creator = new AlertCreator(this);
-            creator.setIcon(android.R.drawable.ic_dialog_alert);
-            creator.setTitle("Exit");
-            creator.setMessage("Are you sure you want to exit?");
-            creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    System.gc();
-                    System.exit(0);
-                }
-            });
-            creator.setNegativeButton("No", null);
-            creator.show();
-        }
     }
 }

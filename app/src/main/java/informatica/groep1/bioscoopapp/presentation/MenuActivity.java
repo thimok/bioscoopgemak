@@ -20,6 +20,10 @@ import informatica.groep1.bioscoopapp.R;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    //================================================================================
+    // Mutators
+    //================================================================================
+    
     protected void onCreateDrawer(Toolbar toolbar, AppCompatActivity activity) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(activity, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -40,6 +44,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

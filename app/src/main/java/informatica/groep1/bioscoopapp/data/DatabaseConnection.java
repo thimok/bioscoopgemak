@@ -32,11 +32,18 @@ import informatica.groep1.bioscoopapp.domain.Ticket;
  */
 
 public class DatabaseConnection extends SQLiteAssetHelper {
-
-
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
     private static final String DATABASE_NAME = "SQL.sqlite";
     private static final int DATABASE_VERSION = 2;
 
+	//================================================================================
+	// Constructors
+	//================================================================================
+	
     public DatabaseConnection(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -47,6 +54,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 	 * @param date the date of today, tomorrow or the rest of the week (depends on which tab is selected)
 	 * @return data of the Screening table (Cursor)
 	 */
+
     public Cursor getShowNames(String date) {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -100,10 +108,12 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 	}
 
 
+
 	/**
 	 * A method that returns everything from the table Movie.
 	 * @return a Cursor. Movie information.
 	 */
+
 	public Cursor getMovies() {
 		SQLiteDatabase db = getReadableDatabase();
 

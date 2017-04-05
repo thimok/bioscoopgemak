@@ -13,18 +13,18 @@ public class ShowTitleRow implements Serializable {
     //================================================================================
     // Properties
     //================================================================================
-
+    
     private int screeningID;
     private String title;
 
-    //================================================================================
-    //Constructor
-    //================================================================================
-
+	//================================================================================
+	// Constructors
+	//===============================================================================
     public ShowTitleRow(int screeningID, String title) {
         this.screeningID = screeningID;
         this.title = title;
     }
+
 
     public  ShowTitleRow(){
 
@@ -32,14 +32,14 @@ public class ShowTitleRow implements Serializable {
     //================================================================================
     // Accessors
     //================================================================================
+
     public int getScreeningID() {
         return screeningID;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
+	
+	public String getTitle() {
+		return title;
+	}
     //================================================================================
     // Mutators
     //================================================================================
@@ -48,8 +48,8 @@ public class ShowTitleRow implements Serializable {
         this.screeningID = screeningID;
     }
 
-
     public void setTitle(String title) {
         this.title = title;
     }
 }
+

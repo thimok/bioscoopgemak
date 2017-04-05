@@ -37,7 +37,10 @@ public class TicketsFragment extends Fragment implements TicketListener {
 	//================================================================================
 	// Accessors
 	//================================================================================
-
+	
+	/**
+	 * Overridden method called when the view is created
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_tickets, container, false);
@@ -67,6 +70,14 @@ public class TicketsFragment extends Fragment implements TicketListener {
 		return rootView;
 	}
 	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
+	/**
+	 * Interface method called when a ticket instance is available
+	 * @param ticket ticket instance
+	 */
 	@Override
 	public void ticketAvailable(Ticket ticket) {
 		ticketManager.add(ticket);
