@@ -26,6 +26,9 @@ public class ShowTitleRow implements Serializable {
         this.title = title;
     }
 
+    public  ShowTitleRow(){
+
+    }
     //================================================================================
     // Accessors
     //================================================================================
