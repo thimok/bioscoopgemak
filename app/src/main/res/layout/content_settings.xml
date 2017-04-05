@@ -80,11 +80,9 @@
             android:id="@+id/settingsActivity_IV_accountIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/settingsActivity_L_accountSetting"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/settingsActivity_L_accountSetting"
             app:srcCompat="@drawable/ic_account_white_24dp" />

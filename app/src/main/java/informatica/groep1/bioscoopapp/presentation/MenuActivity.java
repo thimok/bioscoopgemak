@@ -80,7 +80,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 	        Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
 	        startActivity(i);
         } else if (id == R.id.nav_info) {
-
+            Intent i = new Intent(getApplicationContext(), AboutActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
