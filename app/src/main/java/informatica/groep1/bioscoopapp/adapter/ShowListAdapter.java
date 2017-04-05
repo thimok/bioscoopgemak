@@ -35,11 +35,23 @@ import informatica.groep1.bioscoopapp.presentation.ShowDetailedActivity;
 
 import static java.security.AccessController.getContext;
 
+/**
+ * PagerAdapter.java - A adapter class that extends the BaseAdapter superclass.
+ * @Author Sven Westerlaken, Luka Brinkman
+ * @version 1.0
+ */
+
 public class ShowListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<ShowTitleRow> screenings;
     private LayoutInflater inflater;
 
+    /**
+     * The constructor.
+     * @param context
+     * @param screenings the arraylist of the ShowData.class
+     * @param inflater
+     */
 
     public ShowListAdapter(Context context, ArrayList<ShowTitleRow> screenings, LayoutInflater inflater) {
         this.context = context;
@@ -48,21 +60,41 @@ public class ShowListAdapter extends BaseAdapter {
     }
 
 
+    /**
+     * Method that gets the size of the arraylist
+     * @return an int value: the size of the arraylist
+     */
     @Override
     public int getCount() {
         return screenings.size();
     }
 
+    /**
+     * Method that gets an item of the arraylist
+     * @param i the position of the arraylist
+     * @return an Object of the arraylist : a screening
+     */
     @Override
     public Object getItem(int i) {
         return screenings.get(i);
     }
 
+
+    /**
+     * A method thats returns an ID
+     * @param i the position
+     * @return an int value
+     */
     @Override
     public long getItemId(int i) {
         return i;
     }
 
+    /**
+     * A method that returns a View and sets the textviews and other items.
+     * @param i the position of the arraylist
+     * @return a View that shows the screenings by using an arraylist
+     */
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         Class classname = screenings.get(i).getClass();

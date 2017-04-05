@@ -18,6 +18,12 @@ import informatica.groep1.bioscoopapp.presentation.ShowTab1;
 import informatica.groep1.bioscoopapp.presentation.ShowTab2;
 import informatica.groep1.bioscoopapp.presentation.ShowTab3;
 
+ /**
+  * PagerAdapter.java - A adapter class that extends the FragmentPagerAdapter superclass.
+        * @Author Luka Brinkman
+        * @version 1.0
+        */
+
 public class PagerAdapter extends FragmentPagerAdapter {
     ShowTab1 tab1;
     ShowTab2 tab2;
@@ -33,12 +39,21 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     }
 
-
-    @Override
+     /**
+      * Retrieve the number of tabs
+      * @return A int data type
+      */
+     @Override
     public int getCount() {
         return mNumOfTabs;
     }
 
+
+     /**
+      * Method that decides which tab class the application is showing
+      * @param position the position of the tab
+      * @return the fragment that belongs to the tab
+      */
     @Override
     public Fragment getItem(int position) {
 
@@ -61,7 +76,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     }
 
-    public CharSequence getPageTitle(int position){
+
+     /**
+      * Method that sets the title of a tab
+      * @param position the position of the tab
+      * @return the title that belongs to the tab
+      */
+     public CharSequence getPageTitle(int position){
 
         switch (position) {
             case 0:

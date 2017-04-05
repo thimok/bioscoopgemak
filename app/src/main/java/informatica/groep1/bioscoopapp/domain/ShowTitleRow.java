@@ -9,7 +9,7 @@ package informatica.groep1.bioscoopapp.domain;
 import java.io.Serializable;
 
 public class ShowTitleRow implements Serializable {
-    
+
     //================================================================================
     // Properties
     //================================================================================
@@ -19,21 +19,20 @@ public class ShowTitleRow implements Serializable {
 
 	//================================================================================
 	// Constructors
-	//================================================================================
-	
+	//===============================================================================
     public ShowTitleRow(int screeningID, String title) {
         this.screeningID = screeningID;
         this.title = title;
     }
-    
-    public ShowTitleRow() {
-        
-    }
 
+
+    public  ShowTitleRow(){
+
+    }
     //================================================================================
     // Accessors
     //================================================================================
-    
+
     public int getScreeningID() {
         return screeningID;
     }
@@ -41,10 +40,9 @@ public class ShowTitleRow implements Serializable {
 	public String getTitle() {
 		return title;
 	}
-	
-	//================================================================================
-	// Mutators
-	//================================================================================
+    //================================================================================
+    // Mutators
+    //================================================================================
 
     public void setScreeningID(int screeningID) {
         this.screeningID = screeningID;
@@ -54,3 +52,4 @@ public class ShowTitleRow implements Serializable {
         this.title = title;
     }
 }
+
