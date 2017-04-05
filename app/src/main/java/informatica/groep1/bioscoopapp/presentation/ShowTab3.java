@@ -23,12 +23,17 @@ import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 public class ShowTab3 extends Fragment {
+    
+	//================================================================================
+	// Properties
+	//================================================================================
+	private ListView showList;
 
-   private ListView showList;
-
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
-
-
         View rootView = inflater.inflate( R.layout.tab_show3, container, false);
 
         showList = (ListView) rootView.findViewById(R.id.week_showlist);
@@ -36,9 +41,10 @@ public class ShowTab3 extends Fragment {
         ShowData manager = new ShowData(getActivity());
 
         Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 2);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = "'" + dateFormat.format(calendar.getTime()) + "'";
-        calendar.add(Calendar.DAY_OF_MONTH, 5);
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
         String endOfWeek = "'" + dateFormat.format(calendar.getTime()) + "'";
         String datequery = "BETWEEN " + today + " AND " + endOfWeek;
 

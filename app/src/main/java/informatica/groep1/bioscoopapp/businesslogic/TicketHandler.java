@@ -1,13 +1,14 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+//================================================================================
+
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Locale;
-
-/**
- * Created by Sven on 5-4-2017.
- */
 
 public class TicketHandler {
     private int tickets, adultTickets, childrenTickets;

@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Ticket implements Serializable {
+    
     //================================================================================
     // Properties
     //================================================================================
@@ -20,19 +21,16 @@ public class Ticket implements Serializable {
     private int ticketID;
     private Screening screening;
     private double price;
-	private int amount;
 
     //================================================================================
     // Constructor
     //================================================================================
-
 	
-    public Ticket(ArrayList<Seat> seats, int ticketID, Screening screening, double price, int amount) {
+    public Ticket(ArrayList<Seat> seats, int ticketID, Screening screening, double price) {
         this.seats = seats;
         this.ticketID = ticketID;
         this.screening = screening;
 	    this.price = price;
-	    this.amount = amount;
     }
 
     //================================================================================
@@ -54,10 +52,6 @@ public class Ticket implements Serializable {
     public double getPrice() {
 	    return price;
     }
-    
-    public int getAmount() {
-	    return amount;
-    }
 
     //================================================================================
     // Mutators
@@ -77,9 +71,5 @@ public class Ticket implements Serializable {
     
     public void setPrice(double price) {
 	    this.price = price;
-    }
-    
-    public void setAmount(int amount) {
-	    this.amount = amount;
     }
 }

@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -40,6 +41,11 @@ import informatica.groep1.bioscoopapp.util.PixelSizeConverter;
 import static android.R.interpolator.accelerate_quad;
 
 public class MovieDetailed extends AppCompatActivity implements MovieListener {
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
 	private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
 
     boolean previous = true;
@@ -51,6 +57,10 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 	private FilmManager fManager;
 	private View thisView;
 	private ListView actorList;
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -123,11 +133,7 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
                 }
             }
         });
-		
-		/*thisView = this.findViewById(android.R.id.content);
 
-		fManager = new FilmManager(this, thisView);
-		fManager.findMovieDetails("" + movie.getMovieID());*/
 	}
 
 	@Override
@@ -163,5 +169,20 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 
         }
     }
+    
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// 'home' is the id for the icon click in the action bar (i.e. up/back).
+		if (item.getItemId() == android.R.id.home) {
+			onBackPressed();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
 	
 }

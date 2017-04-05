@@ -19,10 +19,11 @@ import android.widget.ListView;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.TicketListAdapter;
 import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
+import informatica.groep1.bioscoopapp.data.TicketListener;
 import informatica.groep1.bioscoopapp.domain.Ticket;
 import informatica.groep1.bioscoopapp.presentation.TicketInformationActivity;
 
-public class TicketsFragment extends Fragment {
+public class TicketsFragment extends Fragment implements TicketListener {
 
 	//================================================================================
 	// Properties
@@ -36,14 +37,17 @@ public class TicketsFragment extends Fragment {
 	//================================================================================
 	// Accessors
 	//================================================================================
-
+	
+	/**
+	 * Overridden method called when the view is created
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_account_tickets, container, false);
 
 		ticketManager = new TicketManager();
 
-		ticketManager.generate();
+		//ticketManager.generate();
 
 		arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
 
@@ -60,7 +64,23 @@ public class TicketsFragment extends Fragment {
 				startActivity(i);
 			}
 		});
+		
+		ticketManager.loadTickets(getContext(), this);
 
 		return rootView;
+	}
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
+	/**
+	 * Interface method called when a ticket instance is available
+	 * @param ticket ticket instance
+	 */
+	@Override
+	public void ticketAvailable(Ticket ticket) {
+		ticketManager.add(ticket);
+		arrayAdapter.notifyDataSetChanged();
 	}
 }

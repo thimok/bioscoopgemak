@@ -26,9 +26,18 @@ import informatica.groep1.bioscoopapp.util.AlertCreator;
 import informatica.groep1.bioscoopapp.util.ButtonDefine;
 
 public class LoginActivity extends AppCompatActivity {
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
 	private EditText username, password;
 	private Button submitButton;
 
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

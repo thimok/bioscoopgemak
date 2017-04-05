@@ -39,6 +39,10 @@ public class SettingsActivity extends MenuActivity {
 	private TextView languageSelected;
 	private DatabaseConnection dbc;
 	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

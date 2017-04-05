@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;
@@ -22,7 +27,11 @@ import informatica.groep1.bioscoopapp.domain.Screening;
 import informatica.groep1.bioscoopapp.domain.Seat;
 
 public class SeatReservationActivity extends AppCompatActivity {
-
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
