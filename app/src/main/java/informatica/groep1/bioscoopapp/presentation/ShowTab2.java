@@ -1,6 +1,6 @@
 //================================================================================
 // This class is made by:
-// - Thimo Koolen
+// - Luka Brinkman
 //================================================================================
 
 package informatica.groep1.bioscoopapp.presentation;
@@ -23,10 +23,17 @@ import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 public class ShowTab2 extends Fragment{
-
+    
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private ListView showList, timeList;
-
-
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
         View rootView = inflater.inflate( R.layout.tab_show2, container, false);
@@ -38,8 +45,7 @@ public class ShowTab2 extends Fragment{
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, 1);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-
+	    
         ArrayList<ShowTitleRow> screenings = manager.getShows( "= '" + dateFormat.format(calendar.getTime()) + "'");
 
         final ShowListAdapter showListAdapter = new ShowListAdapter(getActivity(), screenings, getActivity().getLayoutInflater());

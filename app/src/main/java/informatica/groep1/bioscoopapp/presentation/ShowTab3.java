@@ -23,12 +23,17 @@ import informatica.groep1.bioscoopapp.data.ShowData;
 import informatica.groep1.bioscoopapp.domain.ShowTitleRow;
 
 public class ShowTab3 extends Fragment {
+    
+	//================================================================================
+	// Properties
+	//================================================================================
+	private ListView showList;
 
-   private ListView showList;
-
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
-
-
         View rootView = inflater.inflate( R.layout.tab_show3, container, false);
 
         showList = (ListView) rootView.findViewById(R.id.week_showlist);

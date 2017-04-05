@@ -9,9 +9,11 @@ package informatica.groep1.bioscoopapp.domain;
 import java.io.Serializable;
 
 public class Seat implements Serializable {
+	
     //================================================================================
     // Properties
     //================================================================================
+	
     public int seatID;
 
     //================================================================================

@@ -31,6 +31,9 @@ public class TicketListAdapter extends ArrayAdapter<Ticket> {
 	// Accessors
 	//================================================================================
 	
+	/**
+	 * On the view (row), manipulate all contents such as TextViews to match the movie's details.
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Ticket ticket = getItem(position);

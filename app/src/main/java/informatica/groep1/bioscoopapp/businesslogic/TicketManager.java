@@ -36,6 +36,10 @@ public class TicketManager {
 	// Accessors
 	//================================================================================
 	
+	/**
+	 * Load tickets from arraylist
+	 * @return list of tickets
+	 */
 	public ArrayList<Ticket> getTickets() {
 		return tickets;
 	}
@@ -44,19 +48,29 @@ public class TicketManager {
 	// Mutators
 	//================================================================================
 	
-	public void generate() {
-		demo();
-	}
-	
+	/**
+	 * Load tickets from database
+	 * @param context Application context
+	 * @param listener Callback listener class
+	 */
 	public void loadTickets(Context context, TicketListener listener) {
 		DatabaseConnection dbc = new DatabaseConnection(context);
 		dbc.getTickets(listener);
 	}
 	
+	/**
+	 * Add ticket to list
+	 * @param ticket ticket instance
+	 */
 	public void add(Ticket ticket) {
 		tickets.add(ticket);
 	}
 	
+	/**
+	 * Old method to load demo data
+	 * @deprecated old method
+	 */
+	@Deprecated
 	public void demo() {
 		Movie m1 = new Movie(1, "Beauty And The Beast", "7.1", "2017");
 		Movie m2 = new Movie(1, "Sing", "6.7", "2016");

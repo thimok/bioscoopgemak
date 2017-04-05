@@ -26,9 +26,16 @@ import informatica.groep1.bioscoopapp.domain.Screening;
 
 public class ReservationActivity extends AppCompatActivity {
 
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private Screening screening;
-
-
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,6 +136,10 @@ public class ReservationActivity extends AppCompatActivity {
         });
     }
 
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // 'home' is the id for the icon click in the action bar (i.e. up/back).

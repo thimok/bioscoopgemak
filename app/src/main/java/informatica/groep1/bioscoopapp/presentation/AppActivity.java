@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Devon Marsham
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;
@@ -12,9 +17,18 @@ import android.widget.TextView;
 import informatica.groep1.bioscoopapp.R;
 
 public class AppActivity extends MenuActivity {
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
     private TextView credit,twan, sven, luka, thimo, devon;
     private ImageView teamGemak;
 
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

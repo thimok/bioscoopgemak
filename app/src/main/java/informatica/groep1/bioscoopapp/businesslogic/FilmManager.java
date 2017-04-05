@@ -29,10 +29,10 @@ import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.TMDB_API_BA
 
 public class FilmManager {
 
-    MovieListener listener;
-    ArrayList<Movie> movies;
-    View mdView;
-    Context context;
+    private MovieListener listener;
+    private ArrayList<Movie> movies;
+    private View mdView;
+    private Context context;
 
     public static final String TMDB_METHOD_SEARCH = "/search";
     public static final String TMDB_METHOD_DISCOVER = "/discover";
@@ -48,7 +48,11 @@ public class FilmManager {
     public static final String PARAM_APPEND_TO_RESPONSE = "&append_to_response=";
     public static final String PARAM_APPEND_CREDITS = "credits";
     public static final String PARAM_QUERY = "&query=";
-
+	
+	//================================================================================
+	// Constructors
+	//================================================================================
+	
     public FilmManager(MovieListener listener) {
         this.movies = new ArrayList<Movie>();
         this.listener = listener;
@@ -64,9 +68,15 @@ public class FilmManager {
         this.mdView = mdView;
         this.listener = listener;
     }
-
-    public void findPopularMovies() {
-
+	
+    //================================================================================
+    // Mutators
+    //================================================================================
+    
+	/**
+	 * Find popular movies
+	 */
+	public void findPopularMovies() {
         if(!movies.isEmpty()) {
             movies.clear();
         }
@@ -193,18 +203,16 @@ public class FilmManager {
         };
         connector.execute(urls);
     }
-
-
-
-
-
+	
+	public void addMovies(Movie movie) {
+		movies.add(movie);
+	}
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     public ArrayList<Movie> getMovieList() {
         return movies;
     }
-
-    public void addMovies(Movie movie) {
-        movies.add(movie);
-    }
-
-
 }

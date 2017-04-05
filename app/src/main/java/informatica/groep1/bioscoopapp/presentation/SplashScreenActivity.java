@@ -17,6 +17,10 @@ import informatica.groep1.bioscoopapp.util.LanguageManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
 	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		LanguageManager.setApplicationLocale(getApplicationContext(), LanguageManager.getLocale(getApplicationContext()));
