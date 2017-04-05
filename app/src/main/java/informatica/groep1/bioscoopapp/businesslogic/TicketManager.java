@@ -6,6 +6,7 @@
 package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,10 @@ public class TicketManager {
 	 * @return list of tickets
 	 */
 	public ArrayList<Ticket> getTickets() {
+		Log.i("TicketManager Return", "Called");
+		for (Ticket t : tickets) {
+			Log.i("TicketManager Return", "" + t.getSeats().size());
+		}
 		return tickets;
 	}
 	
@@ -64,6 +69,7 @@ public class TicketManager {
 	 */
 	public void add(Ticket ticket) {
 		tickets.add(ticket);
+		Log.i("TicketManager", "Amount: " + ticket.getSeats().size());
 	}
 	
 	/**
