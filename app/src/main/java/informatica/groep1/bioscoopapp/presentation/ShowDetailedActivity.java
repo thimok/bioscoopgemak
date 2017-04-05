@@ -23,10 +23,12 @@ import com.devspark.robototextview.widget.RobotoTextView;
 import org.w3c.dom.Text;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
+import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.domain.Screening;
 
-public class ShowDetailedActivity extends AppCompatActivity {
+public class ShowDetailedActivity extends AppCompatActivity implements MovieListener {
 
     private Screening screening;
     private FilmManager fManager;
@@ -38,6 +40,7 @@ public class ShowDetailedActivity extends AppCompatActivity {
     private TextView sSubtitles;
     private TextView sAddons;
     private ImageView iAddons;
+    private Movie movie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,7 @@ public class ShowDetailedActivity extends AppCompatActivity {
             iAddons.setVisibility(View.GONE);
         }
 
-        fManager = new FilmManager(thisView, this);
+        fManager = new FilmManager(thisView, this, this);
         fManager.findShowDetails("" + screening.getMovieID());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.showDetailedActivity_FAB_buyTickets);
@@ -81,16 +84,25 @@ public class ShowDetailedActivity extends AppCompatActivity {
         });
 
         mInfoBtn = (Button) findViewById(R.id.showDetailedActivity_BTN_moreInfo);
-        mInfoBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
-                i.putExtra("MOVIE", movie);*/ // hier moet een movie object meegegeven worden met een calback
-            }
-        });
+
+
+
 
 
     }
 
 
+    @Override
+    public void onMovieAvailable(Movie foundMovie) {
+        movie = foundMovie;
+        mInfoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Click More Info", movie.getBackDropImage());
+                Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
+                i.putExtra("Movie", movie);
+                startActivity(i); // hier moet een movie object meegegeven worden met een calback
+            }
+        });
+    }
 }

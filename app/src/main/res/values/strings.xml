@@ -157,6 +157,7 @@
     <string name="title_activity_ticket_information">TicketInformationActivity</string>
 
     <string name="placeholder_activity_movie_detailed_date">No date available</string>
+    <string name="placeholder_activity_movie_detailed_longDescription">No description available</string>
 
 
 </resources>
