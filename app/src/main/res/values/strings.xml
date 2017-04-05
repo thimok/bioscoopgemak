@@ -141,6 +141,14 @@
     <string name="placeholder_activity_movie_detailed_length">length not available</string>
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
+
+    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="tickets">tickets</string>
+    <string name="register">Register</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_bioscoop">BioscoopActivity</string>
+    <string name="title_activity_app">AppActivity</string>
+
     <string name="placeholder_activity_movie_detailed_rating">No rating available</string>
     <string name="placeholder_activity_movie_detailed_title">Title not available</string>
 
@@ -150,9 +158,7 @@
     <string name="tab3_showActivity">Week</string>
 
 
-    <string name="title_activity_reservation" translatable="false">ReservationActivity</string>
-    <string name="tickets" translatable="false">tickets</string>
-    <string name="register" translatable="false">Register</string>
+
     <string name="title_activity_seat_reservation" translatable="false">SeatReservationActivity</string>
     <string name="title_activity_ticket_information">TicketInformationActivity</string>
 

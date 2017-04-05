@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="informatica.groep1.bioscoopapp.presentation.BioscoopActivity"
+    tools:showIn="@layout/activity_bioscoop">
+
+    <ImageView
+        android:id="@+id/activityBioscoop_IV_bgIcon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_white" />
+
+    <TextView
+        android:id="@+id/activityBioscoop_TV_biosInfo"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:inputType="text|textMultiLine|textCapSentences"
+        android:text="De BG App biedt je overzichtelijk het actuele filmaanbod bij Bioscoop Gemak. Daarnaast heb je middels de app toegang tot een grote filmdatabase met filminformatie, trailers, ratings en de naam van acteurs.
+- Filter en sorteer gemakkelijk films in de tijdslijn
+- Kies je favoriete film om een overzicht van tijden te krijgen van alle bioscopen waar deze film draait
+- Zoek vanaf de homepage direct naar een film"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityBioscoop_IV_bgIcon" />
+
+</android.support.constraint.ConstraintLayout>
