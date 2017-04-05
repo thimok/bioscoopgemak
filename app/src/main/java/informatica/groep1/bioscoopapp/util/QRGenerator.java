@@ -11,6 +11,10 @@ import net.glxn.qrgen.android.QRCode;
 
 public class QRGenerator {
 	
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
 	public static Bitmap generate(String movieTitle, String showDay, String showTime, int ticketID) {
 		String encodedString = movieTitle + "akdfg"
 				+ showDay + "akdfg" + showTime + "akdfg"

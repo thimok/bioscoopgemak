@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Devon Marsham
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.Intent;
@@ -13,11 +18,20 @@ import android.widget.TextView;
 import informatica.groep1.bioscoopapp.R;
 
 public class AboutActivity extends MenuActivity {
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
     private ImageView biosIcon;
     private ImageView appIcon;
     private TextView bioscoop;
     private TextView app;
 
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +60,6 @@ public class AboutActivity extends MenuActivity {
                 startActivity(i);
             }
         });
-
-
-
-
     }
 
 }

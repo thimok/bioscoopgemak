@@ -46,6 +46,10 @@ public class TicketInformationActivity extends MenuActivity {
 	
 	private static final String PRICE_PREFIX = "€ ";
 	
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

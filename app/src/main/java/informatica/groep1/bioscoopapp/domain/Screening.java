@@ -1,12 +1,10 @@
-package informatica.groep1.bioscoopapp.domain;
-
 //================================================================================
 // This class is made by:
 // - Luka Brinkman
 // - Thimo Koolen
 //================================================================================
 
-import java.io.Serializable;
+package informatica.groep1.bioscoopapp.domain;
 
 public class Screening extends ShowTitleRow {
 
@@ -64,7 +62,6 @@ public class Screening extends ShowTitleRow {
 	}
 
 	public int getFilm3D() {
-
 		return film3D;
 	}
 

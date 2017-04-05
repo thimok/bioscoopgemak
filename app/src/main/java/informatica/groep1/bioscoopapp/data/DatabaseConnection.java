@@ -25,17 +25,26 @@ import informatica.groep1.bioscoopapp.domain.Seat;
 import informatica.groep1.bioscoopapp.domain.Ticket;
 
 public class DatabaseConnection extends SQLiteAssetHelper {
-
-
+	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
     private static final String DATABASE_NAME = "SQL.sqlite";
     private static final int DATABASE_VERSION = 2;
 
+	//================================================================================
+	// Constructors
+	//================================================================================
+	
     public DatabaseConnection(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-
-    // Hier de CRUD methoden
+	
+    //================================================================================
+    // General
+    //================================================================================
+    
     public Cursor getShowNames(String date) {
         SQLiteDatabase db = getReadableDatabase();
 
@@ -82,9 +91,7 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		
 		return null;
 	}
-
-
-	// Hier de CRUD methoden
+	
 	public Cursor getMovies() {
 		SQLiteDatabase db = getReadableDatabase();
 

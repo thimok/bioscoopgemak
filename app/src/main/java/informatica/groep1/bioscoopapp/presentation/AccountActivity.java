@@ -19,8 +19,16 @@ import informatica.groep1.bioscoopapp.adapter.AccountSectionsPagerAdapter;
 
 public class AccountActivity extends MenuActivity {
 	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
 	private AccountSectionsPagerAdapter sectionsPagerAdapter;
 	private ViewPager viewPager;
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

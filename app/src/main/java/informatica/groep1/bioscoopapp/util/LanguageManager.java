@@ -16,6 +16,10 @@ import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 
 public class LanguageManager {
 	
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
 	public static Locale getLocale(Context context) {
 		Locale ret = null;
 		
@@ -41,6 +45,10 @@ public class LanguageManager {
 		
 		return ret;
 	}
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	public static void setApplicationLocale(Context context, Locale locale) {
 		Locale.setDefault(locale);

@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Ticket implements Serializable {
+    
     //================================================================================
     // Properties
     //================================================================================
@@ -24,7 +25,6 @@ public class Ticket implements Serializable {
     //================================================================================
     // Constructor
     //================================================================================
-
 	
     public Ticket(ArrayList<Seat> seats, int ticketID, Screening screening, double price) {
         this.seats = seats;
