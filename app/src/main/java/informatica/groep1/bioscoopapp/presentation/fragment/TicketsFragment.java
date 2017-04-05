@@ -20,6 +20,7 @@ import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.TicketListAdapter;
 import informatica.groep1.bioscoopapp.businesslogic.TicketManager;
 import informatica.groep1.bioscoopapp.data.TicketListener;
+import informatica.groep1.bioscoopapp.domain.Seat;
 import informatica.groep1.bioscoopapp.domain.Ticket;
 import informatica.groep1.bioscoopapp.presentation.TicketInformationActivity;
 
@@ -46,8 +47,6 @@ public class TicketsFragment extends Fragment implements TicketListener {
 		View rootView = inflater.inflate(R.layout.fragment_account_tickets, container, false);
 
 		ticketManager = new TicketManager();
-
-		//ticketManager.generate();
 
 		arrayAdapter = new TicketListAdapter(getActivity(), ticketManager.getTickets());
 
@@ -80,6 +79,10 @@ public class TicketsFragment extends Fragment implements TicketListener {
 	 */
 	@Override
 	public void ticketAvailable(Ticket ticket) {
+		Log.i("Ticket available", "Amount: " + ticket.getSeats().size());
+		for (Seat seat : ticket.getSeats()) {
+			Log.i("Ticket data " + ticket.getTicketID(), "Seat " + seat.getSeatID());
+		}
 		ticketManager.add(ticket);
 		arrayAdapter.notifyDataSetChanged();
 	}

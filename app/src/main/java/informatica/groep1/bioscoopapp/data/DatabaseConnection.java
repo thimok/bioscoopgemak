@@ -182,9 +182,6 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 	//================================================================================
 	
 	public void getTickets(TicketListener listener) {
-		Ticket ticket;
-		ArrayList<Seat> seats = new ArrayList<>();
-		
 		String queryTickets = "SELECT * FROM Ticket;";
 		
 		SQLiteDatabase db = getReadableDatabase();
@@ -192,6 +189,9 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		Cursor c = db.rawQuery(queryTickets, null);
 		
 		while (c.moveToNext()) {
+			Ticket ticket;
+			ArrayList<Seat> seats = new ArrayList<>();
+			
 			int ticketID = c.getInt(c.getColumnIndex("TicketID"));
 			int screeningID = c.getInt(c.getColumnIndex("ScreeningID"));
 			double price = c.getDouble(c.getColumnIndex("price"));
@@ -209,9 +209,9 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 				seats.add(seat);
 			}
 			
-			ticket = new Ticket(seats, ticketID, screening, price);
+			listener.ticketAvailable(new Ticket(seats, ticketID, screening, price));
 			
-			listener.ticketAvailable(ticket);
+			seats.clear();
 		}
 	}
 	

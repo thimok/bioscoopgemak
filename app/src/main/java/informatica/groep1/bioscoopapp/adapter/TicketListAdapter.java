@@ -49,7 +49,9 @@ public class TicketListAdapter extends ArrayAdapter<Ticket> {
 		showDate.setText(ticket.getScreening().getPlayDate());
 		
 		TextView showTime = (TextView) convertView.findViewById(R.id.ticketFragment_TV_showTime);
-		showTime.setText(ticket.getScreening().getStartTime());
+		//showTime.setText(ticket.getScreening().getStartTime());
+		showTime.setText(ticket.getSeats().size() + "");
+		//TODO terug aanpassen
 		
 		return convertView;
 	}
