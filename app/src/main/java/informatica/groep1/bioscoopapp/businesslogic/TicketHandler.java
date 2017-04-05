@@ -36,10 +36,10 @@ public class TicketHandler {
 
         ticketCount.setText("" + tickets);
 
-        if(tickets % 2 == 0 && tickets != 1) {
+        if(adultTickets <= childrenTickets) {
             adultTickets += 1;
             adultTicketCount.setText("" + adultTickets);
-        } else {
+        } else if (adultTickets > childrenTickets) {
             childrenTickets += 1;
             childrenTicketCount.setText("" + childrenTickets);
         }
@@ -52,10 +52,10 @@ public class TicketHandler {
 
             ticketCount.setText("" + tickets);
 
-            if(tickets % 2 == 0 && tickets != 1) {
+            if(adultTickets <= childrenTickets) {
                 childrenTickets -= 1;
                 childrenTicketCount.setText("" + childrenTickets);
-            } else {
+            } else if (adultTickets > childrenTickets){
                 adultTickets -= 1;
                 adultTicketCount.setText("" + adultTickets);
             }
