@@ -1,10 +1,12 @@
 //================================================================================
 // This class is made by:
 // - Twan van Maastricht
+// - Thimo Koolen
 //================================================================================
 
 package informatica.groep1.bioscoopapp.businesslogic;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 
@@ -19,6 +21,7 @@ import java.util.Date;
 import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
 import informatica.groep1.bioscoopapp.api.MovieDetailedAPIConnector;
 import informatica.groep1.bioscoopapp.api.MovieListener;
+import informatica.groep1.bioscoopapp.api.ShowDetailedAPIConnector;
 import informatica.groep1.bioscoopapp.domain.Movie;
 
 import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.API_KEY;
@@ -26,16 +29,14 @@ import static informatica.groep1.bioscoopapp.api.MovieDBAPIConnector.TMDB_API_BA
 
 public class FilmManager {
 
-
     MovieListener listener;
     ArrayList<Movie> movies;
     View mdView;
-
+    Context context;
 
     public static final String TMDB_METHOD_SEARCH = "/search";
     public static final String TMDB_METHOD_DISCOVER = "/discover";
     public static final String TMD_METHOD_MOVIE = "/movie";
-
     public static final String PARAM_SORT_BY_POPULARITY_DESC = "&sort_by=popularity.desc";
     public static final String PARAM_SORT_BY_RELEASE_DATE_DESC = "&sort_by=primary_release_date.desc";
     public static final String PARAM_ONLY_INCLUDE_SPECIFIED_RELEASE_DATE_AND_LESSER = "&primary_release_date.lte=";
@@ -48,8 +49,6 @@ public class FilmManager {
     public static final String PARAM_APPEND_CREDITS = "credits";
     public static final String PARAM_QUERY = "&query=";
 
-
-
     public FilmManager(MovieListener listener) {
         this.movies = new ArrayList<Movie>();
         this.listener = listener;
@@ -57,6 +56,11 @@ public class FilmManager {
 
     public FilmManager(MovieListener listener, View mdView) {
         this(listener);
+        this.mdView = mdView;
+    }
+
+    public FilmManager(View mdView, Context context) {
+        this.context = context;
         this.mdView = mdView;
     }
 
@@ -142,6 +146,20 @@ public class FilmManager {
                 };
         connector.execute(urls);
     }
+	
+	public void findMovieById(String movieID) {
+		
+		if(!movies.isEmpty()) {
+			movies.clear();
+		}
+		
+		MovieDetailedAPIConnector connector = new MovieDetailedAPIConnector(listener, null);
+		String[] urls = new String[] {TMDB_API_BASE
+				+ TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
+				+ PARAM_APPEND_TO_RESPONSE + PARAM_APPEND_CREDITS
+		};
+		connector.execute(urls);
+	}
 
     public void findMovieByQuery(String query) {
 
@@ -162,6 +180,15 @@ public class FilmManager {
         String[] urls = new String[] {TMDB_API_BASE + TMDB_METHOD_SEARCH
                 + TMD_METHOD_MOVIE + API_KEY
                 + PARAM_QUERY + encodedString
+        };
+        connector.execute(urls);
+    }
+
+    public void findShowDetails(String movieID) {
+
+        ShowDetailedAPIConnector connector = new ShowDetailedAPIConnector(mdView, context);
+        String[] urls = new String[] {TMDB_API_BASE
+                + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
         };
         connector.execute(urls);
     }

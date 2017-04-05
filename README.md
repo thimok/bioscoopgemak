@@ -17,6 +17,7 @@
 ## API Key
 ```
 f5432ebc636370b7954317a342043046
+AIzaSyCcz-pjn-ihhR23Gp5x0tqoiS7muvFrqWk 
 ```
 
 ## Git Commands

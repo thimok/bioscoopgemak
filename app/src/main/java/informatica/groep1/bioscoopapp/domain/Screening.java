@@ -3,120 +3,140 @@ package informatica.groep1.bioscoopapp.domain;
 //================================================================================
 // This class is made by:
 // - Luka Brinkman
+// - Thimo Koolen
 //================================================================================
 
-public class Screening {
+import java.io.Serializable;
 
-    //================================================================================
-    // Properties
-    //================================================================================
+public class Screening extends ShowTitleRow {
 
-    public  int screeningID;
-    public String startTime;
-    public String endTime;
-    public Boolean film3D;
-    public Movie movie;
-    public Auditorium auditorium;
-    public String playDate;
+	//================================================================================
+	// Properties
+	//================================================================================
 
-    //================================================================================
-    // Constructors
-    //================================================================================
+	private String startTime;
+	private String endTime;
+	private int film3D;
+	private String playDate;
+	private int screeningID;
+	private String title;
+	private int MovieID;
+	private boolean is3D;
+	private Auditorium auditorium;
+	private Movie movie;
+	
+	//================================================================================
+	// Constructors
+	//================================================================================
 
-    public Screening(int screeningID, String startTime, String endTime, String playDate,
-                     Auditorium auditorium, Movie movie, boolean film3D)
+	public Screening(int screeningID, int movieID, String title, String startTime, String endTime, String playDate, int film3D) {
+		super(screeningID, title);
+		this.startTime = startTime;
+		this.film3D = film3D;
+		this.endTime = endTime;
+		this.playDate = playDate;
+		this.MovieID = movieID;
+	}
+	
+	public Screening(int screeningID, String startTime, String endTime, String playDate, Auditorium auditorium, Movie movie, boolean film3D) {
+		this.screeningID = screeningID;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.playDate = playDate;
+		this.auditorium = auditorium;
+		this.movie = movie;
+		this.is3D = film3D;
+	}
 
-    {
-        this.screeningID = screeningID;
-        this.startTime = startTime;
-        this.auditorium = auditorium;
-        this.film3D = film3D;
-        this.movie = movie;
-        this.endTime = endTime;
-        this.playDate = playDate;
+	//================================================================================
+	// Accessors
+	//================================================================================
+	
+	public String getEndTime() {
+		return endTime;
+	}
+	
+	public Auditorium getAuditorium() {
+		return auditorium;
+	}
+	
+	public Movie getMovie() {
+		return movie;
+	}
+	
+	public boolean getIs3D() {
+		return is3D;
+	}
 
-    }
+	@Override
+	public String getTitle() {
+		return super.getTitle();
+	}
 
-    //================================================================================
-    // Accessors
-    //================================================================================
-    public String getEndTime() {
-        return endTime;
-    }
+	public int getFilm3D() {
 
-    public Auditorium getAuditorium() {
+		return film3D;
+	}
 
-        return auditorium;
+	public int getScreeningID() {
+		return super.getScreeningID();
+	}
 
-    }
+	public String getPlayDate() {
+		return playDate;
+	}
 
-    public Movie getMovie() {
+	public int getMovieID() {
+		return MovieID;
+	}
 
-            return movie;
-        }
-
-    public Boolean getFilm3D() {
-
-        return film3D;
-    }
-
-    public int getScreeningID() {
-
-        return screeningID;
-    }
-
-    public String getPlayDate() {
-        return playDate;
-    }
-
-    //================================================================================
-    // Mutators
-    //================================================================================
-
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-
-    public void setAuditorium(Auditorium auditorium) {
-        this.auditorium = auditorium;
-    }
-
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-
-    public void setFilm3D(Boolean film3D) {
-        this.film3D = film3D;
-    }
-
-
-
-    public void setScreeningID(int screeningID) {
-        this.screeningID = screeningID;
-    }
-
-    public String getStartTime() {
-
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
+	//================================================================================
+	// Mutators
+	//================================================================================
 
 
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	
+	public void setAuditorium(Auditorium auditorium) {
+		this.auditorium = auditorium;
+	}
+	
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	@Override
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 
-    public void setPlayDate(String playDate) {
-        this.playDate = playDate;
-    }
+	public void setFilm3D(int film3D) {
+		this.film3D = film3D;
+	}
 
 
+	public void setScreeningID(int screeningID) {
+		this.screeningID = screeningID;
+	}
 
+	public String getStartTime() {
 
+		return startTime;
+	}
 
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	
+
+	public void setPlayDate(String playDate) {
+		this.playDate = playDate;
+	}
+
+	public void setMovieID(int movieID) {
+		MovieID = movieID;
+	}
 }

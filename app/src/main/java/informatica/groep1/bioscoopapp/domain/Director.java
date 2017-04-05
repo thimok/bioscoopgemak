@@ -1,10 +1,13 @@
+//================================================================================
+// This class is made by:
+// - Twan van Maastricht
+//================================================================================
+
 package informatica.groep1.bioscoopapp.domain;
 
-/**
- * Created by twanv on 31-3-2017.
- */
+import java.io.Serializable;
 
-public class Director {
+public class Director implements Serializable {
     private int ID;
     private String name;
     private String imageUrl;

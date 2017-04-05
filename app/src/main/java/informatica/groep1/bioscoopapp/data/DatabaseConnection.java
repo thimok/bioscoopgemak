@@ -13,14 +13,47 @@ import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
+import java.util.ArrayList;
+
+import informatica.groep1.bioscoopapp.api.MovieDBAPIConnector;
+import informatica.groep1.bioscoopapp.api.MovieListener;
+import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
+import informatica.groep1.bioscoopapp.domain.Movie;
+
 public class DatabaseConnection extends SQLiteAssetHelper {
 
-	private static final String DATABASE_NAME = "SQL.sqlite";
-	private static final int DATABASE_VERSION = 2;
 
-	public DatabaseConnection(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    private static final String DATABASE_NAME = "SQL.sqlite";
+    private static final int DATABASE_VERSION = 2;
+
+    public DatabaseConnection(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+
+    // Hier de CRUD methoden
+    public Cursor getShowNames(String date) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        String query = "SELECT Title, MovieID, ScreeningID FROM Screening WHERE Date " + date +  " GROUP BY Title ORDER BY Title";
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        db.close();
+        return c;
+    }
+
+    public Cursor getShowTimes(String date) {
+
+		SQLiteDatabase db = getReadableDatabase();
+
+		String query = "SELECT Title, StartTime, EndTime, MovieID, ScreeningID, Film3D, Date FROM Screening WHERE Date " + date + " ORDER BY Title";
+		Cursor c = db.rawQuery(query, null);
+		c.moveToFirst();
+		db.close();
+		return c;
+
 	}
+
 
 	// Hier de CRUD methoden
 	public Cursor getMovies() {
@@ -70,5 +103,48 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 	// Tickets
 	//================================================================================
 	
+	//================================================================================
+	// Account
+	// History
+	//================================================================================
+	
+	public ArrayList<Movie> getWatchedMovies(MovieListener listener) {
+		ArrayList<Movie> movies = new ArrayList<>();
+		
+		String query = "SELECT MovieID FROM MovieHistory;";
+		
+		SQLiteDatabase db = getReadableDatabase();
+		
+		Cursor c = db.rawQuery(query, null);
+		
+		while (c.moveToNext()) {
+			int id = c.getInt(c.getColumnIndex("MovieID"));
+			Log.i("Database", "" + id);
+			
+			FilmManager manager = new FilmManager(listener);
+			manager.findMovieById("" + id);
+		}
+		
+		db.close();
+		
+		return movies;
+	}
+	
+	public void addWatchedMovieToDatabase(Movie movie) {
+		int id = movie.getMovieID();
+		
+		String query = "INSERT INTO MovieHistory (MovieID) VALUES (" + id + ");";
+		
+		SQLiteDatabase db = getWritableDatabase();
+		
+		db.execSQL(query);
+		
+		db.close();
+	}
+	
+	//================================================================================
+	// Account
+	// Favorites
+	//================================================================================
 	
 }

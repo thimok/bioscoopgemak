@@ -1,3 +1,9 @@
+//================================================================================
+// This class is made by:
+// - Sven Westerlaken
+// - Twan van Maastricht
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.os.Bundle;
@@ -118,10 +124,10 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
             }
         });
 		
-		thisView = this.findViewById(android.R.id.content);
+		/*thisView = this.findViewById(android.R.id.content);
 
 		fManager = new FilmManager(this, thisView);
-		fManager.findMovieDetails("" + movie.getMovieID());
+		fManager.findMovieDetails("" + movie.getMovieID());*/
 	}
 
 	@Override

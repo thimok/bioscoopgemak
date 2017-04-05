@@ -40,6 +40,8 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
         BufferedReader reader = null;
         String urlString = "";
         String response = "";
+        
+        Log.i("API", params[0]);
 
         try {
             URL url = new URL(params[0]);

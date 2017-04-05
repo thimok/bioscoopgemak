@@ -63,7 +63,7 @@
         app:srcCompat="@color/colorWhite" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/showDetailedActivity_FAB_buyTickets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -73,3 +73,4 @@
         app:srcCompat="@drawable/ic_ticket_white_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>
+
