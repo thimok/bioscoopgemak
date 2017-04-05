@@ -5,11 +5,13 @@
 
 package informatica.groep1.bioscoopapp.businesslogic;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
-import informatica.groep1.bioscoopapp.domain.Auditorium;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
+import informatica.groep1.bioscoopapp.data.TicketListener;
 import informatica.groep1.bioscoopapp.domain.Movie;
-import informatica.groep1.bioscoopapp.domain.Reservation;
 import informatica.groep1.bioscoopapp.domain.Screening;
 import informatica.groep1.bioscoopapp.domain.Seat;
 import informatica.groep1.bioscoopapp.domain.Ticket;
@@ -45,28 +47,26 @@ public class TicketManager {
 	public void generate() {
 		demo();
 	}
+	
+	public void loadTickets(Context context, TicketListener listener) {
+		DatabaseConnection dbc = new DatabaseConnection(context);
+		dbc.getTickets(listener);
+	}
+	
+	public void add(Ticket ticket) {
+		tickets.add(ticket);
+	}
+	
 	public void demo() {
 		Movie m1 = new Movie(1, "Beauty And The Beast", "7.1", "2017");
 		Movie m2 = new Movie(1, "Sing", "6.7", "2016");
 		
-		Auditorium a1 = new Auditorium(1, 10, 10);
+		Screening s6 = new Screening(1, 1, "Beauty And The Beast", "11:30", "13:45", "03-04-2017", 0);
 		
-		Screening s1 = new Screening(1, "11:30", "13:45", "03-04-2017", a1, m1, false);
-		Screening s2 = new Screening(2, "14:00", "16:00", "03-04-2017", a1, m2, false);
-		Screening s3 = new Screening(3, "16:30", "18:30", "03-04-2017", a1, m2, false);
-		Screening s4 = new Screening(4, "17:00", "19:15", "03-04-2017", a1, m1, false);
-		Screening s5 = new Screening(5, "19:30", "21:45", "03-04-2017", a1, m1, false);
-		
-		Seat seat1 = new Seat(1, 1, 1, a1);
-		Seat seat2 = new Seat(2, 1, 2, a1);
-		Seat seat3 = new Seat(3, 1, 3, a1);
-		Seat seat4 = new Seat(4, 1, 4, a1);
-		
-		Reservation r1 = new Reservation(1, true, s1);
-		Reservation r2 = new Reservation(2, true, s2);
-		Reservation r3 = new Reservation(3, true, s3);
-		Reservation r4 = new Reservation(4, true, s4);
-		Reservation r5 = new Reservation(5, true, s5);
+		Seat seat1 = new Seat(1);
+		Seat seat2 = new Seat(2);
+		Seat seat3 = new Seat(3);
+		Seat seat4 = new Seat(4);
 		
 		ArrayList<Seat> as1 = new ArrayList<>();
 		as1.add(seat1);
@@ -77,11 +77,11 @@ public class TicketManager {
 		as2.add(seat3);
 		as2.add(seat4);
 		
-		Ticket t1 = new Ticket(as1, 1, s1, 16.00D, 2);
-		Ticket t2 = new Ticket(as2, 2, s2, 24.00D, 3);
-		Ticket t3 = new Ticket(as2, 3, s3, 28.00D, 3);
-		Ticket t4 = new Ticket(as1, 4, s4, 14.00D, 2);
-		Ticket t5 = new Ticket(as2, 5, s5, 22.00D, 3);
+		Ticket t1 = new Ticket(as1, 1, s6, 16.00D);
+		Ticket t2 = new Ticket(as2, 2, s6, 24.00D);
+		Ticket t3 = new Ticket(as2, 3, s6, 28.00D);
+		Ticket t4 = new Ticket(as1, 4, s6, 14.00D);
+		Ticket t5 = new Ticket(as2, 5, s6, 22.00D);
 		
 		tickets.clear();
 		

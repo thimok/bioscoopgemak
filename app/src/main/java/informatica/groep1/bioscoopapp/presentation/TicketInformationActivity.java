@@ -58,11 +58,11 @@ public class TicketInformationActivity extends MenuActivity {
 		Bundle extras = getIntent().getExtras();
 		Ticket ticket = (Ticket) extras.getSerializable("ticket");
 		
-		title = ticket.getScreening().getMovie().getTitle();
+		title = ticket.getScreening().getTitle();
 		date = ticket.getScreening().getPlayDate();
 		time = ticket.getScreening().getStartTime();
 		price = ticket.getPrice();
-		amount = ticket.getAmount();
+		amount = ticket.getSeats().size();
 		
 		titleTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_title);
 		dateTextView = (TextView) findViewById(R.id.ticketInformationActivity_TV_showDate);
@@ -83,8 +83,7 @@ public class TicketInformationActivity extends MenuActivity {
 		StringBuilder sb = new StringBuilder();
 		
 		for (Seat s : ticket.getSeats()) {
-			sb.append("Row " + s.getRow() + System.getProperty("line.separator"));
-			sb.append("Seat " + s.getNumber() + System.getProperty("line.separator"));
+			sb.append("Seat " + s.getSeatID() + System.getProperty("line.separator"));
 			sb.append(System.getProperty("line.separator"));
 		}
 		
