@@ -158,12 +158,12 @@
     <string name="tab3_showActivity">Week</string>
 
 
-
     <string name="title_activity_seat_reservation" translatable="false">SeatReservationActivity</string>
     <string name="title_activity_ticket_information">TicketInformationActivity</string>
 
     <string name="placeholder_activity_movie_detailed_date">No date available</string>
     <string name="placeholder_activity_movie_detailed_longDescription">No description available</string>
+    <string name="title_activity_payment">PaymentActivity</string>
 
 
 </resources>

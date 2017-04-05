@@ -63,7 +63,6 @@ public class SeatGridAdapter extends BaseAdapter {
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
                 if(b) {
                     seathandler.addSelectedSeat(seat);
                     seathandler.updateRemaining();

@@ -5,6 +5,7 @@
 
 package informatica.groep1.bioscoopapp.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import informatica.groep1.bioscoopapp.PaymentActivity;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.SeatGridAdapter;
 import informatica.groep1.bioscoopapp.businesslogic.SeatHandler;
@@ -40,9 +42,9 @@ public class SeatReservationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Screening screening = (Screening) getIntent().getSerializableExtra("Screening");
+        final Screening screening = (Screening) getIntent().getSerializableExtra("Screening");
         int ticketCount = getIntent().getIntExtra("TicketCount", 1);
-        double price = getIntent().getDoubleExtra("Price", 8.00);
+        final double price = getIntent().getDoubleExtra("Price", 8.00);
 
         TextView sRemaining = (TextView) findViewById(R.id.seatReservationActivity_TV_seatsremainingValue);
         Button orderBtn = (Button) findViewById(R.id.seatReservationActivity_BTN_order);
@@ -54,11 +56,23 @@ public class SeatReservationActivity extends AppCompatActivity {
             seats.add(new Seat(i + 1));
         }
 
-        SeatHandler seathandler = new SeatHandler(sRemaining, orderBtn, ticketCount, seatGrid);
+        final SeatHandler seathandler = new SeatHandler(sRemaining, orderBtn, ticketCount);
 
         SeatGridAdapter sga = new SeatGridAdapter(getBaseContext(), seats, seathandler);
         seatGrid.setAdapter(sga);
         sga.notifyDataSetChanged();
+
+        seathandler.setGrid(seatGrid);
+
+        orderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PaymentActivity.class);
+                i.putExtra("ReservedSeats", seathandler.getSelectedSeats());
+                i.putExtra("Screening", screening);
+                i.putExtra("Price", price);
+            }
+        });
     }
 
 }

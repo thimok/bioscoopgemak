@@ -22,21 +22,22 @@ public class SeatHandler {
     private int ticketCount;
     private GridView seatgrid;
 
-    public SeatHandler(TextView seatsremaining, Button orderBtn, int ticketCount, GridView seatgrid) {
+    public SeatHandler(TextView seatsremaining, Button orderBtn, int ticketCount) {
         this.seatsSelected = new ArrayList<>();
         this.seatsremaining = seatsremaining;
         this.orderBtn = orderBtn;
         this.ticketCount = ticketCount;
-        this.seatgrid = seatgrid;
         seatsremaining.setText("" + getRemainingCount());
         enableButton();
+    }
+
+    public void setGrid(GridView seatgrid) {
+        this.seatgrid = seatgrid;
     }
 
     public void addSelectedSeat(Seat seat) {
         if(getRemainingCount() != 0) {
             seatsSelected.add(seat);
-        } else if (getRemainingCount() == 0) {
-            seatgrid.setClickable(false);
         }
     }
 
@@ -69,4 +70,8 @@ public class SeatHandler {
     public ArrayList<Seat> getSelectedSeats() {
         return seatsSelected;
     }
+
+
+
+
 }

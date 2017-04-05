@@ -74,7 +74,7 @@ public class TicketManager {
 	public void demo() {
 		Movie m1 = new Movie(1, "Beauty And The Beast", "7.1", "2017");
 		Movie m2 = new Movie(1, "Sing", "6.7", "2016");
-		
+
 		Seat seat1 = new Seat(1);
 		Seat seat2 = new Seat(2);
 		Seat seat3 = new Seat(3);
