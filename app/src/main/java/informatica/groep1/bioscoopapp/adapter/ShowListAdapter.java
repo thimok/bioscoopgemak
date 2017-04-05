@@ -21,7 +21,9 @@ import android.widget.TextView;
 import com.devspark.robototextview.widget.RobotoTextView;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.data.DatabaseConnection;
@@ -65,6 +67,8 @@ public class ShowListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         Class classname = screenings.get(i).getClass();
 
+
+
         if(classname.equals(ShowTitleRow.class)) {
             ShowTitleRow screening = screenings.get(i);
             view = inflater.inflate(R.layout.row_show_list, null);
@@ -79,6 +83,26 @@ public class ShowListAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.row_time_list, null);
 
             TextView timeMovie = (TextView) view.findViewById(R.id.time_show);
+
+            Calendar calendar = Calendar.getInstance();
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.add(Calendar.DAY_OF_MONTH, 1);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String playDate = "";
+
+
+            if (screening.getPlayDate().equals(dateFormat.format(calendar.getTime()))|| screening.getPlayDate().equals(dateFormat.format(calendar2.getTime()))){
+                playDate =  "";
+
+            }
+            else if(!(screening.getPlayDate().equals(dateFormat.format(calendar.getTime()))|| screening.getPlayDate().equals(dateFormat.format(calendar2.getTime())))) {
+                TextView textDate = (TextView) view.findViewById(R.id.date_show);
+                textDate.setVisibility(View.VISIBLE);
+                playDate = screening.getPlayDate();
+                textDate.setText(playDate);
+
+            }
+
 
             timeMovie.setText(screening.getStartTime());
 
