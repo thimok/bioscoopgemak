@@ -70,7 +70,7 @@ public class Screening extends ShowTitleRow {
 
 	@Override
 	public String getTitle() {
-		return title;
+		return super.getTitle();
 	}
 
 	public int getFilm3D() {
@@ -79,8 +79,7 @@ public class Screening extends ShowTitleRow {
 	}
 
 	public int getScreeningID() {
-
-		return screeningID;
+		return super.getScreeningID();
 	}
 
 	public String getPlayDate() {

@@ -136,7 +136,9 @@
             android:id="@+id/reservationActivity_BTN_minus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_ticketMinus"
@@ -189,7 +191,9 @@
             android:id="@+id/reservationActivity_BTN_plus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_ticketPlus"
@@ -252,7 +256,9 @@
             android:id="@+id/reservationActivity_BTN_minusChildren"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_minusChildren"
@@ -305,7 +311,9 @@
             android:id="@+id/reservationActivity_BTN_plusChildren"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_plusChildren"
@@ -368,7 +376,9 @@
             android:id="@+id/reservationActivity_BTN_minusAdults"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_minusAdults"
@@ -421,7 +431,9 @@
             android:id="@+id/reservationActivity_BTN_plusAdults"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/reservationActivity_IV_plusAdults"
@@ -448,11 +460,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="*Students need to have a valid studentscard"
         android:textAlignment="center"
         android:textSize="10sp"
-        android:textColor="@color/colorWhiteDisabled"
+        android:textColor="@color/colorWhiteSecondary"
         android:fontFamily="roboto"
         app:textAllCaps="true"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -464,7 +476,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/colorWhiteDisabled"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -476,7 +488,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:text="€00,00"
+        android:text="€0,00"
         android:textSize="30sp"
         app:fontFamily="roboto"
         app:textAllCaps="true"
@@ -490,17 +502,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginBottom="24dp"
         app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/button" />
+        app:layout_constraintBottom_toTopOf="@+id/reservationActivity_BTN_seatReservation" />
 
     <com.devspark.robototextview.widget.RobotoButton
-        android:id="@+id/button"
+        android:id="@+id/reservationActivity_BTN_seatReservation"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:padding="8dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="Seat Reservation"
+        android:enabled="false"
         android:textAllCaps="true"
         app:fontFamily="roboto"
         app:layout_constraintBottom_toBottomOf="parent"

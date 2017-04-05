@@ -63,7 +63,7 @@
             android:label="@string/title_activity_account"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SeatReservationActivity"
+            android:name=".presentation.SeatReservationActivity"
             android:label="@string/title_activity_seat_reservation"
             android:parentActivityName=".presentation.ReservationActivity"
             android:theme="@style/AppTheme.NoActionBar">
