@@ -67,10 +67,14 @@ public class SeatReservationActivity extends AppCompatActivity {
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+	            Bundle extras = getIntent().getExtras();
                 Intent i = new Intent(getApplicationContext(), PaymentActivity.class);
                 i.putExtra("ReservedSeats", seathandler.getSelectedSeats());
                 i.putExtra("Screening", screening);
                 i.putExtra("Price", price);
+	            i.putExtra("ChildCount", extras.getInt("ChildCount"));
+	            i.putExtra("AdultCount", extras.getInt("AdultCount"));
+	            startActivity(i);
             }
         });
     }

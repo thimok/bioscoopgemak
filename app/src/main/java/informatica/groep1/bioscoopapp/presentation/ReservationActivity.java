@@ -77,6 +77,8 @@ public class ReservationActivity extends AppCompatActivity {
                 i.putExtra("Screening", screening);
                 i.putExtra("Price", tickethandler.getPrice());
                 i.putExtra("TicketCount", tickethandler.getTicketCount());
+	            i.putExtra("ChildCount", tickethandler.getChildrenTickets());
+	            i.putExtra("AdultCount", tickethandler.getAdultTickets());
                 startActivity(i);
             }
         });

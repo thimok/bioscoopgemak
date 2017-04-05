@@ -129,4 +129,12 @@ public class TicketHandler {
     public void setPrice() {
         priceCount.setText("€" + String.format(Locale.GERMANY, "%.2f", getPrice()));
     }
+    
+    public int getAdultTickets() {
+	    return adultTickets;
+    }
+    
+    public int getChildrenTickets() {
+	    return childrenTickets;
+    }
 }
