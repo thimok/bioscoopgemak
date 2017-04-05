@@ -7,10 +7,11 @@
     android:background="@color/colorBackground"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="informatica.groep1.bioscoopapp.PaymentActivity"
+    tools:context="informatica.groep1.bioscoopapp.presentation.PaymentActivity"
     tools:showIn="@layout/activity_payment">
 
     <FrameLayout
+        android:id="@+id/paymentActivity_BTN_ideal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -38,6 +39,7 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/paymentActivity_BTN_paypal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -65,6 +67,7 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/paymentActivity_BTN_creditcard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

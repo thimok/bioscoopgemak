@@ -86,7 +86,7 @@
             android:label="@string/title_activity_ticket_information"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".PaymentActivity"
+            android:name=".presentation.PaymentActivity"
             android:label="@string/title_activity_payment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
