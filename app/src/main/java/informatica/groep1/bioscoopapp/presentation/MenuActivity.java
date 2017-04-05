@@ -80,7 +80,6 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(getApplicationContext(), MovieActivity.class);
 	        startActivity(i);
         } else if (id == R.id.nav_schedule) {
-
             Intent i = new Intent(getApplicationContext(), ShowActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_account) {

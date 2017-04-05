@@ -7,21 +7,15 @@ package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import informatica.groep1.bioscoopapp.PaymentActivity;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.SeatGridAdapter;
 import informatica.groep1.bioscoopapp.businesslogic.SeatHandler;
