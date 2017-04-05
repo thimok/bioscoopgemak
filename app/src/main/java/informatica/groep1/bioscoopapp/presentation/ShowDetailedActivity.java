@@ -74,8 +74,7 @@ public class ShowDetailedActivity extends AppCompatActivity implements MovieList
         if (screening.getIs3D()) {
             sAddons.setText("3D");
         } else {
-            sAddons.setText("");
-            iAddons.setVisibility(View.GONE);
+            sAddons.setText("None");
         }
 
         fManager = new FilmManager(thisView, this, this);

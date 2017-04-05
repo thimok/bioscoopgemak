@@ -98,7 +98,10 @@ public class ShowListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         Class classname = screenings.get(i).getClass();
-
+        Calendar calendar = Calendar.getInstance();
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.add(Calendar.DAY_OF_MONTH, 1);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
         if(classname.equals(ShowTitleRow.class)) {
@@ -116,25 +119,15 @@ public class ShowListAdapter extends BaseAdapter {
 
             TextView timeMovie = (TextView) view.findViewById(R.id.time_show);
 
-            Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.add(Calendar.DAY_OF_MONTH, 1);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String playDate = "";
+            if(!(screening.getPlayDate().equals(dateFormat.format(calendar.getTime()))|| screening.getPlayDate().equals(dateFormat.format(calendar2.getTime())))) {
 
-
-            if (screening.getPlayDate().equals(dateFormat.format(calendar.getTime()))|| screening.getPlayDate().equals(dateFormat.format(calendar2.getTime()))){
-                playDate =  "";
-
-            }
-            else if(!(screening.getPlayDate().equals(dateFormat.format(calendar.getTime()))|| screening.getPlayDate().equals(dateFormat.format(calendar2.getTime())))) {
                 TextView textDate = (TextView) view.findViewById(R.id.date_show);
+                ImageView dateIcon = (ImageView) view.findViewById(R.id.imageView8);
                 textDate.setVisibility(View.VISIBLE);
-                playDate = screening.getPlayDate();
+                dateIcon.setVisibility(View.VISIBLE);
+                String playDate = screening.getPlayDate();
                 textDate.setText(playDate);
-
             }
-
 
             timeMovie.setText(screening.getStartTime());
 

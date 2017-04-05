@@ -49,7 +49,7 @@ public class HistoryFragment extends Fragment implements MovieListener {
 		
 		GridView gridView = (GridView) rootView.findViewById(R.id.historyFragment_GV_grid);
 		if (gridView != null) {
-			adapter = new HistoryImageAdapter(getActivity(), manager.getMovies());
+			adapter = new HistoryImageAdapter(getActivity().getBaseContext(), manager.getMovies(), getActivity().getLayoutInflater(), gridView);
 			gridView.setAdapter(adapter);
 		}
 		
