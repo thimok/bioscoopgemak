@@ -82,6 +82,10 @@
             android:name=".presentation.AppActivity"
             android:label="@string/title_activity_app"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".presentation.TicketInformationActivity"
+            android:label="@string/title_activity_ticket_information"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
 
     </application>
