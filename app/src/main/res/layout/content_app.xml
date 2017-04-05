@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -87,10 +94,34 @@
         android:layout_height="235dp"
         app:srcCompat="@drawable/teambiosgemak"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <ImageView
+        android:id="@+id/activityApp_IV_tmdbLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activityApp_IV_teamGemak"
+        app:layout_constraintTop_toBottomOf="@+id/activityApp_TV_Devon"
+        app:srcCompat="@drawable/tmdb"/>
+
+    <TextView
+        android:id="@+id/activityApp_TV_tmdbText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:text="This product uses the TMDb API but is not endorsed or certified by TMDb."
+        android:textColor="@color/colorWhite"
+        app:layout_constraintLeft_toRightOf="@+id/activityApp_IV_tmdbLogo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activityApp_IV_tmdbLogo"/>
+
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -59,9 +59,10 @@ public class FilmManager {
         this.mdView = mdView;
     }
 
-    public FilmManager(View mdView, Context context) {
+    public FilmManager(View mdView, Context context, MovieListener listener) {
         this.context = context;
         this.mdView = mdView;
+        this.listener = listener;
     }
 
     public void findPopularMovies() {
@@ -186,7 +187,7 @@ public class FilmManager {
 
     public void findShowDetails(String movieID) {
 
-        ShowDetailedAPIConnector connector = new ShowDetailedAPIConnector(mdView, context);
+        ShowDetailedAPIConnector connector = new ShowDetailedAPIConnector(mdView, context, listener);
         String[] urls = new String[] {TMDB_API_BASE
                 + TMD_METHOD_MOVIE + PARAM_MOVIE_ID + movieID + API_KEY
         };
