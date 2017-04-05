@@ -124,6 +124,26 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		return c;
 	}
 	
+	public void addTicketToDatabase(Ticket ticket, int childCount, int adultCount) {
+		SQLiteDatabase db = getWritableDatabase();
+		
+		int ticketID = ticket.getTicketID();
+		int screeningID = ticket.getScreening().getScreeningID();
+		double price = ticket.getPrice();
+		
+		String query = "INSERT INTO Ticket (TicketID, ScreeningID, price, ChildCount, AdultCount) VALUES (" + ticketID + ", " + screeningID + ", " + price + ", " + childCount + ", " + adultCount + ");";
+		db.execSQL(query);
+		
+		for (Seat seat : ticket.getSeats()) {
+			int seatID = seat.getSeatID();
+			
+			String querySeat = "INSERT INTO TicketSeat (TicketID, SeatID) VALUES (" + ticketID + ", " + seatID + ");";
+			db.execSQL(querySeat);
+		}
+		
+		db.close();
+	}
+	
 	//================================================================================
 	// Settings
 	//================================================================================
