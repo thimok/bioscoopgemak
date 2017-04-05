@@ -75,20 +75,14 @@ public class TicketManager {
 		Movie m1 = new Movie(1, "Beauty And The Beast", "7.1", "2017");
 		Movie m2 = new Movie(1, "Sing", "6.7", "2016");
 		
-<<<<<<< HEAD
 		Seat seat1 = new Seat(1);
 		Seat seat2 = new Seat(2);
 		Seat seat3 = new Seat(3);
 		Seat seat4 = new Seat(4);
-=======
+
 		Screening s6 = new Screening(1, 1, "Beauty And The Beast", "11:30", "13:45", "03-04-2017", 0);
->>>>>>> 953094b38890bfe723e699a05f1567ce73131503
-		
-		Seat seat1 = new Seat(1);
-		Seat seat2 = new Seat(2);
-		Seat seat3 = new Seat(3);
-		Seat seat4 = new Seat(4);
-		
+
+
 		ArrayList<Seat> as1 = new ArrayList<>();
 		as1.add(seat1);
 		as1.add(seat2);
