@@ -104,7 +104,7 @@ public class MovieActivity extends MenuActivity implements MovieListener {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 fManager.findMovieByQuery(query);
-                return true;
+                return false;
             }
 
             @Override

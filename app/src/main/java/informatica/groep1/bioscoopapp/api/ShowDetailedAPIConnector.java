@@ -39,9 +39,10 @@ public class ShowDetailedAPIConnector  extends AsyncTask<String, Void, String> {
         private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
         private Context context;
 
-        public ShowDetailedAPIConnector(View mdView, Context context) {
+        public ShowDetailedAPIConnector(View mdView, Context context, MovieListener listener) {
             this.mdView = mdView;
             this.context = context;
+            this.listener = listener;
         }
 
         @Override
@@ -93,13 +94,15 @@ public class ShowDetailedAPIConnector  extends AsyncTask<String, Void, String> {
             try {
                 JSONObject jsonObject = new JSONObject(response);
 
+                int id = 0;
                 int length = 0;
                 boolean adult = false;
                 String rating = "";
                 String title = "";
                 String year = "";
-                String posterURL = TMDB_POSTER_URL_BASE + jsonObject.getString("poster_path");
-                String backdrawURL = TMDB_POSTER_URL_BASE + jsonObject.getString("backdrop_path");
+                String posterPath = jsonObject.getString("poster_path");
+                String backdrawPath = jsonObject.getString("backdrop_path");
+                String longDescription = "";
 
 
                 if (jsonObject.has("runtime")) {
@@ -126,6 +129,10 @@ public class ShowDetailedAPIConnector  extends AsyncTask<String, Void, String> {
                     year = dateParts[0];
                 }
 
+                if (jsonObject.has("overview")) {
+                    longDescription = jsonObject.getString("overview");
+                }
+
 
 
                 if (mdView != null) {
@@ -136,6 +143,10 @@ public class ShowDetailedAPIConnector  extends AsyncTask<String, Void, String> {
                     TextView dateTV = (RobotoTextView) mdView.findViewById(R.id.showDetailedActivity_TV_date);
                     ImageView backDrawIV = (ImageView) mdView.findViewById(R.id.showDetailedActivity_IV_headerImage);
                     ImageView posterIV = (ImageView) mdView.findViewById(R.id.showDetailedActivity_IV_posterImage);
+
+                    if (jsonObject.has("id")) {
+                        id = jsonObject.getInt("id");
+                    }
 
                     if(adult) {
                         adultTV.setText("18+");
@@ -171,8 +182,22 @@ public class ShowDetailedAPIConnector  extends AsyncTask<String, Void, String> {
                         dateTV.setText(sDatePlaceholder);
                     }
 
-                    Picasso.with(context).load(backdrawURL).error(R.drawable.missingimage).into(backDrawIV);
-                    Picasso.with(context).load(posterURL).error(R.drawable.missingimage).into(posterIV);
+                    if (longDescription.equals("")) {
+                        longDescription = mdView.getResources().getString(R.string.placeholder_activity_movie_detailed_longDescription);
+                    }
+
+                    Picasso.with(context).load(TMDB_POSTER_URL_BASE + backdrawPath).error(R.drawable.missingimage).into(backDrawIV);
+                    Picasso.with(context).load(TMDB_POSTER_URL_BASE + posterPath).error(R.drawable.missingimage).into(posterIV);
+
+                    Movie movie = new Movie(title);
+                    movie.setRating(rating);
+                    movie.setReleaseYear(year);
+                    movie.setMovieID(id);
+                    movie.setBackDropImage(backdrawPath);
+                    movie.setPosterImage(posterPath);
+                    movie.setLongDescription(longDescription);
+
+                    listener.onMovieAvailable(movie);
 
 
 

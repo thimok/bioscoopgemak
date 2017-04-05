@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -123,11 +124,7 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
                 }
             }
         });
-		
-		/*thisView = this.findViewById(android.R.id.content);
 
-		fManager = new FilmManager(this, thisView);
-		fManager.findMovieDetails("" + movie.getMovieID());*/
 	}
 
 	@Override
@@ -163,5 +160,16 @@ public class MovieDetailed extends AppCompatActivity implements MovieListener {
 
         }
     }
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// 'home' is the id for the icon click in the action bar (i.e. up/back).
+		if (item.getItemId() == android.R.id.home) {
+			onBackPressed();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
 	
 }
