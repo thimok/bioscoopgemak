@@ -36,9 +36,10 @@ public class ShowTab3 extends Fragment {
         ShowData manager = new ShowData(getActivity());
 
         Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 2);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = "'" + dateFormat.format(calendar.getTime()) + "'";
-        calendar.add(Calendar.DAY_OF_MONTH, 5);
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
         String endOfWeek = "'" + dateFormat.format(calendar.getTime()) + "'";
         String datequery = "BETWEEN " + today + " AND " + endOfWeek;
 
