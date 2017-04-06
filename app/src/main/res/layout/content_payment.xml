@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="informatica.groep1.bioscoopapp.presentation.PaymentActivity"
+    tools:showIn="@layout/activity_payment">
+
+    <FrameLayout
+        android:id="@+id/paymentActivity_BTN_ideal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ideal" />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IDeal"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:textColor="@color/colorWhite"
+            app:fontFamily="roboto"
+            app:textWeight="thin"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/paymentActivity_BTN_paypal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/paypal" />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PayPal"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:textColor="@color/colorWhite"
+            app:fontFamily="roboto"
+            app:textWeight="thin"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/paymentActivity_BTN_creditcard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/creditcard" />
+
+        <com.devspark.robototextview.widget.RobotoTextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CreditCard"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textSize="30sp"
+            android:textColor="@color/colorWhite"
+            app:fontFamily="roboto"
+            app:textWeight="thin"/>
+    </FrameLayout>
+</LinearLayout>

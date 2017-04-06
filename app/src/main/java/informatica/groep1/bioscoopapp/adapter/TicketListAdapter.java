@@ -31,6 +31,9 @@ public class TicketListAdapter extends ArrayAdapter<Ticket> {
 	// Accessors
 	//================================================================================
 	
+	/**
+	 * On the view (row), manipulate all contents such as TextViews to match the movie's details.
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Ticket ticket = getItem(position);
@@ -40,7 +43,7 @@ public class TicketListAdapter extends ArrayAdapter<Ticket> {
 		}
 		
 		TextView movieTitle = (TextView) convertView.findViewById(R.id.ticketFragment_TV_movieTitle);
-		movieTitle.setText(ticket.getScreening().getMovie().getTitle());
+		movieTitle.setText(ticket.getScreening().getTitle());
 		
 		TextView showDate = (TextView) convertView.findViewById(R.id.ticketFragment_TV_showDate);
 		showDate.setText(ticket.getScreening().getPlayDate());

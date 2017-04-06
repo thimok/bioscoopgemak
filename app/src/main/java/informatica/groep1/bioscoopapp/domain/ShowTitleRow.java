@@ -1,44 +1,55 @@
 //================================================================================
 // This class is made by:
-// - Devon Marsham
+// - Sven Westerlaken
 //================================================================================
+
 
 package informatica.groep1.bioscoopapp.domain;
 
-public class Language {
+import java.io.Serializable;
+
+public class ShowTitleRow implements Serializable {
+
     //================================================================================
     // Properties
     //================================================================================
-    private int languageiD;
-    private String langauge;
+    
+    private int screeningID;
+    private String title;
 
-    //================================================================================
-    // Constructer
-    //================================================================================
-    public Language(int languageiD, String langauge){
-        this.languageiD = languageiD;
-        this.langauge = langauge;
+	//================================================================================
+	// Constructors
+	//===============================================================================
+    public ShowTitleRow(int screeningID, String title) {
+        this.screeningID = screeningID;
+        this.title = title;
+    }
+
+
+    public  ShowTitleRow(){
+
     }
     //================================================================================
     // Accessors
     //================================================================================
 
-    public int getLanguageiD() {
-        return languageiD;
+    public int getScreeningID() {
+        return screeningID;
     }
-
-    public String getLangauge() {
-        return langauge;
-    }
+	
+	public String getTitle() {
+		return title;
+	}
     //================================================================================
     // Mutators
     //================================================================================
 
-    public void setLanguageiD(int languageiD) {
-        this.languageiD = languageiD;
+    public void setScreeningID(int screeningID) {
+        this.screeningID = screeningID;
     }
 
-    public void setLangauge(String langauge) {
-        this.langauge = langauge;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
+

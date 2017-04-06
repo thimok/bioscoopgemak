@@ -28,8 +28,16 @@ import informatica.groep1.bioscoopapp.presentation.MovieDetailed;
 
 public class HistoryFragment extends Fragment implements MovieListener {
 	
+	//================================================================================
+	// Properties
+	//================================================================================
+	
 	private HistoryFilmManager manager;
 	private HistoryImageAdapter adapter;
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,12 +49,16 @@ public class HistoryFragment extends Fragment implements MovieListener {
 		
 		GridView gridView = (GridView) rootView.findViewById(R.id.historyFragment_GV_grid);
 		if (gridView != null) {
-			adapter = new HistoryImageAdapter(getActivity(), manager.getMovies());
+			adapter = new HistoryImageAdapter(getActivity().getBaseContext(), manager.getMovies(), getActivity().getLayoutInflater(), gridView);
 			gridView.setAdapter(adapter);
 		}
 		
 		return rootView;
 	}
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	@Override
 	public void onMovieAvailable(Movie movie) {

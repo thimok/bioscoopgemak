@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.app.AlertDialog;
@@ -33,6 +38,10 @@ public class SettingsActivity extends MenuActivity {
 	
 	private TextView languageSelected;
 	private DatabaseConnection dbc;
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

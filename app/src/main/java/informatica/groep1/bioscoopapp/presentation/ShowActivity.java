@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Luka Brinkman
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.support.design.widget.TabLayout;
@@ -32,52 +37,46 @@ import informatica.groep1.bioscoopapp.adapter.PagerAdapter;
 
 public class ShowActivity extends MenuActivity {
 
-
+    //================================================================================
+    // Properties
+    //================================================================================
+    
     private PagerAdapter adapter;
     private ViewPager viewPager;
 
-
-
+	//================================================================================
+	// Mutators
+	//================================================================================
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_show2);
-
-
-
-
-
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+	    
+	    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         super.onCreateDrawer(toolbar, this);
 
         viewPager = (ViewPager) findViewById(R.id.containerTab);
-
-
-
-
-
+	    
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
-
+	    
         PagerAdapter mSectionsPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3, getApplicationContext());
         viewPager.setAdapter(mSectionsPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
-
-
-
     }
-
-
+	
+    //================================================================================
+    // Accessors
+    //================================================================================
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_show, menu);
         return true;
-
-
     }
 
     @Override
@@ -94,6 +93,4 @@ public class ShowActivity extends MenuActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

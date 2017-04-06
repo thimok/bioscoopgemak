@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">Bioscoop Gemak</string>
-    <string name="title_activity_movie">Movies</string>
+    <string name="title_activity_movie" translatable="false">Movies</string>
     <string name="title_activity_menu" translatable="false">Menu</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -12,7 +12,7 @@
     <string name="LoginHint">Username</string>
     <string name="title_activity_movie_detailed" translatable="false"> </string>
     <string name="title_activity_show_detailed" translatable="false"> </string>
-    <string name="title_activity_settings" translatable="false">Settings</string>
+    <string name="title_activity_settings">Settings</string>
     <string name="password">Password</string>
     <string name="nav_movies">Movies</string>
     <string name="nav_schedule">Schedule</string>
@@ -105,12 +105,11 @@
         "does not vary from 6dp in one app to 16dp in another app).\n"
         "Components may have different resting elevations across platforms, depending on the depth "
         "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
-
-
+    </string>
     <string name="title_activity_show">ShowActivity</string>
 
 
-    <string name="gen_placeholder">All</string>
+    <string name="gen_placeholder">All
 
         "Responsive elevation and dynamic elevation offsets.\n\n"
 
@@ -138,19 +137,33 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_account" translatable="false">Account</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="section_format" translatable="false">Hello World from section: %1$d</string>
     <string name="placeholder_activity_movie_detailed_length">length not available</string>
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
+
+    <string name="title_activity_reservation">Reservation</string>
+    <string name="tickets">tickets</string>
+    <string name="register">Register</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_bioscoop">Cinema</string>
+    <string name="title_activity_app" translatable="false">AppActivity</string>
+
+    <string name="placeholder_activity_movie_detailed_rating">No rating available</string>
+    <string name="placeholder_activity_movie_detailed_title">Title not available</string>
 
 
     <string name="tab1_showActivity">Today</string>
     <string name="tab2_showActivity">Tomorrow</string>
     <string name="tab3_showActivity">Week</string>
 
-    <string name="title_activity_reservation">ReservationActivity</string>
-    <string name="tickets">tickets</string>
-    <string name="register">Register</string>
-    <string name="title_activity_seat_reservation">SeatReservationActivity</string>
+
+    <string name="title_activity_seat_reservation">Seat reservation</string>
+    <string name="title_activity_ticket_information">Ticket information</string>
+
+    <string name="placeholder_activity_movie_detailed_date">No date available</string>
+    <string name="placeholder_activity_movie_detailed_longDescription">No description available</string>
+    <string name="title_activity_payment">Payment</string>
+
 
 </resources>

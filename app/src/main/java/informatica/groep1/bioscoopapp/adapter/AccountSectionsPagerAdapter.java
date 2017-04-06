@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.adapter;
 
 import android.support.v4.app.Fragment;
@@ -9,9 +14,17 @@ import informatica.groep1.bioscoopapp.presentation.fragment.TicketsFragment;
 
 public class AccountSectionsPagerAdapter extends FragmentPagerAdapter {
 	
+	//================================================================================
+	// Constructors
+	//================================================================================
+	
 	public AccountSectionsPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
+	
+	//================================================================================
+	// Accessors
+	//================================================================================
 	
 	@Override
 	public Fragment getItem(int position) {

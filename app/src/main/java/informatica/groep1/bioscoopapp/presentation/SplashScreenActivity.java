@@ -1,3 +1,8 @@
+//================================================================================
+// This class is made by:
+// - Thimo Koolen
+//================================================================================
+
 package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.Intent;
@@ -11,6 +16,10 @@ import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.util.LanguageManager;
 
 public class SplashScreenActivity extends AppCompatActivity {
+	
+	//================================================================================
+	// Mutators
+	//================================================================================
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
