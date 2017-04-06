@@ -100,9 +100,12 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             String dImagePath = "";
 	        String title = jsonObject.getString("title");
 	        movie.setTitle(title);
+            String releaseDate = "";
+            String year = "";
+            String rating = "";
 	        
 	        String posterPath = jsonObject.getString("poster_path");
-	        movie.setPosterImage("http://image.tmdb.org/t/p/w1000/" + posterPath);
+	        movie.setPosterImage(/*"http://image.tmdb.org/t/p/w1000/" + */posterPath);
 	        
 	        String backdropPath = jsonObject.getString("backdrop_path");
 	        movie.setBackDropImage(backdropPath);
@@ -113,6 +116,20 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
 
             if (jsonObject.has("id")) {
                 mID = jsonObject.getInt("id");
+            }
+
+            if (jsonObject.has("release_date")) {
+                releaseDate = jsonObject.getString("release_date");
+                String [] dateParts = releaseDate.split("-");
+                year = dateParts[0];
+            } else {
+                year = "Geen release date beschikbaar";
+            }
+
+            if (jsonObject.has("vote_average")) {
+                rating = jsonObject.getString("vote_average");
+            } else {
+                rating = "Geen rating beschikbaar";
             }
 
             if (jsonObject.has("runtime")) {
@@ -211,6 +228,8 @@ public class MovieDetailedAPIConnector extends AsyncTask<String, Void, String> {
             
             movie.setMovieID(mID);
 	        movie.setDirector(new Director(dID, dName, dImagePath));
+            movie.setRating(rating);
+            movie.setReleaseYear(year);
 	        
 
             listener.onMovieAvailable(movie);

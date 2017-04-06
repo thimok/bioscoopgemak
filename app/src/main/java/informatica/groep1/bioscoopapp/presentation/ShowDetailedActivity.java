@@ -25,6 +25,7 @@ import org.w3c.dom.Text;
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.api.MovieListener;
 import informatica.groep1.bioscoopapp.businesslogic.FilmManager;
+import informatica.groep1.bioscoopapp.data.DatabaseConnection;
 import informatica.groep1.bioscoopapp.domain.Movie;
 import informatica.groep1.bioscoopapp.domain.Screening;
 
@@ -102,6 +103,13 @@ public class ShowDetailedActivity extends AppCompatActivity implements MovieList
                 Log.i("Click More Info", movie.getBackDropImage());
                 Intent i = new Intent(getApplicationContext(), MovieDetailed.class);
                 i.putExtra("Movie", movie);
+
+                DatabaseConnection dbc = new DatabaseConnection(v.getContext());
+
+                if (!dbc.findWatchedMovie(movie.getMovieID())) {
+                    dbc.addWatchedMovieToDatabase(movie);
+                }
+
                 startActivity(i); // hier moet een movie object meegegeven worden met een calback
             }
         });

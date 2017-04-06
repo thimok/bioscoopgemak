@@ -33,6 +33,7 @@ public class HistoryImageAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private Context context;
 	private GridView gridView;
+	private static final String TMDB_POSTER_URL_BASE = "http://image.tmdb.org/t/p/w1000/";
 	
 	//================================================================================
 	// Constructors
@@ -78,15 +79,16 @@ public class HistoryImageAdapter extends BaseAdapter {
 		}
 		
 		ImageView iv = (ImageView) convertView.findViewById(R.id.rowMovie_IV_poster);
+
+		String posterURL = TMDB_POSTER_URL_BASE + movie.getPosterImage();
 		
-		Picasso.with(context).load(movie.getPosterImage()).resize(imageWidth, imageHeight).into(iv);
+		Picasso.with(context).load(posterURL).resize(imageWidth, imageHeight).into(iv);
 
 		iv.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(context, MovieDetailed.class);
 				i.putExtra("Movie", movie);
-				DatabaseConnection dbc = new DatabaseConnection(v.getContext());
 				context.startActivity(i);
 			}
 		});
