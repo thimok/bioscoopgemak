@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.SeatGridAdapter;
@@ -54,9 +56,8 @@ public class SeatReservationActivity extends AppCompatActivity {
 
         SeatGridAdapter sga = new SeatGridAdapter(getBaseContext(), seats, seathandler);
         seatGrid.setAdapter(sga);
+        seathandler.setSeatgridAdapter(sga);
         sga.notifyDataSetChanged();
-
-        seathandler.setGrid(seatGrid);
 
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,23 @@ public class SeatReservationActivity extends AppCompatActivity {
 	            startActivity(i);
             }
         });
+    }
+
+    private List<View> getAllChildrenBFS(View v) {
+        List<View> visited = new ArrayList<View>();
+        List<View> unvisited = new ArrayList<View>();
+        unvisited.add(v);
+
+        while (!unvisited.isEmpty()) {
+            View child = unvisited.remove(0);
+            visited.add(child);
+            if (!(child instanceof ViewGroup)) continue;
+            ViewGroup group = (ViewGroup) child;
+            final int childCount = group.getChildCount();
+            for (int i=0; i<childCount; i++) unvisited.add(group.getChildAt(i));
+        }
+
+        return visited;
     }
 
 }

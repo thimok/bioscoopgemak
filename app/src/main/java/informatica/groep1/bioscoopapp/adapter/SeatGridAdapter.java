@@ -29,11 +29,17 @@ public class SeatGridAdapter extends BaseAdapter {
     private ArrayList<Seat> seats;
     private Context context;
     private SeatHandler seathandler;
+    private ArrayList<CheckBox> checkboxes;
 
     public SeatGridAdapter(Context context, ArrayList<Seat> seats, SeatHandler seathandler) {
         this.context = context;
         this.seats = seats;
         this.seathandler = seathandler;
+        this.checkboxes = new ArrayList<>();
+    }
+
+    public ArrayList<CheckBox> getCheckboxes() {
+        return checkboxes;
     }
 
     @Override
@@ -59,23 +65,19 @@ public class SeatGridAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.seat_grid_item, null);
         }
 
-        CheckBox checkbox = (CheckBox) view.findViewById(R.id.checkBox);
+        final CheckBox checkbox = (CheckBox) view.findViewById(R.id.checkBox);
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
-                    seathandler.addSelectedSeat(seat);
-                    seathandler.updateRemaining();
-                    seathandler.enableButton();
-                } else if (!b) {
+                    seathandler.addSelectedSeat(seat, checkbox);
+                } else {
                     seathandler.removeSelectedSeat(seat);
-                    seathandler.updateRemaining();
-                    seathandler.enableButton();
                 }
 
             }
         });
-
+        checkboxes.add(checkbox);
         return view;
     }
 }
