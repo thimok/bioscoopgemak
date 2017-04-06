@@ -77,12 +77,11 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
-    <string name="placeholder_activity_movie_detailed_date">Geen beschrijving beschikbaar</string>
     <string name="placeholder_activity_movie_detailed_longDescription">Geen beschrijving beschikbaar.</string>
     <string name="register">Registreer</string>
     <string name="tickets">Kaartjes</string>
     <string name="title_activity_about">Over</string>
-    <string name="title_activity_bioscoop" translatable="false">Bioscoop</string>
+    <string name="title_activity_bioscoop">Bioscoop</string>
     <string name="title_activity_payment">Betaling</string>
     <string name="title_activity_reservation">Reservering</string>
     <string name="title_activity_seat_reservation">Stoel reserveren</string>
