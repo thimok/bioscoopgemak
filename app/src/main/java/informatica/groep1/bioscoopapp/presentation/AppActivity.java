@@ -17,14 +17,6 @@ import android.widget.TextView;
 import informatica.groep1.bioscoopapp.R;
 
 public class AppActivity extends MenuActivity {
-	
-	//================================================================================
-	// Properties
-	//================================================================================
-	
-    private TextView credit,twan, sven, luka, thimo, devon;
-    private ImageView teamGemak;
-
 	//================================================================================
 	// Accessors
 	//================================================================================
@@ -36,16 +28,8 @@ public class AppActivity extends MenuActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Who gets the Credits??");
+        getSupportActionBar().setTitle("Credits");
         super.onCreateDrawer(toolbar,this);
-
-        teamGemak = (ImageView) findViewById(R.id.activityApp_IV_teamGemak);
-        credit =(TextView) findViewById(R.id.activityApp_TV_credit);
-        twan =(TextView) findViewById(R.id.activityApp_TV_Twan);
-        sven =(TextView) findViewById(R.id.activityApp_TV_Sven);
-        luka =(TextView) findViewById(R.id.activityApp_TV_Luka);
-        thimo =(TextView) findViewById(R.id.activityApp_TV_Thimo);
-        devon =(TextView) findViewById(R.id.activityApp_TV_Devon);
 
     }
 

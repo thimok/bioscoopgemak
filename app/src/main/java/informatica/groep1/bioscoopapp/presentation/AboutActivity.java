@@ -7,26 +7,15 @@ package informatica.groep1.bioscoopapp.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.support.constraint.ConstraintLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import informatica.groep1.bioscoopapp.R;
 
 public class AboutActivity extends MenuActivity {
-	
-	//================================================================================
-	// Properties
-	//================================================================================
-	
-    private ImageView biosIcon;
-    private ImageView appIcon;
-    private TextView bioscoop;
-    private TextView app;
 
 	//================================================================================
 	// Accessors
@@ -42,8 +31,7 @@ public class AboutActivity extends MenuActivity {
         getSupportActionBar().setTitle("About");
         super.onCreateDrawer(toolbar,this);
 
-        biosIcon = (ImageView) findViewById(R.id.activityAbout_IV_biosIcon);
-        bioscoop = (TextView) findViewById(R.id.activityAbout_TV_Bioscoop);
+        ConstraintLayout bioscoop = (ConstraintLayout) findViewById(R.id.activityAbout_BTN_bios);
         bioscoop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,8 +39,7 @@ public class AboutActivity extends MenuActivity {
                 startActivity(i);
             }
         });
-        appIcon = (ImageView) findViewById(R.id.activityAbout_IV_appIcon);
-        app = (TextView) findViewById(R.id.activityAbout_TV_app);
+        ConstraintLayout app = (ConstraintLayout) findViewById(R.id.activityAbout_BTN_app);
         app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

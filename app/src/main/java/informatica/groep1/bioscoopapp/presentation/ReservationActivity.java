@@ -43,6 +43,7 @@ public class ReservationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("Reservation");
 
         screening = (Screening) getIntent().getSerializableExtra("Screening");
 
