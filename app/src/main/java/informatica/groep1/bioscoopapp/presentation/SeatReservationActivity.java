@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -75,21 +76,17 @@ public class SeatReservationActivity extends AppCompatActivity {
         });
     }
 
-    private List<View> getAllChildrenBFS(View v) {
-        List<View> visited = new ArrayList<View>();
-        List<View> unvisited = new ArrayList<View>();
-        unvisited.add(v);
 
-        while (!unvisited.isEmpty()) {
-            View child = unvisited.remove(0);
-            visited.add(child);
-            if (!(child instanceof ViewGroup)) continue;
-            ViewGroup group = (ViewGroup) child;
-            final int childCount = group.getChildCount();
-            for (int i=0; i<childCount; i++) unvisited.add(group.getChildAt(i));
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // 'home' is the id for the icon click in the action bar (i.e. up/back).
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
 
-        return visited;
+        return super.onOptionsItemSelected(item);
+
     }
 
 }

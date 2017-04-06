@@ -97,7 +97,11 @@ public class MovieListAdapter extends BaseAdapter {
 				Intent i = new Intent(context, MovieDetailed.class);
 				i.putExtra("Movie", movie);
 				DatabaseConnection dbc = new DatabaseConnection(v.getContext());
-				dbc.addWatchedMovieToDatabase(movie);
+
+				if (!dbc.findWatchedMovie(movie.getMovieID())) {
+					dbc.addWatchedMovieToDatabase(movie);
+				}
+
 				context.startActivity(i);
 			}
 		});
