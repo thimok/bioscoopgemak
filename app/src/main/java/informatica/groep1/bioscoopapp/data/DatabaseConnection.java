@@ -241,6 +241,21 @@ public class DatabaseConnection extends SQLiteAssetHelper {
 		
 		return movies;
 	}
+
+	public boolean findWatchedMovie(int MovieID) {
+		String query = "SELECT * FROM MovieHistory WHERE MovieID =  " + MovieID + ";";
+
+		SQLiteDatabase db = getReadableDatabase();
+
+		Cursor c = db.rawQuery(query, null);
+
+		if (!(c.moveToFirst()) || c.getCount() ==0){
+			return false;
+		} else {
+			return true;
+		}
+
+	}
 	
 	public void addWatchedMovieToDatabase(Movie movie) {
 		int id = movie.getMovieID();
