@@ -14,7 +14,7 @@
         android:text="MovieName"
         android:clickable="false"
         android:textColor="@color/colorAccent"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="16dp"
         app:fontFamily="roboto"
         app:textAllCaps="true"
         app:layout_constraintLeft_toLeftOf="parent"
