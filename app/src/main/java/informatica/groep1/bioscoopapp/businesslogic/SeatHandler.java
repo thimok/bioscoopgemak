@@ -2,6 +2,7 @@ package informatica.groep1.bioscoopapp.businesslogic;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import informatica.groep1.bioscoopapp.R;
+import informatica.groep1.bioscoopapp.adapter.SeatGridAdapter;
 import informatica.groep1.bioscoopapp.domain.Seat;
 
 /**
@@ -20,7 +22,7 @@ public class SeatHandler {
     private TextView seatsremaining;
     private Button orderBtn;
     private int ticketCount;
-    private GridView seatgrid;
+    private SeatGridAdapter adapter;
 
     public SeatHandler(TextView seatsremaining, Button orderBtn, int ticketCount) {
         this.seatsSelected = new ArrayList<>();
@@ -31,13 +33,35 @@ public class SeatHandler {
         enableButton();
     }
 
-    public void setGrid(GridView seatgrid) {
-        this.seatgrid = seatgrid;
+    public void setSeatgridAdapter(SeatGridAdapter adapter) {
+        this.adapter = adapter;
     }
 
-    public void addSelectedSeat(Seat seat) {
-        if(getRemainingCount() != 0) {
+    public void addSelectedSeat(Seat seat, CheckBox checkbox) {
+        if(getRemainingCount() > 1) {
             seatsSelected.add(seat);
+            updateRemaining();
+        } else {
+            seatsSelected.add(seat);
+            updateRemaining();
+            enableButton();
+            disableCheckBoxes(checkbox);
+        }
+    }
+
+    public void disableCheckBoxes(CheckBox checkbox) {
+        for(int i=0; i < adapter.getCheckboxes().size(); i++) {
+            CheckBox loopingCheckBox = adapter.getCheckboxes().get(i);
+
+            if(loopingCheckBox != checkbox) {
+                loopingCheckBox.setEnabled(false);
+            }
+        }
+    }
+
+    public void enableCheckBoxes() {
+        for(int i=0; i < adapter.getCheckboxes().size(); i++) {
+            adapter.getCheckboxes().get(i).setEnabled(true);
         }
     }
 
@@ -49,6 +73,10 @@ public class SeatHandler {
                 i.remove();
             }
         }
+        updateRemaining();
+        enableButton();
+        enableCheckBoxes();
+
     }
 
     public int getRemainingCount() {

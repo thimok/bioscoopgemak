@@ -11,11 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import informatica.groep1.bioscoopapp.R;
 import informatica.groep1.bioscoopapp.adapter.SeatGridAdapter;
@@ -55,9 +57,8 @@ public class SeatReservationActivity extends AppCompatActivity {
 
         SeatGridAdapter sga = new SeatGridAdapter(getBaseContext(), seats, seathandler);
         seatGrid.setAdapter(sga);
+        seathandler.setSeatgridAdapter(sga);
         sga.notifyDataSetChanged();
-
-        seathandler.setGrid(seatGrid);
 
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,7 @@ public class SeatReservationActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // 'home' is the id for the icon click in the action bar (i.e. up/back).
@@ -83,6 +85,7 @@ public class SeatReservationActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
 }

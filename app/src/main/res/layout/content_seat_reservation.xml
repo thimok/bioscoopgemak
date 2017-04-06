@@ -89,7 +89,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="left"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:textAllCaps="true"
