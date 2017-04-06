@@ -12,7 +12,7 @@
     <string name="LoginHint">Username</string>
     <string name="title_activity_movie_detailed" translatable="false"> </string>
     <string name="title_activity_show_detailed" translatable="false"> </string>
-    <string name="title_activity_settings" translatable="false">Settings</string>
+    <string name="title_activity_settings">Settings</string>
     <string name="password">Password</string>
     <string name="nav_movies">Movies</string>
     <string name="nav_schedule">Schedule</string>
@@ -142,12 +142,12 @@
     <string name="placeholder_activity_movie_detailed_genres">No genres were found</string>
     <string name="placeholder_activity_movie_detailed_director">Director was not found</string>
 
-    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="title_activity_reservation">Reservation</string>
     <string name="tickets">tickets</string>
     <string name="register">Register</string>
-    <string name="title_activity_about">AboutActivity</string>
-    <string name="title_activity_bioscoop">BioscoopActivity</string>
-    <string name="title_activity_app">AppActivity</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_bioscoop">Cinema</string>
+    <string name="title_activity_app" translatable="false">AppActivity</string>
 
     <string name="placeholder_activity_movie_detailed_rating">No rating available</string>
     <string name="placeholder_activity_movie_detailed_title">Title not available</string>
@@ -158,12 +158,12 @@
     <string name="tab3_showActivity">Week</string>
 
 
-    <string name="title_activity_seat_reservation" translatable="false">SeatReservationActivity</string>
-    <string name="title_activity_ticket_information">TicketInformationActivity</string>
+    <string name="title_activity_seat_reservation">Seat reservation</string>
+    <string name="title_activity_ticket_information">Ticket information</string>
 
     <string name="placeholder_activity_movie_detailed_date">No date available</string>
     <string name="placeholder_activity_movie_detailed_longDescription">No description available</string>
-    <string name="title_activity_payment">PaymentActivity</string>
+    <string name="title_activity_payment">Payment</string>
 
 
 </resources>
