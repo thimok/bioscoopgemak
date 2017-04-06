@@ -7,6 +7,7 @@ package informatica.groep1.bioscoopapp.api;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,7 +79,9 @@ public class MovieDBAPIConnector extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String response) {
-        Log.i("HALLO", response);
+        if ((response == null) || (response.equalsIgnoreCase(""))) {
+	        return;
+        }
 
         try {
             JSONObject jsonObject = new JSONObject(response);
