@@ -24,24 +24,84 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_white" />
 
-    <TextView
+    <View
+        android:id="@+id/movieDetailedActivity_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activityBioscoop_IV_bgIcon" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
         android:id="@+id/activityBioscoop_TV_biosInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
         android:inputType="text|textMultiLine|textCapSentences"
-        android:text="De BG App biedt je overzichtelijk het actuele filmaanbod bij Bioscoop Gemak. Daarnaast heb je middels de app toegang tot een grote filmdatabase met filminformatie, trailers, ratings en de naam van acteurs.
-- Filter en sorteer gemakkelijk films in de tijdslijn
-- Kies je favoriete film om een overzicht van tijden te krijgen van alle bioscopen waar deze film draait
-- Zoek vanaf de homepage direct naar een film"
+        android:text="De BG App biedt je overzichtelijk het actuele filmaanbod bij Bioscoop Gemak. Daarnaast heb je middels de app toegang tot een grote filmdatabase met filminformatie, trailers, ratings en de naam van acteurs."
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:layout_marginRight="16dp"
+        app:fontFamily="roboto"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailedActivity_divider"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- Filter en sorteer gemakkelijk films in de tijdslijn"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="roboto"
+        app:layout_constraintTop_toBottomOf="@+id/activityBioscoop_TV_biosInfo"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="roboto"
+        android:text="- Kies je favoriete film om een overzicht van tijden te krijgen van alle bioscopen waar deze film draait"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityBioscoop_IV_bgIcon"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        app:fontFamily="roboto"
+        android:text="- Zoek vanaf de homepage direct naar een film"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <View
+        android:id="@+id/movieDetailedActivity_divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorWhiteDisabled"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 </android.support.constraint.ConstraintLayout>

@@ -38,6 +38,7 @@ public class SeatReservationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("Seat Reservation");
 
         final Screening screening = (Screening) getIntent().getSerializableExtra("Screening");
         int ticketCount = getIntent().getIntExtra("TicketCount", 1);

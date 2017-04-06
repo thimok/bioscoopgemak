@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 		submitButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), MovieActivity.class);
+				Intent i = new Intent(getApplicationContext(), ShowActivity.class);
 				startActivity(i);
 			}
 		});

@@ -19,7 +19,6 @@ public class Screening extends ShowTitleRow {
 	private int screeningID;
 	private String title;
 	private int MovieID;
-	private boolean is3D;
 	private Movie movie;
 	
 	//================================================================================
@@ -34,16 +33,6 @@ public class Screening extends ShowTitleRow {
 		this.playDate = playDate;
 		this.MovieID = movieID;
 	}
-	
-	public Screening(int screeningID, String startTime, String endTime, String playDate, Movie movie, boolean film3D) {
-		this.screeningID = screeningID;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.playDate = playDate;
-		this.movie = movie;
-		this.is3D = film3D;
-	}
-
 
 	//================================================================================
 	// Accessors
@@ -54,16 +43,16 @@ public class Screening extends ShowTitleRow {
 	}
 	
 	public boolean getIs3D() {
-		return is3D;
+		if(film3D == 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public String getTitle() {
 		return super.getTitle();
-	}
-
-	public int getFilm3D() {
-		return film3D;
 	}
 
 	public int getScreeningID() {

@@ -36,6 +36,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_payment);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Payment");
 
         final Screening screening = (Screening) getIntent().getSerializableExtra("Screening");
         ArrayList<Seat> reservedSeats = (ArrayList<Seat>) getIntent().getSerializableExtra("ReservedSeats");

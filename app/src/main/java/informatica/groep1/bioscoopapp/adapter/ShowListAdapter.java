@@ -45,6 +45,7 @@ public class ShowListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<ShowTitleRow> screenings;
     private LayoutInflater inflater;
+    private boolean firstMovie = true;
 
     /**
      * The constructor.
@@ -106,7 +107,13 @@ public class ShowListAdapter extends BaseAdapter {
 
         if(classname.equals(ShowTitleRow.class)) {
             ShowTitleRow screening = screenings.get(i);
-            view = inflater.inflate(R.layout.row_show_list, null);
+
+            if(firstMovie) {
+                view = inflater.inflate(R.layout.row_show_list, null);
+                firstMovie = false;
+            } else {
+                view = inflater.inflate(R.layout.row_show_list_divider, null);
+            }
 
             TextView nameMovie = (TextView) view.findViewById(R.id.movieShowText);
 

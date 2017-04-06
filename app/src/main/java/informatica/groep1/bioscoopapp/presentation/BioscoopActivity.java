@@ -32,7 +32,7 @@ public class BioscoopActivity extends MenuActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Biscoop Informatie");
+        toolbar.setTitle("Cinema Information");
         super.onCreateDrawer(toolbar,this);
 
         bgIcon = (ImageView) findViewById(R.id.activityBioscoop_IV_bgIcon);

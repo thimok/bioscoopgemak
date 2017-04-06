@@ -69,19 +69,7 @@ public class MovieActivity extends MenuActivity implements MovieListener {
 		if (searchView.isSearchOpen()) {
 			searchView.closeSearch();
 		} else {
-			AlertCreator creator = new AlertCreator(this);
-			creator.setIcon(android.R.drawable.ic_dialog_alert);
-			creator.setTitle("Exit");
-			creator.setMessage("Are you sure you want to exit?");
-			creator.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					System.gc();
-					System.exit(0);
-				}
-			});
-			creator.setNegativeButton("No", null);
-			creator.show();
+			super.onBackPressed();
 		}
 	}
 
