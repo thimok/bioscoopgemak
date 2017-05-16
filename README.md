@@ -14,12 +14,6 @@
 
 [**Scherm mockups**](https://xd.adobe.com/view/2c39ab77-c805-49ac-b3d4-4405bafb9356/ "Mockups")
 
-## API Key
-```
-f5432ebc636370b7954317a342043046
-AIzaSyCcz-pjn-ihhR23Gp5x0tqoiS7muvFrqWk 
-```
-
 ## Git Commands
 ### Push changes to repo
 ```git
